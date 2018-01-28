@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamField.DataAccessLevel", "DreamField.DataAccessLevel\DreamField.DataAccessLevel.csproj", "{9862602A-2ACE-4706-A7D0-83EEA1F6F7AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamField.Model", "DreamField.Model\DreamField.Model.csproj", "{410A901B-76A1-4363-A873-4F863F7531BE}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9862602A-2ACE-4706-A7D0-83EEA1F6F7AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9862602A-2ACE-4706-A7D0-83EEA1F6F7AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9862602A-2ACE-4706-A7D0-83EEA1F6F7AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9862602A-2ACE-4706-A7D0-83EEA1F6F7AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{410A901B-76A1-4363-A873-4F863F7531BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{410A901B-76A1-4363-A873-4F863F7531BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{410A901B-76A1-4363-A873-4F863F7531BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{410A901B-76A1-4363-A873-4F863F7531BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

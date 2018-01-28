@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="16afe96c0f194a06bdbea1fe22be6f20" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="DreamFieldModel.Animal" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" FillColor="Lime" />
+        <EntityTypeShape EntityType="DreamFieldModel.Cow" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" FillColor="Lime" />
+        <EntityTypeShape EntityType="DreamFieldModel.Farm" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DreamFieldModel.Feed" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DreamFieldModel.Herd" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DreamFieldModel.Lactating_cow" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" FillColor="Lime" />
+        <EntityTypeShape EntityType="DreamFieldModel.RationFeed" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DreamFieldModel.Ration" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DreamFieldModel.User" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="DreamFieldModel.FK_Animals_Herds" ManuallyRouted="false" />
+        <AssociationConnector Association="DreamFieldModel.FK_Herds_Farm" ManuallyRouted="false" />
+        <AssociationConnector Association="DreamFieldModel.FK_Rations_Farm" ManuallyRouted="false" />
+        <AssociationConnector Association="DreamFieldModel.FK_RationFeeds_Feed" ManuallyRouted="false" />
+        <AssociationConnector Association="DreamFieldModel.FK_RationFeeds_Ration" ManuallyRouted="false" />
+        <AssociationConnector Association="DreamFieldModel.FK_Rations_User" ManuallyRouted="false" />
+        <InheritanceConnector EntityType="DreamFieldModel.Lactating_cow" />
+        <InheritanceConnector EntityType="DreamFieldModel.Cow" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
