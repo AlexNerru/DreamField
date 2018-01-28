@@ -43,7 +43,6 @@
     <Compile Include="Animal.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Cow.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -86,12 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DreamField.DataAccessLevel\DreamField.DataAccessLevel.csproj">
-      <Project>{9862602a-2ace-4706-a7d0-83eea1f6f7ad}</Project>
-      <Name>DreamField.DataAccessLevel</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
