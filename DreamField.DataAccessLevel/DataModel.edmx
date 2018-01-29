@@ -311,7 +311,7 @@
           <Property Name="author_id" Type="Int64" Nullable="false" />
           <Property Name="farm" Type="Int64" Nullable="false" />
           <Property Name="creation_datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="animal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="animal" Type="DreamFieldModel.AnimalTypes" Nullable="false" />
           <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="RationsFarm" Relationship="Self.FK_Rations_Farm" FromRole="Rations" ToRole="Farms" />
           <NavigationProperty Name="RationFeeds" Relationship="Self.FK_RationFeeds_Ration" FromRole="Rations" ToRole="RationFeeds" />
@@ -443,6 +443,11 @@
           <Member Name="Чернопестрая" />
           <Member Name="Симментальская" />
           <Member Name="Шортгорнская" />
+        </EnumType>
+        <EnumType Name="AnimalTypes">
+          <Member Name="Cow" />
+          <Member Name="Pig" />
+          <Member Name="Horse" />
         </EnumType>
       </Schema>
     </edmx:ConceptualModels>

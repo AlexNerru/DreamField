@@ -43,6 +43,9 @@
     <Compile Include="Animal.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AnimalTypes.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Cow.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>

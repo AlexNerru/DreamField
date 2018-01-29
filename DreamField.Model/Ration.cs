@@ -24,7 +24,7 @@ namespace DreamField.Model
         public long author_id { get; set; }
         public long farm { get; set; }
         public System.DateTime creation_datetime { get; set; }
-        public string animal { get; set; }
+        public AnimalTypes animal { get; set; }
         public string comment { get; set; }
     
         public virtual Farm RationsFarm { get; set; }

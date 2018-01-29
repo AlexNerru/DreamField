@@ -10,13 +10,13 @@ namespace DreamField.DataAccessLevel.Interfaces
     public interface IRepository<TEntity> where TEntity : class
     {
         TEntity GetById(int id);
-        IEnumerable<TEntity> GetAll();
+        IEnumerable<TEntity> GetAll(); 
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
         void Add(TEntity entity);
         void AddRange(IEnumerable<TEntity> entities);
 
-        void Update(TEntity entity);
+        void Update(TEntity entity); //TODO: Find out how to do it right
 
         void Delete(TEntity entity);
         void DeleteRange(IEnumerable<TEntity> entities);
