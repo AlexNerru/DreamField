@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamField.Model", "DreamFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamField.BusinessLogic", "DreamField.BusinessLogic\DreamField.BusinessLogic.csproj", "{8095307E-4AD3-4ACB-9EE7-B2F8E1FA0646}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamField.WPFInterface", "DreamField.WPFInterface\DreamField.WPFInterface.csproj", "{3B45A502-A991-4849-8647-38916FF29289}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamField.ServiceLayer", "DreamField.ServiceLayer\DreamField.ServiceLayer.csproj", "{67612664-B06D-4E1F-A214-C571D96AC65E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamField.Tests", "DreamField.Tests\DreamField.Tests.csproj", "{163ABE9C-05AE-463E-9940-7E67A8B538C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{8095307E-4AD3-4ACB-9EE7-B2F8E1FA0646}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8095307E-4AD3-4ACB-9EE7-B2F8E1FA0646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8095307E-4AD3-4ACB-9EE7-B2F8E1FA0646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B45A502-A991-4849-8647-38916FF29289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B45A502-A991-4849-8647-38916FF29289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B45A502-A991-4849-8647-38916FF29289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B45A502-A991-4849-8647-38916FF29289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67612664-B06D-4E1F-A214-C571D96AC65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67612664-B06D-4E1F-A214-C571D96AC65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67612664-B06D-4E1F-A214-C571D96AC65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67612664-B06D-4E1F-A214-C571D96AC65E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163ABE9C-05AE-463E-9940-7E67A8B538C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163ABE9C-05AE-463E-9940-7E67A8B538C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163ABE9C-05AE-463E-9940-7E67A8B538C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163ABE9C-05AE-463E-9940-7E67A8B538C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,10 +9,15 @@ using System.Data.Entity;
 
 namespace DreamField.DataAccessLevel.Generics
 {
-    class UnitOfWork<C> : IGenericUnitOfWork
+    public class UnitOfWork : IGenericUnitOfWork
     {
-        private DbContext context = null;
+        private DbContext context;
         public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
+
+        public UnitOfWork (DbContext context)
+        {
+            this.context = context;
+        }
 
         public IRepository<T> Repository<T>() where T : class
         {

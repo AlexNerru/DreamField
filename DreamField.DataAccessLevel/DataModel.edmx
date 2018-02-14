@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DreamFieldModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище DreamFieldModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Animals">
           <Key>
             <PropertyRef Name="id" />
@@ -25,7 +25,7 @@
           </Key>
           <Property Name="id" Type="bigint" Nullable="false" />
           <Property Name="physiological_condition" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="breed" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="breed" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Farms">
           <Key>
@@ -78,7 +78,7 @@
           <Property Name="author_id" Type="bigint" Nullable="false" />
           <Property Name="farm" Type="bigint" Nullable="false" />
           <Property Name="creation_datetime" Type="datetime" Nullable="false" />
-          <Property Name="animal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="animal" Type="int" Nullable="false" />
           <Property Name="comment" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
@@ -233,8 +233,7 @@
             <End Role="Rations" EntitySet="Rations" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DreamFieldModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -449,6 +448,13 @@
           <Member Name="Pig" />
           <Member Name="Horse" />
         </EnumType>
+        <EnumType Name="CowStates">
+          <Member Name="Lactating" Value="1" />
+          <Member Name="IDunno" Value="2" />
+        </EnumType>
+        <EnumType Name="HorseStates">
+          <Member Name="Somestate" Value="1" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -458,12 +464,14 @@
           <EntitySetMapping Name="Animals">
             <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.Cow)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
               <MappingFragment StoreEntitySet="Cows">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="breed" ColumnName="breed" />
                 <ScalarProperty Name="physiological_condition" ColumnName="physiological_condition" />
               </MappingFragment>
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.Lactating_cow)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
               <MappingFragment StoreEntitySet="Lactating_cows">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="lactating_start_datetime" ColumnName="lactating_start_datetime" />
                 
               </MappingFragment>

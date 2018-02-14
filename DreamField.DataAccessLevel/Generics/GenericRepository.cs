@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 
 namespace DreamField.DataAccessLevel.Generics
 {
-    class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly DbContext _context;
         protected readonly DbSet<TEntity> _entities;
