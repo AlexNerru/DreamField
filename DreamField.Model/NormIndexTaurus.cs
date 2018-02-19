@@ -12,9 +12,8 @@ namespace DreamField.Model
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class Cow : Animal
+    public partial class NormIndexTaurus : NormIndexFatteing
     {
-        public string physiological_condition { get; set; }
-        public int breed { get; set; }
+        public float Na { get; set; }
     }
 }

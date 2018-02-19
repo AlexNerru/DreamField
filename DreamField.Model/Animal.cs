@@ -12,7 +12,7 @@ namespace DreamField.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Animal
+    public abstract partial class Animal
     {
         public long id { get; set; }
         public long herd_id { get; set; }

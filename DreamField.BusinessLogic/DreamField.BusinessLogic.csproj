@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factorial.cs" />
+    <Compile Include="Interfaces\IFaсtorial.cs" />
+    <Compile Include="LactatingDTO.cs" />
     <Compile Include="RationCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

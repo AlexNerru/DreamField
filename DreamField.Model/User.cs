@@ -20,14 +20,14 @@ namespace DreamField.Model
             this.Rations = new HashSet<Ration>();
         }
     
-        public long id { get; set; }
-        public string name { get; set; }
-        public string second_name { get; set; }
-        public string surname { get; set; }
-        public string login { get; set; }
-        public string password { get; set; }
-        public string e_mail { get; set; }
-        public string type { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string Second_name { get; set; }
+        public string Surname { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string E_mail { get; set; }
+        public string Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ration> Rations { get; set; }

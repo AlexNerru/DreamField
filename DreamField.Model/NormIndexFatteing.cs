@@ -12,9 +12,14 @@ namespace DreamField.Model
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class Cow : Animal
+    public partial class NormIndexFatteing : NormIndexGeneral
     {
-        public string physiological_condition { get; set; }
-        public int breed { get; set; }
+        public float ClevableProtein { get; set; }
+        public float UnclevableProtein { get; set; }
+        public float Starch { get; set; }
+        public float Sugar { get; set; }
+        public float RawFat { get; set; }
+        public float K { get; set; }
+        public float S { get; set; }
     }
 }

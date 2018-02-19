@@ -4,26 +4,51 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DreamField.WPFInterface"
-        xmlns:Model="clr-namespace:DreamField.Model;assembly=DreamField.Model" x:Class="DreamField.WPFInterface.MainWindow"
+        xmlns:Model="clr-namespace:DreamField.Model;assembly=DreamField.Model" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="DreamField.WPFInterface.MainWindow"
         mc:Ignorable="d"
         Title="DreamField" WindowState="Maximized" ResizeMode="NoResize">
-    <Grid>
+
+    <Grid x:Name="MainGrid">
+
+
+
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="67*"/>
-            <ColumnDefinition Width="314*"/>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="593*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Button" Margin="0,0,55.6,52.4" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Grid.Column="1"/>
-        <ComboBox x:Name="AnimalBox" Margin="0,98,451.6,0" SelectionChanged="AnimalBox_SelectionChanged" Grid.Column="1" HorizontalAlignment="Right" Width="120" Height="22" VerticalAlignment="Top">
-            <ComboBox.DataContext>
-                <Model:AnimalTypes>Cow</Model:AnimalTypes>
-            </ComboBox.DataContext>
-            <Model:AnimalTypes>Cow</Model:AnimalTypes>
-            <Model:AnimalTypes>Pig</Model:AnimalTypes>
-            <Model:AnimalTypes>Horse</Model:AnimalTypes>
-        </ComboBox>
-        <ComboBox x:Name="AnimalStateBox" HorizontalAlignment="Left" Margin="324.2,98,0,0" Width="120" Grid.Column="1" Height="22" VerticalAlignment="Top" Visibility="Hidden"/>
-        <ComboBox HorizontalAlignment="Left" Margin="3.2,184,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" Grid.Column="1" Height="22"/>
-        <ComboBox HorizontalAlignment="Left" Margin="8.2,184,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" Grid.Column="1" Height="22"/>
-        <ComboBox HorizontalAlignment="Left" Margin="19.2,184,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" Grid.Column="1" Height="22"/>
+        <Grid x:Name="FeedingGrid" Margin="10,0,0,10" Grid.Column="1" Height="397.2" VerticalAlignment="Bottom" Visibility="Hidden">
+            <Button x:Name="AddRationButton" Content="Button" Margin="0,0,28.8,24.4" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="AddRationButton_Click"/>
+            <Grid x:Name="AddRationGrid" Margin="10,10,0,0">
+                <ComboBox x:Name="AnimalBox" Margin="111.8,67,0,0" SelectionChanged="AnimalBox_SelectionChanged" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
+                    <ComboBox.DataContext>
+                        <Model:AnimalTypes>Cow</Model:AnimalTypes>
+                    </ComboBox.DataContext>
+                    <Model:AnimalTypes>Cow</Model:AnimalTypes>
+                </ComboBox>
+                <ComboBox x:Name="AnimalStateBox" HorizontalAlignment="Left" Margin="343.6,119,0,0" Width="120" Height="22" VerticalAlignment="Top" SelectionChanged="AnimalStateBox_SelectionChanged" Visibility="Hidden"/>
+                <Grid x:Name="LactatingGrid" Margin="90.4,119,0,0" HorizontalAlignment="Left" Width="157" Height="238" VerticalAlignment="Top">
+                    <TextBox x:Name="WeightBox" HorizontalAlignment="Left" Height="23" Margin="27,51.2,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Visible">
+                        <TextBox.DataContext>
+                            <System:Double>0</System:Double>
+                        </TextBox.DataContext>
+                    </TextBox>
+                    <TextBox x:Name="FatBox" HorizontalAlignment="Left" Height="23" Margin="27,118.4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Visible"/>
+                    <TextBox x:Name="ProteinBox" HorizontalAlignment="Left" Height="23" Margin="27,179,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Visible"/>
+                    <Button x:Name="CalculateRationButton" Content="Создать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="378.4,223.05,-296.4,-5.01" Click="CalculateRationButton_Click"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Menu" Margin="10,99.4,10,10">
+            <Button x:Name="FeedingModule" Content="Feeding" Click="FeedingModule_Click" Height="19.96" VerticalAlignment="Top"/>
+            <Button x:Name="SettingsModule" Content="Settings" Click="SettingsModule_Click" Margin="0,0,0,24.96" Height="19.96" VerticalAlignment="Bottom"/>
+            <Button x:Name="ExitButton" Content="Button" VerticalContentAlignment="Bottom" Click="ExitButton_Click" Height="19.96" VerticalAlignment="Bottom"/>
+        </Grid>
+        <Grid x:Name="SettingsGrid" HorizontalAlignment="Left" Height="397.2" Margin="10,99.4,0,0" VerticalAlignment="Top" Width="573" Grid.Column="1" Visibility="Hidden">
+            <Label Content="Тут будет меню" HorizontalAlignment="Left" Margin="229.8,21.8,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid x:Name="NothingChoosenGrid" Grid.Column="1" HorizontalAlignment="Left" Height="397.2" Margin="10,99.4,0,0" VerticalAlignment="Top" Width="573">
+            <Label Content="Тут ничего не будет&#xD;&#xA;" HorizontalAlignment="Left" Margin="258.8,174.2,0,0" VerticalAlignment="Top"/>
+        </Grid>
     </Grid>
 </Window>

@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +55,18 @@
       <Project>{8095307e-4ad3-4acb-9ee7-b2f8e1fa0646}</Project>
       <Name>DreamField.BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DreamField.DataAccessLevel\DreamField.DataAccessLevel.csproj">
+      <Project>{9862602a-2ace-4706-a7d0-83eea1f6f7ad}</Project>
+      <Name>DreamField.DataAccessLevel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DreamField.Model\DreamField.Model.csproj">
+      <Project>{410a901b-76a1-4363-a873-4f863f7531be}</Project>
+      <Name>DreamField.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

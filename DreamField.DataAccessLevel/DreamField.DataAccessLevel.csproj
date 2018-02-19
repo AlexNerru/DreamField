@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\NormRepository.cs" />
     <Compile Include="Concrete\RationsRepository.cs" />
     <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -63,6 +64,7 @@
     <Compile Include="Generics\GenericRepository.cs" />
     <Compile Include="Generics\UnitOfWork.cs" />
     <Compile Include="Interfaces\IGenericUnitOfWork.cs" />
+    <Compile Include="Interfaces\INormRepository.cs" />
     <Compile Include="Interfaces\IRationRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

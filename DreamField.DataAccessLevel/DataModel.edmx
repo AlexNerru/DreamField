@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="herd_id" Type="bigint" Nullable="false" />
           <Property Name="responsible_user_id" Type="bigint" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -31,7 +31,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="location" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="specialization" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="price" Type="money" Nullable="false" />
           <Property Name="availability" Type="bit" Nullable="false" />
           <Property Name="current_amount" Type="real" Nullable="false" />
@@ -49,7 +49,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="farm_id" Type="bigint" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="comment" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -60,6 +60,64 @@
           </Key>
           <Property Name="id" Type="bigint" Nullable="false" />
           <Property Name="lactating_start_datetime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NormIndexesFatteing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="ClevableProtein" Type="real" Nullable="false" />
+          <Property Name="UnclevableProtein" Type="real" Nullable="false" />
+          <Property Name="Starch" Type="real" Nullable="false" />
+          <Property Name="Sugar" Type="real" Nullable="false" />
+          <Property Name="RawFat" Type="real" Nullable="false" />
+          <Property Name="K" Type="real" Nullable="false" />
+          <Property Name="S" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NormIndexesGeneral">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="EnergyFeedUnit" Type="real" Nullable="false" />
+          <Property Name="ExcahngeEnergy" Type="real" Nullable="false" />
+          <Property Name="DryMatter" Type="real" Nullable="false" />
+          <Property Name="RawProtein" Type="real" Nullable="false" />
+          <Property Name="DigestibleProtein" Type="real" Nullable="false" />
+          <Property Name="RawCellulose" Type="real" Nullable="false" />
+          <Property Name="Salt" Type="real" Nullable="false" />
+          <Property Name="Ca" Type="real" Nullable="false" />
+          <Property Name="P" Type="real" Nullable="false" />
+          <Property Name="Mg" Type="real" Nullable="false" />
+          <Property Name="Fe" Type="real" Nullable="false" />
+          <Property Name="Cu" Type="real" Nullable="false" />
+          <Property Name="Zn" Type="real" Nullable="false" />
+          <Property Name="Co" Type="real" Nullable="false" />
+          <Property Name="Mn" Type="real" Nullable="false" />
+          <Property Name="J" Type="real" Nullable="false" />
+          <Property Name="Carotene" Type="real" Nullable="false" />
+          <Property Name="VitaminD" Type="real" Nullable="false" />
+          <Property Name="VitaminE" Type="real" Nullable="false" />
+          <Property Name="VitaminA" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NormIndexesLactating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Se" Type="real" Nullable="false" />
+          <Property Name="ExchangeProtein" Type="real" Nullable="false" />
+          <Property Name="AcidDetergentFiber" Type="real" Nullable="false" />
+          <Property Name="NeutralDetergentFiber" Type="real" Nullable="false" />
+          <Property Name="ExcahngeEnergyDryMatter" Type="real" Nullable="false" />
+          <Property Name="ExcangeProtein" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NormIndexesTaurus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Na" Type="real" Nullable="false" />
         </EntityType>
         <EntityType Name="RationFeeds">
           <Key>
@@ -72,27 +130,27 @@
         </EntityType>
         <EntityType Name="Rations">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
-          <Property Name="author_id" Type="bigint" Nullable="false" />
-          <Property Name="farm" Type="bigint" Nullable="false" />
-          <Property Name="creation_datetime" Type="datetime" Nullable="false" />
-          <Property Name="animal" Type="int" Nullable="false" />
-          <Property Name="comment" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Author_id" Type="bigint" Nullable="false" />
+          <Property Name="Farm_id" Type="bigint" Nullable="false" />
+          <Property Name="Creation_datetime" Type="datetime" Nullable="false" />
+          <Property Name="Animal" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="second_name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="e-mail" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Second_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="E-mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Animals_Herds">
           <End Role="Herds" Type="Self.Herds" Multiplicity="1" />
@@ -142,6 +200,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NormIndexesFatteing_NormIndexesGeneral">
+          <End Role="NormIndexesGeneral" Type="Self.NormIndexesGeneral" Multiplicity="1" />
+          <End Role="NormIndexesFatteing" Type="Self.NormIndexesFatteing" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NormIndexesGeneral">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NormIndexesFatteing">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NormIndexesGeneral_Rations">
+          <End Role="Rations" Type="Self.Rations" Multiplicity="1" />
+          <End Role="NormIndexesGeneral" Type="Self.NormIndexesGeneral" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Rations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NormIndexesGeneral">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NormIndexesTaurus_NormIndexesFatteing">
+          <End Role="NormIndexesFatteing" Type="Self.NormIndexesFatteing" Multiplicity="1" />
+          <End Role="NormIndexesTaurus" Type="Self.NormIndexesTaurus" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NormIndexesFatteing">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NormIndexesTaurus">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NormIndexesTaurus_NormIndexesLactating">
+          <End Role="NormIndexesTaurus" Type="Self.NormIndexesTaurus" Multiplicity="1" />
+          <End Role="NormIndexesLactating" Type="Self.NormIndexesLactating" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="NormIndexesTaurus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NormIndexesLactating">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RationFeeds_Feed">
           <End Role="Feeds" Type="Self.Feeds" Multiplicity="1" />
           <End Role="RationFeeds" Type="Self.RationFeeds" Multiplicity="*" />
@@ -159,7 +265,7 @@
           <End Role="RationFeeds" Type="Self.RationFeeds" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Rations">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="RationFeeds">
               <PropertyRef Name="ration_id" />
@@ -174,7 +280,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Rations">
-              <PropertyRef Name="farm" />
+              <PropertyRef Name="Farm_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -183,10 +289,10 @@
           <End Role="Rations" Type="Self.Rations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Rations">
-              <PropertyRef Name="author_id" />
+              <PropertyRef Name="Author_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -197,6 +303,10 @@
           <EntitySet Name="Feeds" EntityType="Self.Feeds" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Herds" EntityType="Self.Herds" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lactating_cows" EntityType="Self.Lactating_cows" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NormIndexesFatteing" EntityType="Self.NormIndexesFatteing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NormIndexesGeneral" EntityType="Self.NormIndexesGeneral" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NormIndexesLactating" EntityType="Self.NormIndexesLactating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NormIndexesTaurus" EntityType="Self.NormIndexesTaurus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RationFeeds" EntityType="Self.RationFeeds" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rations" EntityType="Self.Rations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -215,6 +325,22 @@
           <AssociationSet Name="FK_Lactating_cow_Cow" Association="Self.FK_Lactating_cow_Cow">
             <End Role="Cows" EntitySet="Cows" />
             <End Role="Lactating_cows" EntitySet="Lactating_cows" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NormIndexesFatteing_NormIndexesGeneral" Association="Self.FK_NormIndexesFatteing_NormIndexesGeneral">
+            <End Role="NormIndexesGeneral" EntitySet="NormIndexesGeneral" />
+            <End Role="NormIndexesFatteing" EntitySet="NormIndexesFatteing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NormIndexesGeneral_Rations" Association="Self.FK_NormIndexesGeneral_Rations">
+            <End Role="Rations" EntitySet="Rations" />
+            <End Role="NormIndexesGeneral" EntitySet="NormIndexesGeneral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NormIndexesTaurus_NormIndexesFatteing" Association="Self.FK_NormIndexesTaurus_NormIndexesFatteing">
+            <End Role="NormIndexesFatteing" EntitySet="NormIndexesFatteing" />
+            <End Role="NormIndexesTaurus" EntitySet="NormIndexesTaurus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NormIndexesTaurus_NormIndexesLactating" Association="Self.FK_NormIndexesTaurus_NormIndexesLactating">
+            <End Role="NormIndexesTaurus" EntitySet="NormIndexesTaurus" />
+            <End Role="NormIndexesLactating" EntitySet="NormIndexesLactating" />
           </AssociationSet>
           <AssociationSet Name="FK_RationFeeds_Feed" Association="Self.FK_RationFeeds_Feed">
             <End Role="Feeds" EntitySet="Feeds" />
@@ -237,204 +363,44 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DreamFieldModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Animal">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="herd_id" Type="Int64" Nullable="false" />
-          <Property Name="responsible_user_id" Type="Int64" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="sex_age_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="birth_datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="receipt_datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="weight" Type="Single" Nullable="false" />
-          <Property Name="fatness" Type="Single" Nullable="false" />
-          <NavigationProperty Name="Herd" Relationship="Self.FK_Animals_Herds" FromRole="Animals" ToRole="Herds" />
-        </EntityType>
-        <EntityType Name="Cow" BaseType="DreamFieldModel.Animal">
-          <Property Name="physiological_condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="breed" Type="DreamFieldModel.CowBreeds" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Farm">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Herds" Relationship="Self.FK_Herds_Farm" FromRole="Farms" ToRole="Herds" />
-          <NavigationProperty Name="Rations" Relationship="Self.FK_Rations_Farm" FromRole="Farms" ToRole="Rations" />
-        </EntityType>
-        <EntityType Name="Feed">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="availability" Type="Boolean" Nullable="false" />
-          <Property Name="current_amount" Type="Single" Nullable="false" />
-          <NavigationProperty Name="RationFeeds" Relationship="Self.FK_RationFeeds_Feed" FromRole="Feeds" ToRole="RationFeeds" />
-        </EntityType>
-        <EntityType Name="Herd">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="farm_id" Type="Int64" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Animals" Relationship="Self.FK_Animals_Herds" FromRole="Herds" ToRole="Animals" />
-          <NavigationProperty Name="Farm" Relationship="Self.FK_Herds_Farm" FromRole="Herds" ToRole="Farms" />
-        </EntityType>
-        <EntityType Name="Lactating_cow" BaseType="DreamFieldModel.Cow">
-          <Property Name="lactating_start_datetime" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="RationFeed">
-          <Key>
-            <PropertyRef Name="ration_id" />
-            <PropertyRef Name="feed_id" />
-          </Key>
-          <Property Name="ration_id" Type="Int64" Nullable="false" />
-          <Property Name="feed_id" Type="Int64" Nullable="false" />
-          <Property Name="amount" Type="Single" Nullable="false" />
-          <NavigationProperty Name="Feed" Relationship="Self.FK_RationFeeds_Feed" FromRole="RationFeeds" ToRole="Feeds" />
-          <NavigationProperty Name="Ration" Relationship="Self.FK_RationFeeds_Ration" FromRole="RationFeeds" ToRole="Rations" />
-        </EntityType>
-        <EntityType Name="Ration">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="author_id" Type="Int64" Nullable="false" />
-          <Property Name="farm" Type="Int64" Nullable="false" />
-          <Property Name="creation_datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="animal" Type="DreamFieldModel.AnimalTypes" Nullable="false" />
-          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="RationsFarm" Relationship="Self.FK_Rations_Farm" FromRole="Rations" ToRole="Farms" />
-          <NavigationProperty Name="RationFeeds" Relationship="Self.FK_RationFeeds_Ration" FromRole="Rations" ToRole="RationFeeds" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Rations_User" FromRole="Rations" ToRole="Users" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="second_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="e_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Rations" Relationship="Self.FK_Rations_User" FromRole="Users" ToRole="Rations" />
-        </EntityType>
-        <Association Name="FK_Animals_Herds">
-          <End Role="Herds" Type="Self.Herd" Multiplicity="1" />
-          <End Role="Animals" Type="Self.Animal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Herds">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Animals">
-              <PropertyRef Name="herd_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Herds_Farm">
-          <End Role="Farms" Type="Self.Farm" Multiplicity="1" />
-          <End Role="Herds" Type="Self.Herd" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Farms">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Herds">
-              <PropertyRef Name="farm_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rations_Farm">
-          <End Role="Farms" Type="Self.Farm" Multiplicity="1" />
-          <End Role="Rations" Type="Self.Ration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Farms">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Rations">
-              <PropertyRef Name="farm" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RationFeeds_Feed">
-          <End Role="Feeds" Type="Self.Feed" Multiplicity="1" />
-          <End Role="RationFeeds" Type="Self.RationFeed" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Feeds">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="RationFeeds">
-              <PropertyRef Name="feed_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RationFeeds_Ration">
-          <End Role="Rations" Type="Self.Ration" Multiplicity="1" />
-          <End Role="RationFeeds" Type="Self.RationFeed" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rations">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="RationFeeds">
-              <PropertyRef Name="ration_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rations_User">
-          <End Role="Users" Type="Self.User" Multiplicity="1" />
-          <End Role="Rations" Type="Self.Ration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Rations">
-              <PropertyRef Name="author_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DreamFieldEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Animals" EntityType="Self.Animal" />
-          <EntitySet Name="Farms" EntityType="Self.Farm" />
-          <EntitySet Name="Feeds" EntityType="Self.Feed" />
-          <EntitySet Name="Herds" EntityType="Self.Herd" />
-          <EntitySet Name="RationFeeds" EntityType="Self.RationFeed" />
-          <EntitySet Name="Rations" EntityType="Self.Ration" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK_Animals_Herds" Association="Self.FK_Animals_Herds">
-            <End Role="Herds" EntitySet="Herds" />
-            <End Role="Animals" EntitySet="Animals" />
+          <EntitySet Name="Animals" EntityType="DreamFieldModel.Animal" />
+          <EntitySet Name="Farms" EntityType="DreamFieldModel.Farm" />
+          <EntitySet Name="Feeds" EntityType="DreamFieldModel.Feed" />
+          <EntitySet Name="Herds" EntityType="DreamFieldModel.Herd" />
+          <EntitySet Name="NormIndexGenerals" EntityType="DreamFieldModel.NormIndexGeneral" />
+          <EntitySet Name="RationFeeds" EntityType="DreamFieldModel.RationFeed" />
+          <EntitySet Name="Users" EntityType="DreamFieldModel.User" />
+          <AssociationSet Name="FK_Animals_Herds" Association="DreamFieldModel.FK_Animals_Herds">
+            <End Role="Herd" EntitySet="Herds" />
+            <End Role="Animal" EntitySet="Animals" />
           </AssociationSet>
-          <AssociationSet Name="FK_Herds_Farm" Association="Self.FK_Herds_Farm">
-            <End Role="Farms" EntitySet="Farms" />
-            <End Role="Herds" EntitySet="Herds" />
+          <AssociationSet Name="FK_Herds_Farm" Association="DreamFieldModel.FK_Herds_Farm">
+            <End Role="Farm" EntitySet="Farms" />
+            <End Role="Herd" EntitySet="Herds" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rations_Farm" Association="Self.FK_Rations_Farm">
-            <End Role="Farms" EntitySet="Farms" />
-            <End Role="Rations" EntitySet="Rations" />
+          <AssociationSet Name="FK_RationFeeds_Feed" Association="DreamFieldModel.FK_RationFeeds_Feed">
+            <End Role="Feed" EntitySet="Feeds" />
+            <End Role="RationFeed" EntitySet="RationFeeds" />
           </AssociationSet>
-          <AssociationSet Name="FK_RationFeeds_Feed" Association="Self.FK_RationFeeds_Feed">
-            <End Role="Feeds" EntitySet="Feeds" />
-            <End Role="RationFeeds" EntitySet="RationFeeds" />
+          <EntitySet Name="Rations" EntityType="DreamFieldModel.Ration" />
+          <AssociationSet Name="FK_Rations_Farm" Association="DreamFieldModel.FK_Rations_Farm">
+            <End Role="Farm" EntitySet="Farms" />
+            <End Role="Ration" EntitySet="Rations" />
           </AssociationSet>
-          <AssociationSet Name="FK_RationFeeds_Ration" Association="Self.FK_RationFeeds_Ration">
-            <End Role="Rations" EntitySet="Rations" />
-            <End Role="RationFeeds" EntitySet="RationFeeds" />
+          <AssociationSet Name="FK_NormIndexesGeneral_Rations" Association="DreamFieldModel.FK_NormIndexesGeneral_Rations">
+            <End Role="Ration" EntitySet="Rations" />
+            <End Role="NormIndexGeneral" EntitySet="NormIndexGenerals" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rations_User" Association="Self.FK_Rations_User">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Rations" EntitySet="Rations" />
+          <AssociationSet Name="FK_RationFeeds_Ration" Association="DreamFieldModel.FK_RationFeeds_Ration">
+            <End Role="Ration" EntitySet="Rations" />
+            <End Role="RationFeed" EntitySet="RationFeeds" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="FK_Rations_User" Association="DreamFieldModel.FK_Rations_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Ration" EntitySet="Rations" />
+          </AssociationSet>
+          </EntityContainer>
         <EnumType Name="CowBreeds">
           <Member Name="Холмогорская" />
           <Member Name="Голштинская" />
@@ -455,27 +421,238 @@
         <EnumType Name="HorseStates">
           <Member Name="Somestate" Value="1" />
         </EnumType>
-      </Schema>
+        <EntityType Name="Animal" Abstract="true">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="herd_id" Type="Int64" Nullable="false" />
+          <Property Name="responsible_user_id" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sex_age_group" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="birth_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="receipt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="weight" Type="Single" Nullable="false" />
+          <Property Name="fatness" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Herd" Relationship="DreamFieldModel.FK_Animals_Herds" FromRole="Animal" ToRole="Herd" />
+        </EntityType>
+        <EntityType Name="Cow" Abstract="true" BaseType="DreamFieldModel.Animal">
+          <Property Name="physiological_condition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="breed" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="specialization" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Herds" Relationship="DreamFieldModel.FK_Herds_Farm" FromRole="Farm" ToRole="Herd" />
+          <NavigationProperty Name="Rations" Relationship="DreamFieldModel.FK_Rations_Farm" FromRole="Farm" ToRole="Ration" />
+        </EntityType>
+        <EntityType Name="Feed">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="availability" Type="Boolean" Nullable="false" />
+          <Property Name="current_amount" Type="Single" Nullable="false" />
+          <NavigationProperty Name="RationFeeds" Relationship="DreamFieldModel.FK_RationFeeds_Feed" FromRole="Feed" ToRole="RationFeed" />
+        </EntityType>
+        <EntityType Name="Herd">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="farm_id" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="comment" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Animals" Relationship="DreamFieldModel.FK_Animals_Herds" FromRole="Herd" ToRole="Animal" />
+          <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Herds_Farm" FromRole="Herd" ToRole="Farm" />
+        </EntityType>
+        <EntityType Name="Lactating_cow" BaseType="DreamFieldModel.Cow">
+          <Property Name="lactating_start_datetime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="NormIndexFatteing" BaseType="DreamFieldModel.NormIndexGeneral">
+          <Property Name="ClevableProtein" Type="Single" Nullable="false" />
+          <Property Name="UnclevableProtein" Type="Single" Nullable="false" />
+          <Property Name="Starch" Type="Single" Nullable="false" />
+          <Property Name="Sugar" Type="Single" Nullable="false" />
+          <Property Name="RawFat" Type="Single" Nullable="false" />
+          <Property Name="K" Type="Single" Nullable="false" />
+          <Property Name="S" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NormIndexGeneral" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnergyFeedUnit" Type="Single" Nullable="false" />
+          <Property Name="ExcahngeEnergy" Type="Single" Nullable="false" />
+          <Property Name="DryMatter" Type="Single" Nullable="false" />
+          <Property Name="RawProtein" Type="Single" Nullable="false" />
+          <Property Name="DigestibleProtein" Type="Single" Nullable="false" />
+          <Property Name="RawCellulose" Type="Single" Nullable="false" />
+          <Property Name="Salt" Type="Single" Nullable="false" />
+          <Property Name="Ca" Type="Single" Nullable="false" />
+          <Property Name="P" Type="Single" Nullable="false" />
+          <Property Name="Mg" Type="Single" Nullable="false" />
+          <Property Name="Fe" Type="Single" Nullable="false" />
+          <Property Name="Cu" Type="Single" Nullable="false" />
+          <Property Name="Zn" Type="Single" Nullable="false" />
+          <Property Name="Co" Type="Single" Nullable="false" />
+          <Property Name="Mn" Type="Single" Nullable="false" />
+          <Property Name="J" Type="Single" Nullable="false" />
+          <Property Name="Carotene" Type="Single" Nullable="false" />
+          <Property Name="VitaminD" Type="Single" Nullable="false" />
+          <Property Name="VitaminE" Type="Single" Nullable="false" />
+          <Property Name="VitaminA" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_NormIndexesGeneral_Rations" FromRole="NormIndexGeneral" ToRole="Ration" />
+        </EntityType>
+        <EntityType Name="NormIndexLactating" BaseType="DreamFieldModel.NormIndexTaurus">
+          <Property Name="Se" Type="Single" Nullable="false" />
+          <Property Name="ExchangeProtein" Type="Single" Nullable="false" />
+          <Property Name="AcidDetergentFiber" Type="Single" Nullable="false" />
+          <Property Name="NeutralDetergentFiber" Type="Single" Nullable="false" />
+          <Property Name="ExcahngeEnergyDryMatter" Type="Single" Nullable="false" />
+          <Property Name="ExcangeProtein" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NormIndexTaurus" BaseType="DreamFieldModel.NormIndexFatteing">
+          <Property Name="Na" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RationFeed">
+          <Key>
+            <PropertyRef Name="ration_id" />
+            <PropertyRef Name="feed_id" />
+          </Key>
+          <Property Name="ration_id" Type="Int64" Nullable="false" />
+          <Property Name="feed_id" Type="Int64" Nullable="false" />
+          <Property Name="amount" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Feed" Relationship="DreamFieldModel.FK_RationFeeds_Feed" FromRole="RationFeed" ToRole="Feed" />
+          <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_RationFeeds_Ration" FromRole="RationFeed" ToRole="Ration" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Second_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rations" Relationship="DreamFieldModel.FK_Rations_User" FromRole="User" ToRole="Ration" />
+        </EntityType>
+        <Association Name="FK_Animals_Herds">
+          <End Type="DreamFieldModel.Herd" Role="Herd" Multiplicity="1" />
+          <End Type="DreamFieldModel.Animal" Role="Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Herd">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="herd_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Herds_Farm">
+          <End Type="DreamFieldModel.Farm" Role="Farm" Multiplicity="1" />
+          <End Type="DreamFieldModel.Herd" Role="Herd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Herd">
+              <PropertyRef Name="farm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RationFeeds_Feed">
+          <End Type="DreamFieldModel.Feed" Role="Feed" Multiplicity="1" />
+          <End Type="DreamFieldModel.RationFeed" Role="RationFeed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feed">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RationFeed">
+              <PropertyRef Name="feed_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Ration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Author_id" Type="Int64" Nullable="false" />
+          <Property Name="Farm_id" Type="Int64" Nullable="false" />
+          <Property Name="Creation_datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Animal" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Rations_Farm" FromRole="Ration" ToRole="Farm" />
+          <NavigationProperty Name="NormIndexesGeneral" Relationship="DreamFieldModel.FK_NormIndexesGeneral_Rations" FromRole="Ration" ToRole="NormIndexGeneral" />
+          <NavigationProperty Name="RationFeeds" Relationship="DreamFieldModel.FK_RationFeeds_Ration" FromRole="Ration" ToRole="RationFeed" />
+          <NavigationProperty Name="User" Relationship="DreamFieldModel.FK_Rations_User" FromRole="Ration" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Rations_Farm">
+          <End Type="DreamFieldModel.Farm" Role="Farm" Multiplicity="1" />
+          <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ration">
+              <PropertyRef Name="Farm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NormIndexesGeneral_Rations">
+          <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="1" />
+          <End Type="DreamFieldModel.NormIndexGeneral" Role="NormIndexGeneral" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NormIndexGeneral">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RationFeeds_Ration">
+          <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="1" />
+          <End Type="DreamFieldModel.RationFeed" Role="RationFeed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RationFeed">
+              <PropertyRef Name="ration_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rations_User">
+          <End Type="DreamFieldModel.User" Role="User" Multiplicity="1" />
+          <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ration">
+              <PropertyRef Name="Author_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище DreamFieldModelContainer" CdmEntityContainer="DreamFieldEntities">
           <EntitySetMapping Name="Animals">
-            <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.Cow)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-              <MappingFragment StoreEntitySet="Cows">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="breed" ColumnName="breed" />
-                <ScalarProperty Name="physiological_condition" ColumnName="physiological_condition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.Lactating_cow)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-              <MappingFragment StoreEntitySet="Lactating_cows">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="lactating_start_datetime" ColumnName="lactating_start_datetime" />
-                
-              </MappingFragment>
-            </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.Animal)">
               <MappingFragment StoreEntitySet="Animals">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -489,69 +666,141 @@
                 <ScalarProperty Name="herd_id" ColumnName="herd_id" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.Cow)">
+              <MappingFragment StoreEntitySet="Cows">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="physiological_condition" ColumnName="physiological_condition" />
+                <ScalarProperty Name="breed" ColumnName="breed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.Lactating_cow)">
+              <MappingFragment StoreEntitySet="Lactating_cows">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lactating_start_datetime" ColumnName="lactating_start_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Farms">
             <EntityTypeMapping TypeName="DreamFieldModel.Farm">
               <MappingFragment StoreEntitySet="Farms">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="location" ColumnName="location" />
                 <ScalarProperty Name="specialization" ColumnName="specialization" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Feeds">
             <EntityTypeMapping TypeName="DreamFieldModel.Feed">
               <MappingFragment StoreEntitySet="Feeds">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="availability" ColumnName="availability" />
                 <ScalarProperty Name="current_amount" ColumnName="current_amount" />
+                <ScalarProperty Name="availability" ColumnName="availability" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Herds">
             <EntityTypeMapping TypeName="DreamFieldModel.Herd">
               <MappingFragment StoreEntitySet="Herds">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="farm_id" ColumnName="farm_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="farm_id" ColumnName="farm_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NormIndexGenerals">
+            <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.NormIndexGeneral)">
+              <MappingFragment StoreEntitySet="NormIndexesGeneral">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VitaminA" ColumnName="VitaminA" />
+                <ScalarProperty Name="VitaminE" ColumnName="VitaminE" />
+                <ScalarProperty Name="VitaminD" ColumnName="VitaminD" />
+                <ScalarProperty Name="Carotene" ColumnName="Carotene" />
+                <ScalarProperty Name="J" ColumnName="J" />
+                <ScalarProperty Name="Mn" ColumnName="Mn" />
+                <ScalarProperty Name="Co" ColumnName="Co" />
+                <ScalarProperty Name="Zn" ColumnName="Zn" />
+                <ScalarProperty Name="Cu" ColumnName="Cu" />
+                <ScalarProperty Name="Fe" ColumnName="Fe" />
+                <ScalarProperty Name="Mg" ColumnName="Mg" />
+                <ScalarProperty Name="P" ColumnName="P" />
+                <ScalarProperty Name="Ca" ColumnName="Ca" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="RawCellulose" ColumnName="RawCellulose" />
+                <ScalarProperty Name="DigestibleProtein" ColumnName="DigestibleProtein" />
+                <ScalarProperty Name="RawProtein" ColumnName="RawProtein" />
+                <ScalarProperty Name="DryMatter" ColumnName="DryMatter" />
+                <ScalarProperty Name="ExcahngeEnergy" ColumnName="ExcahngeEnergy" />
+                <ScalarProperty Name="EnergyFeedUnit" ColumnName="EnergyFeedUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.NormIndexFatteing)">
+              <MappingFragment StoreEntitySet="NormIndexesFatteing">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClevableProtein" ColumnName="ClevableProtein" />
+                <ScalarProperty Name="UnclevableProtein" ColumnName="UnclevableProtein" />
+                <ScalarProperty Name="Starch" ColumnName="Starch" />
+                <ScalarProperty Name="Sugar" ColumnName="Sugar" />
+                <ScalarProperty Name="RawFat" ColumnName="RawFat" />
+                <ScalarProperty Name="K" ColumnName="K" />
+                <ScalarProperty Name="S" ColumnName="S" />
+              </MappingFragment>
+              <MappingFragment StoreEntitySet="NormIndexesGeneral">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.NormIndexTaurus)">
+              <MappingFragment StoreEntitySet="NormIndexesTaurus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Na" ColumnName="Na" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.NormIndexLactating)">
+              <MappingFragment StoreEntitySet="NormIndexesLactating">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Se" ColumnName="Se" />
+                <ScalarProperty Name="ExchangeProtein" ColumnName="ExchangeProtein" />
+                <ScalarProperty Name="AcidDetergentFiber" ColumnName="AcidDetergentFiber" />
+                <ScalarProperty Name="NeutralDetergentFiber" ColumnName="NeutralDetergentFiber" />
+                <ScalarProperty Name="ExcahngeEnergyDryMatter" ColumnName="ExcahngeEnergyDryMatter" />
+                <ScalarProperty Name="ExcangeProtein" ColumnName="ExcangeProtein" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RationFeeds">
             <EntityTypeMapping TypeName="DreamFieldModel.RationFeed">
               <MappingFragment StoreEntitySet="RationFeeds">
-                <ScalarProperty Name="ration_id" ColumnName="ration_id" />
-                <ScalarProperty Name="feed_id" ColumnName="feed_id" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Rations">
-            <EntityTypeMapping TypeName="DreamFieldModel.Ration">
-              <MappingFragment StoreEntitySet="Rations">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="author_id" ColumnName="author_id" />
-                <ScalarProperty Name="farm" ColumnName="farm" />
-                <ScalarProperty Name="creation_datetime" ColumnName="creation_datetime" />
-                <ScalarProperty Name="animal" ColumnName="animal" />
-                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="feed_id" ColumnName="feed_id" />
+                <ScalarProperty Name="ration_id" ColumnName="ration_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DreamFieldModel.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="second_name" ColumnName="second_name" />
-                <ScalarProperty Name="surname" ColumnName="surname" />
-                <ScalarProperty Name="login" ColumnName="login" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="e_mail" ColumnName="e-mail" />
-                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Second_name" ColumnName="Second_name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rations">
+            <EntityTypeMapping TypeName="DreamFieldModel.Ration">
+              <MappingFragment StoreEntitySet="Rations">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Animal" ColumnName="Animal" />
+                <ScalarProperty Name="Creation_datetime" ColumnName="Creation_datetime" />
+                <ScalarProperty Name="Farm_id" ColumnName="Farm_id" />
+                <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
