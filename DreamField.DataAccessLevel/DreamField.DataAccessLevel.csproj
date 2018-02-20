@@ -49,8 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\FarmRepository.cs" />
     <Compile Include="Concrete\NormRepository.cs" />
     <Compile Include="Concrete\RationsRepository.cs" />
+    <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,10 +65,12 @@
     </Compile>
     <Compile Include="Generics\GenericRepository.cs" />
     <Compile Include="Generics\UnitOfWork.cs" />
+    <Compile Include="Interfaces\IFarmRepository.cs" />
     <Compile Include="Interfaces\IGenericUnitOfWork.cs" />
     <Compile Include="Interfaces\INormRepository.cs" />
     <Compile Include="Interfaces\IRationRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

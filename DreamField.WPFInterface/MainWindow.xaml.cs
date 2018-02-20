@@ -39,7 +39,7 @@ namespace DreamField.WPFInterface
         private void AddRationButton_Click(object sender, RoutedEventArgs e)
         {
             AddRationGrid.Visibility = Visibility.Visible;
-            FeedingGrid.Visibility = Visibility.Hidden;
+            //FeedingGrid.Visibility = Visibility.Hidden;
 
         }
 
@@ -71,8 +71,11 @@ namespace DreamField.WPFInterface
         private void CalculateRationButton_Click(object sender, RoutedEventArgs e)
         {
             rtSer.rationCreator = new RationCreator(context);
-            NormIndexLactating nil = rtSer.rationCreator.CreateRation(new LactatingDTO(2.25, 2.56, 24, 8));
-            MessageBox.Show(nil.ExcahngeEnergy.ToString());
+            //NormIndexLactating nil = rtSer.rationCreator.CreateNorm(new LactatingDTO(2.25, 2.56, 24, 8));
+            //MessageBox.Show(nil.ExcahngeEnergy.ToString());
+            int animal = (int)Enum.Parse(typeof(AnimalTypes), AnimalBox.SelectedItem.ToString());
+            
+            rtSer.rationCreator.AddRationToDb(1, 1, animal, "коммент");
         }
 
         private void FeedingModule_Click(object sender, RoutedEventArgs e)

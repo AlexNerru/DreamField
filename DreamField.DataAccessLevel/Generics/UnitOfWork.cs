@@ -6,29 +6,28 @@ using System.Threading.Tasks;
 using DreamField.DataAccessLevel.Interfaces;
 using System.Collections;
 using System.Data.Entity;
+using DreamField.Model;
+using DreamField.DataAccessLevel.Concrete;
 
 namespace DreamField.DataAccessLevel.Generics
 {
     public class UnitOfWork : IGenericUnitOfWork
     {
         private DbContext context;
-        public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
+        public Dictionary<Type, object> repositories = new Dictionary<Type, object>() {};
 
         public UnitOfWork (DbContext context)
         {
             this.context = context;
+            repositories.Add(typeof(Ration), new RationRepository(context));
+            repositories.Add(typeof(NormIndexGeneral), new NormRepository(context));
+            repositories.Add(typeof(User), new UserRepository(context));
         }
 
+        
         public IRepository<T> Repository<T>() where T : class
         {
-            if (repositories.Keys.Contains(typeof(T)) == true)
-            {
-                return repositories[typeof(T)] as IRepository<T>;
-            }
-
-            IRepository<T> repo = new GenericRepository<T>(context);
-            repositories.Add(typeof(T), repo);
-            return repo;
+              return repositories[typeof(T)] as IRepository<T>;
         }
 
         public void SaveChanges() => context.SaveChanges();

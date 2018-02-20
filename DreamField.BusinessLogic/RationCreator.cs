@@ -20,7 +20,7 @@ namespace DreamField.BusinessLogic
         {
             unitOfWork = new UnitOfWork(context);
         }
-        public NormIndexLactating CreateRation (LactatingDTO dto)
+        public NormIndexLactating CreateNorm (CowDTO dto)
         {
             mcf = new MilkCowFactorial(dto);
             NormIndexLactating mil = (NormIndexLactating)mcf.CreateNorm();
@@ -39,6 +39,19 @@ namespace DreamField.BusinessLogic
             unitOfWork.SaveChanges();
             return mil;
         }
+        public void AddRationToDb(int authorId, int farmId, int animal, string comment)
+        {
+            Ration ration = new Ration();
+            ration.User = unitOfWork.Repository<User>().GetById(authorId);
+            ration.Farm = unitOfWork.Repository<Farm>().GetById(farmId);
+            ration.Animal = animal;
+            ration.Comment = comment;
+            ration.Creation_datetime = DateTime.Now;
+            unitOfWork.Repository<Ration>().Add(ration);
+            unitOfWork.SaveChanges();
+        }
+
+
         
         
        

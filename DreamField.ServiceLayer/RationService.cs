@@ -17,9 +17,9 @@ namespace DreamField.ServiceLayer
         {
             rationCreator = new RationCreator(context);
         }
-        public NormIndexLactating CreateRation (LactatingDTO dto)
+        public NormIndexLactating CreateRation (CowDTO dto)
         {
-            NormIndexLactating nil= rationCreator.CreateRation(dto);
+            NormIndexLactating nil= rationCreator.CreateNorm(dto);
             Console.WriteLine("Что-то получилось");
             return nil;
         }

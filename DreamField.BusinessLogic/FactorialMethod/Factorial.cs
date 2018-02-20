@@ -10,7 +10,7 @@ using System.Data.Entity;
 
 namespace DreamField.BusinessLogic
 {
-    public class MilkCowFactorial : CowFactorial
+    public class MilkCowFactorial : CowNorm
     {
         public MilkCowFactorial(double weight, double weightIncrement,
             double fatContent, double dailyMilk, double proteinMilkContent, int lactDay, double bodyTempetature = 38.5,
@@ -18,9 +18,10 @@ namespace DreamField.BusinessLogic
             int pregnancyDurability = 285, double ltza = 4.85, double dayDistance = 0, double calfWeight = 0) : base(weight, weightIncrement,
             fatContent, dailyMilk, proteinMilkContent, lactDay, bodyTempetature,
             environmentalTemperature, pasturePeriod = false,
-            pregnancyDurability, ltza, dayDistance, calfWeight) { }
+            pregnancyDurability, ltza, dayDistance, calfWeight)
+        { }
 
-        public MilkCowFactorial(LactatingDTO dto) : base (dto) { }
+        public MilkCowFactorial(CowDTO dto) : base(dto) { }
 
         /// <summary>
         /// Теплопродукция лактирующих А50
@@ -43,6 +44,26 @@ namespace DreamField.BusinessLogic
         /// </summary>
         protected override double EnergyProduction { get { return MilkEnergy * DailyMilk + PregnancyEnergy; } }
 
+        public override double Starch { get { return ReserveAndFeedEnergy * (0.2344 * DailyMilk + 7.625); } }
+        public override double Sugar { get { return ReserveAndFeedEnergy * (0.1563 * DailyMilk + 5.048); } }
+        public override double RawFat { get { return FeedExchangeEnergy * (0.04375 * DailyMilk + 2.05); } }
+        public override double Salt { get { return FeedExchangeEnergy * (0.0313 * DailyMilk + 5.25); } }
+        public override double Ka { get { return FeedExchangeEnergy * (0.0032 * DailyMilk + 5.25); } }
+        public override double P { get { return Ka * 0.7; } }
+        public override double Mg { get { return FeedExchangeEnergy*(0.19 - 0.0125*DailyMilk); } }
+        public override double K { get { return FeedExchangeEnergy*0.65; } }
+        public override double S { get { return FeedExchangeEnergy*0.21; } }
+        public override double Se { get { return FeedExchangeEnergy * (0.25 * DailyMilk + 6.25); } }
+        public override double Cu { get { return FeedExchangeEnergy * (0.0103 * DailyMilk + 6.18); } }
+        public override double Zn { get { return FeedExchangeEnergy * (0.0625 * DailyMilk + 4.1); } }
+        public override double Mn { get { return Zn; } }
+        public override double Co { get { return FeedExchangeEnergy * FeedExchangeEnergy * 0.0000725
+                    + 0.0631* FeedExchangeEnergy - 1.561; } }
+        public override double J { get { return FeedExchangeEnergy * (0.0000938 * DailyMilk + 0.0525); } }
+        public override double Carotene { get { return FeedExchangeEnergy * (0.0406 * DailyMilk + 3.076); } }
+        public override double VitaminD { get { return FeedExchangeEnergy * 0.09; } }
+        public override double VitaminE { get { return FeedExchangeEnergy * (0.0125 * DailyMilk + 3.3); } }
+
         public override NormIndexGeneral CreateNorm()
         {
             NormIndexLactating norm = new NormIndexLactating();
@@ -54,7 +75,7 @@ namespace DreamField.BusinessLogic
         }
     }
 
-    class DryCowFactorial : CowFactorial
+    /*class DryCowFactorial : CowNorm
     {
         public DryCowFactorial(double weight, double weightIncrement,
             double fatContent, double dailyMilk, double proteinMilkContent, int lactDay, double bodyTempetature = 38.5,
@@ -62,8 +83,9 @@ namespace DreamField.BusinessLogic
             int pregnancyDurability = 285, double ltza = 4.85, double dayDistance = 0, double calfWeight = 0) : base(weight, weightIncrement,
             fatContent, dailyMilk, proteinMilkContent, lactDay, bodyTempetature,
             environmentalTemperature, pasturePeriod = false,
-            pregnancyDurability, ltza, dayDistance, calfWeight) { }
-        
+            pregnancyDurability, ltza, dayDistance, calfWeight)
+        { }
+
         /// <summary>
         /// Теплопродукция сухостойных коров А50
         /// </summary>
@@ -89,8 +111,8 @@ namespace DreamField.BusinessLogic
             throw new NotImplementedException();
         }
     }
-    
-    class GrowCowFactorial : CowFactorial
+
+    class GrowCowFactorial : CowNorm
     {
         public GrowCowFactorial(double weight, double weightIncrement,
             double fatContent, double dailyMilk, double proteinMilkContent, int lactDay, double bodyTempetature = 38.5,
@@ -98,7 +120,8 @@ namespace DreamField.BusinessLogic
             int pregnancyDurability = 285, double ltza = 4.85, double dayDistance = 0, double calfWeight = 0) : base(weight, weightIncrement,
             fatContent, dailyMilk, proteinMilkContent, lactDay, bodyTempetature,
             environmentalTemperature, pasturePeriod = false,
-            pregnancyDurability, ltza, dayDistance, calfWeight) { }
+            pregnancyDurability, ltza, dayDistance, calfWeight)
+        { }
 
         /// <summary>
         /// Теплопродукция для положительного прироста массы А50
@@ -124,14 +147,15 @@ namespace DreamField.BusinessLogic
         {
             throw new NotImplementedException();
         }
-    }   
+    }*/
 
     /// <summary>
     /// Факториальный метод книги "Оптимизация рационов кормления высокопродуктивных коров
     /// </summary>
-    public abstract class CowFactorial
+    public abstract class CowNorm : ICowNorm
     {
 
+        CowDTO stats;
         #region Protected Fields
         protected readonly double BODY_TEMPERATURE;
         protected readonly double ENVIRONMENT_TEMPERATURE;
@@ -241,7 +265,7 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Затраты обменной энергии за счет потребление кормления А33
         /// </summary>
-        protected double FeedExcangeEnergy
+        protected double ProductionFeedExchangeEnergy
         {
             get
             {
@@ -253,8 +277,8 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Потребность в обменной энергии корма А35
         /// </summary>
-        protected double FeedExhangeEnergy { get { return FeedExcangeEnergy + HeatProduction; } }
-        
+        public double FeedExchangeEnergy { get { return ProductionFeedExchangeEnergy + HeatProduction; } }
+
         /// <summary>
         /// Удой от потребление питательных веществ корма А36
         /// </summary>
@@ -282,7 +306,7 @@ namespace DreamField.BusinessLogic
         #region DryMatterConsuption
 
         /// <summary>
-        /// Потребление суховго в-ва для коров с удоем меньше 6000кг
+        /// Потребление сухого в-ва для коров с удоем меньше 6000кг
         /// </summary>
         protected double DryMatterConsumption
         {
@@ -297,21 +321,70 @@ namespace DreamField.BusinessLogic
         #endregion
 
         #region RawCellulose
+        /// <summary>
+        /// Потребность в сырой клетчатке
+        /// </summary>
+        public double RawCellulose
+        {
+            get
+            {
+                return DryMatterConsumption * 10 * (29.5692 + 0.473822 * DRYPERCENT
+                + 0.007701 * DRYPERCENT * DRYPERCENT
+                - 0.00005 * Math.Pow(DRYPERCENT, 3));
+            }
+        }
+        #endregion
 
-        //public double RawCellulose { get { } }
+        #region Elements
+        public abstract double Starch { get; }
+        public abstract double Sugar { get; }
+        public abstract double RawFat { get; }
+        public abstract double Salt { get; }
+        public abstract double Ka { get; }
+        public abstract double P { get; }
+        public abstract double Mg { get; }
+        public abstract double K { get; }
+        public abstract double S { get; }
+        public abstract double Se { get; }
+        public abstract double Cu { get; }
+        public abstract double Zn { get; }
+        public abstract double Mn { get; }
+        public abstract double Co { get; }
+        public abstract double J { get; }
+        public abstract double Carotene { get; }
+        public abstract double VitaminD { get; }
+        public abstract double VitaminE { get; }
+        #endregion
+
+        #region Protein
+        public double RawProtein { get; }
+        public double DigestibleProtein { get; }
+        public double CleavablaProtein { get; }
+        public double UncleavablaProtein { get; }
+
         #endregion
 
         #region Methods
         public abstract NormIndexGeneral CreateNorm();
         #endregion
 
-        public CowFactorial(double weight, double weightIncrement,
-            double fatContent, double dailyMilk, double proteinMilkContent, int lactDay=2, double bodyTempetature = 38.5,
-            double environmentalTemperature = 15, bool pasturePeriod = false,
-            int pregnancyDurability = 285, double ltza = 4.85, double dayDistance = 0, double calfWeight = 0)
+        public CowNorm(double weight,
+            double weightIncrement,
+            double environmentTemperature,
+            double bodyTempetature,
+            double dryFeedPercent,
+            double humidity,
+            double fatContent,
+            int pregnancyDurability,
+            double dailyMilk,
+            double dayDistance,
+            double proteinMilkContent,
+            double ltza,
+            double calfWeight,
+            bool pasturePeriod,
+            int lactDay)
         {
-            
-            //Maybe MilkCow DTO?
+
             //TODO: Think about exceptions
             Weight = weight;
             WeightIncrement = weightIncrement;
@@ -320,7 +393,7 @@ namespace DreamField.BusinessLogic
             MilkProteinContent = proteinMilkContent;
             this.lactDay = lactDay;
             this.BODY_TEMPERATURE = bodyTempetature;
-            this.ENVIRONMENT_TEMPERATURE = environmentalTemperature;
+            this.ENVIRONMENT_TEMPERATURE = environmentTemperature;
             this.pasturePeriod = pasturePeriod;
             this.PREGNANCY_DURABILITY = pregnancyDurability;
             this.ltza = ltza;
@@ -328,7 +401,7 @@ namespace DreamField.BusinessLogic
             this.calfWeight = calfWeight;
         }
 
-        public CowFactorial(LactatingDTO dto)
+        public CowNorm(CowDTO dto)
         {
             Weight = dto.Weight;
             DailyMilk = dto.DailyMilk;
