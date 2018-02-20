@@ -20,7 +20,7 @@ namespace DreamField.Model
             this.RationFeeds = new HashSet<RationFeed>();
         }
     
-        public long id { get; set; }
+        public int id { get; set; }
         public decimal price { get; set; }
         public bool availability { get; set; }
         public float current_amount { get; set; }

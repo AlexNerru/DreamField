@@ -20,8 +20,8 @@ namespace DreamField.Model
             this.Animals = new HashSet<Animal>();
         }
     
-        public long id { get; set; }
-        public long farm_id { get; set; }
+        public int id { get; set; }
+        public int farm_id { get; set; }
         public string name { get; set; }
         public string comment { get; set; }
     

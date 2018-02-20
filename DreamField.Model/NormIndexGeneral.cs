@@ -14,7 +14,7 @@ namespace DreamField.Model
     
     public abstract partial class NormIndexGeneral
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public float EnergyFeedUnit { get; set; }
         public float ExcahngeEnergy { get; set; }
         public float DryMatter { get; set; }

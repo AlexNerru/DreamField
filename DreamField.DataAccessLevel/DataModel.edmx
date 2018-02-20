@@ -9,8 +9,8 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="herd_id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="herd_id" Type="int" Nullable="false" />
           <Property Name="responsible_user_id" Type="bigint" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="sex_age_group" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -23,7 +23,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="physiological_condition" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="breed" Type="int" Nullable="false" />
         </EntityType>
@@ -31,7 +31,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="location" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="specialization" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="price" Type="money" Nullable="false" />
           <Property Name="availability" Type="bit" Nullable="false" />
           <Property Name="current_amount" Type="real" Nullable="false" />
@@ -49,8 +49,8 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="farm_id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="farm_id" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="comment" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -58,14 +58,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="lactating_start_datetime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="NormIndexesFatteing">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ClevableProtein" Type="real" Nullable="false" />
           <Property Name="UnclevableProtein" Type="real" Nullable="false" />
           <Property Name="Starch" Type="real" Nullable="false" />
@@ -78,7 +78,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EnergyFeedUnit" Type="real" Nullable="false" />
           <Property Name="ExcahngeEnergy" Type="real" Nullable="false" />
           <Property Name="DryMatter" Type="real" Nullable="false" />
@@ -104,7 +104,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Se" Type="real" Nullable="false" />
           <Property Name="ExchangeProtein" Type="real" Nullable="false" />
           <Property Name="AcidDetergentFiber" Type="real" Nullable="false" />
@@ -116,7 +116,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Na" Type="real" Nullable="false" />
         </EntityType>
         <EntityType Name="RationFeeds">
@@ -124,17 +124,17 @@
             <PropertyRef Name="ration_id" />
             <PropertyRef Name="feed_id" />
           </Key>
-          <Property Name="ration_id" Type="bigint" Nullable="false" />
-          <Property Name="feed_id" Type="bigint" Nullable="false" />
+          <Property Name="ration_id" Type="int" Nullable="false" />
+          <Property Name="feed_id" Type="int" Nullable="false" />
           <Property Name="amount" Type="real" Nullable="false" />
         </EntityType>
         <EntityType Name="Rations">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Author_id" Type="bigint" Nullable="false" />
-          <Property Name="Farm_id" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Author_id" Type="int" Nullable="false" />
+          <Property Name="Farm_id" Type="int" Nullable="false" />
           <Property Name="Creation_datetime" Type="datetime" Nullable="false" />
           <Property Name="Animal" Type="int" Nullable="false" />
           <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
@@ -143,7 +143,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Second_name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -425,9 +425,9 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="herd_id" Type="Int64" Nullable="false" />
-          <Property Name="responsible_user_id" Type="Int64" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="herd_id" Type="Int32" Nullable="false" />
+          <Property Name="responsible_user_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="sex_age_group" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="birth_datetime" Type="DateTime" Nullable="false" Precision="3" />
@@ -444,7 +444,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="specialization" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -455,7 +455,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="availability" Type="Boolean" Nullable="false" />
           <Property Name="current_amount" Type="Single" Nullable="false" />
@@ -465,8 +465,8 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="farm_id" Type="Int64" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="farm_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="comment" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Animals" Relationship="DreamFieldModel.FK_Animals_Herds" FromRole="Herd" ToRole="Animal" />
@@ -488,7 +488,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EnergyFeedUnit" Type="Single" Nullable="false" />
           <Property Name="ExcahngeEnergy" Type="Single" Nullable="false" />
           <Property Name="DryMatter" Type="Single" Nullable="false" />
@@ -527,8 +527,8 @@
             <PropertyRef Name="ration_id" />
             <PropertyRef Name="feed_id" />
           </Key>
-          <Property Name="ration_id" Type="Int64" Nullable="false" />
-          <Property Name="feed_id" Type="Int64" Nullable="false" />
+          <Property Name="ration_id" Type="Int32" Nullable="false" />
+          <Property Name="feed_id" Type="Int32" Nullable="false" />
           <Property Name="amount" Type="Single" Nullable="false" />
           <NavigationProperty Name="Feed" Relationship="DreamFieldModel.FK_RationFeeds_Feed" FromRole="RationFeed" ToRole="Feed" />
           <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_RationFeeds_Ration" FromRole="RationFeed" ToRole="Ration" />
@@ -537,7 +537,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Second_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -587,9 +587,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Author_id" Type="Int64" Nullable="false" />
-          <Property Name="Farm_id" Type="Int64" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Author_id" Type="Int32" Nullable="false" />
+          <Property Name="Farm_id" Type="Int32" Nullable="false" />
           <Property Name="Creation_datetime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Animal" Type="Int32" Nullable="false" />
           <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />

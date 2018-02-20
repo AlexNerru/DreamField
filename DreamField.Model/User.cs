@@ -20,7 +20,7 @@ namespace DreamField.Model
             this.Rations = new HashSet<Ration>();
         }
     
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Second_name { get; set; }
         public string Surname { get; set; }

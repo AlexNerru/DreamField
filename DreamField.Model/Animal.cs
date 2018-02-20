@@ -14,9 +14,9 @@ namespace DreamField.Model
     
     public abstract partial class Animal
     {
-        public long id { get; set; }
-        public long herd_id { get; set; }
-        public long responsible_user_id { get; set; }
+        public int id { get; set; }
+        public int herd_id { get; set; }
+        public int responsible_user_id { get; set; }
         public string name { get; set; }
         public string sex_age_group { get; set; }
         public System.DateTime birth_datetime { get; set; }

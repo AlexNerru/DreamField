@@ -14,8 +14,8 @@ namespace DreamField.Model
     
     public partial class RationFeed
     {
-        public long ration_id { get; set; }
-        public long feed_id { get; set; }
+        public int ration_id { get; set; }
+        public int feed_id { get; set; }
         public float amount { get; set; }
     
         public virtual Feed Feed { get; set; }
