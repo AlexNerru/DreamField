@@ -1,0 +1,16 @@
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\DreamField.Tests.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\DreamField.Tests.pdb
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.csproj.CoreCompileInputs.cache
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.pdb
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.csprojResolveAssemblyReference.cache

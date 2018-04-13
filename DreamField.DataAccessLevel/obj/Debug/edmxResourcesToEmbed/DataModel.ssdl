@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DreamFieldModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Animals">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="herd_id" Type="int" Nullable="false" />
+    <Property Name="responsible_user_id" Type="bigint" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sex_age_group" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="birth_datetime" Type="datetime" Nullable="false" />
+    <Property Name="receipt_datetime" Type="datetime" Nullable="false" />
+    <Property Name="weight" Type="float" Nullable="false" />
+    <Property Name="fatness" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cows">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="physiological_condition" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="breed" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Farms">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="location" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="specialization" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Feeds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="price" Type="money" Nullable="false" />
+    <Property Name="availability" Type="bit" Nullable="false" />
+    <Property Name="current_amount" Type="float" Nullable="false" />
+    <Property Name="farm_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Herds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="farm_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="comment" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lactating_cows">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lactating_start_datetime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NormIndexesFatteing">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ClevableProtein" Type="float" Nullable="false" />
+    <Property Name="UnclevableProtein" Type="float" Nullable="false" />
+    <Property Name="Starch" Type="float" Nullable="false" />
+    <Property Name="Sugar" Type="float" Nullable="false" />
+    <Property Name="RawFat" Type="float" Nullable="false" />
+    <Property Name="K" Type="float" Nullable="false" />
+    <Property Name="S" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NormIndexesGeneral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="EnergyFeedUnit" Type="float" Nullable="false" />
+    <Property Name="ExcahngeEnergy" Type="float" Nullable="false" />
+    <Property Name="DryMatter" Type="float" Nullable="false" />
+    <Property Name="RawProtein" Type="float" Nullable="false" />
+    <Property Name="DigestibleProtein" Type="float" Nullable="false" />
+    <Property Name="RawCellulose" Type="float" Nullable="false" />
+    <Property Name="Salt" Type="float" Nullable="false" />
+    <Property Name="Ca" Type="float" Nullable="false" />
+    <Property Name="P" Type="float" Nullable="false" />
+    <Property Name="Mg" Type="float" Nullable="false" />
+    <Property Name="Fe" Type="float" Nullable="false" />
+    <Property Name="Cu" Type="float" Nullable="false" />
+    <Property Name="Zn" Type="float" Nullable="false" />
+    <Property Name="Co" Type="float" Nullable="false" />
+    <Property Name="Mn" Type="float" Nullable="false" />
+    <Property Name="J" Type="float" Nullable="false" />
+    <Property Name="Carotene" Type="float" Nullable="false" />
+    <Property Name="VitaminD" Type="float" Nullable="false" />
+    <Property Name="VitaminE" Type="float" Nullable="false" />
+    <Property Name="VitaminA" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NormIndexesLactating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Se" Type="float" Nullable="false" />
+    <Property Name="ExchangeProtein" Type="float" Nullable="false" />
+    <Property Name="AcidDetergentFiber" Type="float" Nullable="false" />
+    <Property Name="NeutralDetergentFiber" Type="float" Nullable="false" />
+    <Property Name="ExcahngeEnergyDryMatter" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NormIndexesTaurus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Na" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RationFeeds">
+    <Key>
+      <PropertyRef Name="ration_id" />
+      <PropertyRef Name="feed_id" />
+    </Key>
+    <Property Name="ration_id" Type="int" Nullable="false" />
+    <Property Name="feed_id" Type="int" Nullable="false" />
+    <Property Name="amount" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Author_id" Type="int" Nullable="false" />
+    <Property Name="Farm_id" Type="int" Nullable="false" />
+    <Property Name="Creation_datetime" Type="datetime" Nullable="false" />
+    <Property Name="Animal" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Second_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="E-mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Animals_Herds">
+    <End Role="Herds" Type="Self.Herds" Multiplicity="1" />
+    <End Role="Animals" Type="Self.Animals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Herds">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Animals">
+        <PropertyRef Name="herd_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cow_Animal">
+    <End Role="Animals" Type="Self.Animals" Multiplicity="1" />
+    <End Role="Cows" Type="Self.Cows" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Animals">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cows">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Farm_Feeds">
+    <End Role="Farms" Type="Self.Farms" Multiplicity="1" />
+    <End Role="Feeds" Type="Self.Feeds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farms">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Feeds">
+        <PropertyRef Name="farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Herds_Farm">
+    <End Role="Farms" Type="Self.Farms" Multiplicity="1" />
+    <End Role="Herds" Type="Self.Herds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farms">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Herds">
+        <PropertyRef Name="farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lactating_cow_Cow">
+    <End Role="Cows" Type="Self.Cows" Multiplicity="1" />
+    <End Role="Lactating_cows" Type="Self.Lactating_cows" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Cows">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Lactating_cows">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NormIndexesFatteing_NormIndexesGeneral">
+    <End Role="NormIndexesGeneral" Type="Self.NormIndexesGeneral" Multiplicity="1" />
+    <End Role="NormIndexesFatteing" Type="Self.NormIndexesFatteing" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="NormIndexesGeneral">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormIndexesFatteing">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NormIndexesGeneral_Rations">
+    <End Role="Rations" Type="Self.Rations" Multiplicity="1" />
+    <End Role="NormIndexesGeneral" Type="Self.NormIndexesGeneral" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Rations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormIndexesGeneral">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NormIndexesTaurus_NormIndexesFatteing">
+    <End Role="NormIndexesFatteing" Type="Self.NormIndexesFatteing" Multiplicity="1" />
+    <End Role="NormIndexesTaurus" Type="Self.NormIndexesTaurus" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="NormIndexesFatteing">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormIndexesTaurus">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NormIndexesTaurus_NormIndexesLactating">
+    <End Role="NormIndexesTaurus" Type="Self.NormIndexesTaurus" Multiplicity="1" />
+    <End Role="NormIndexesLactating" Type="Self.NormIndexesLactating" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="NormIndexesTaurus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormIndexesLactating">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RationFeeds_Feed">
+    <End Role="Feeds" Type="Self.Feeds" Multiplicity="1" />
+    <End Role="RationFeeds" Type="Self.RationFeeds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feeds">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RationFeeds">
+        <PropertyRef Name="feed_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RationFeeds_Ration">
+    <End Role="Rations" Type="Self.Rations" Multiplicity="1" />
+    <End Role="RationFeeds" Type="Self.RationFeeds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RationFeeds">
+        <PropertyRef Name="ration_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rations_Farm">
+    <End Role="Farms" Type="Self.Farms" Multiplicity="1" />
+    <End Role="Rations" Type="Self.Rations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farms">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Rations">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rations_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Rations" Type="Self.Rations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rations">
+        <PropertyRef Name="Author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище DreamFieldModelContainer">
+    <EntitySet Name="Animals" EntityType="Self.Animals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cows" EntityType="Self.Cows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Farms" EntityType="Self.Farms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feeds" EntityType="Self.Feeds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Herds" EntityType="Self.Herds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lactating_cows" EntityType="Self.Lactating_cows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NormIndexesFatteing" EntityType="Self.NormIndexesFatteing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NormIndexesGeneral" EntityType="Self.NormIndexesGeneral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NormIndexesLactating" EntityType="Self.NormIndexesLactating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NormIndexesTaurus" EntityType="Self.NormIndexesTaurus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RationFeeds" EntityType="Self.RationFeeds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rations" EntityType="Self.Rations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Animals_Herds" Association="Self.FK_Animals_Herds">
+      <End Role="Herds" EntitySet="Herds" />
+      <End Role="Animals" EntitySet="Animals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cow_Animal" Association="Self.FK_Cow_Animal">
+      <End Role="Animals" EntitySet="Animals" />
+      <End Role="Cows" EntitySet="Cows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Farm_Feeds" Association="Self.FK_Farm_Feeds">
+      <End Role="Farms" EntitySet="Farms" />
+      <End Role="Feeds" EntitySet="Feeds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Herds_Farm" Association="Self.FK_Herds_Farm">
+      <End Role="Farms" EntitySet="Farms" />
+      <End Role="Herds" EntitySet="Herds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lactating_cow_Cow" Association="Self.FK_Lactating_cow_Cow">
+      <End Role="Cows" EntitySet="Cows" />
+      <End Role="Lactating_cows" EntitySet="Lactating_cows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NormIndexesFatteing_NormIndexesGeneral" Association="Self.FK_NormIndexesFatteing_NormIndexesGeneral">
+      <End Role="NormIndexesGeneral" EntitySet="NormIndexesGeneral" />
+      <End Role="NormIndexesFatteing" EntitySet="NormIndexesFatteing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NormIndexesGeneral_Rations" Association="Self.FK_NormIndexesGeneral_Rations">
+      <End Role="Rations" EntitySet="Rations" />
+      <End Role="NormIndexesGeneral" EntitySet="NormIndexesGeneral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NormIndexesTaurus_NormIndexesFatteing" Association="Self.FK_NormIndexesTaurus_NormIndexesFatteing">
+      <End Role="NormIndexesFatteing" EntitySet="NormIndexesFatteing" />
+      <End Role="NormIndexesTaurus" EntitySet="NormIndexesTaurus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NormIndexesTaurus_NormIndexesLactating" Association="Self.FK_NormIndexesTaurus_NormIndexesLactating">
+      <End Role="NormIndexesTaurus" EntitySet="NormIndexesTaurus" />
+      <End Role="NormIndexesLactating" EntitySet="NormIndexesLactating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RationFeeds_Feed" Association="Self.FK_RationFeeds_Feed">
+      <End Role="Feeds" EntitySet="Feeds" />
+      <End Role="RationFeeds" EntitySet="RationFeeds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RationFeeds_Ration" Association="Self.FK_RationFeeds_Ration">
+      <End Role="Rations" EntitySet="Rations" />
+      <End Role="RationFeeds" EntitySet="RationFeeds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rations_Farm" Association="Self.FK_Rations_Farm">
+      <End Role="Farms" EntitySet="Farms" />
+      <End Role="Rations" EntitySet="Rations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rations_User" Association="Self.FK_Rations_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Rations" EntitySet="Rations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

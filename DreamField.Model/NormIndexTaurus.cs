@@ -14,6 +14,6 @@ namespace DreamField.Model
     
     public partial class NormIndexTaurus : NormIndexFatteing
     {
-        public float Na { get; set; }
+        public double Na { get; set; }
     }
 }

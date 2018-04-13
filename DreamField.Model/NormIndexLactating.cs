@@ -14,11 +14,10 @@ namespace DreamField.Model
     
     public partial class NormIndexLactating : NormIndexTaurus
     {
-        public float Se { get; set; }
-        public float ExchangeProtein { get; set; }
-        public float AcidDetergentFiber { get; set; }
-        public float NeutralDetergentFiber { get; set; }
-        public float ExcahngeEnergyDryMatter { get; set; }
-        public float ExcangeProtein { get; set; }
+        public double Se { get; set; }
+        public double ExchangeProtein { get; set; }
+        public double AcidDetergentFiber { get; set; }
+        public double NeutralDetergentFiber { get; set; }
+        public double ExcahngeEnergyDryMatter { get; set; }
     }
 }

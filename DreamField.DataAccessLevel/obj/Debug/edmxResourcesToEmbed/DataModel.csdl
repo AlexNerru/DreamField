@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DreamFieldModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DreamFieldEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animals" EntityType="DreamFieldModel.Animal" />
+    <EntitySet Name="Farms" EntityType="DreamFieldModel.Farm" />
+    <EntitySet Name="Feeds" EntityType="DreamFieldModel.Feed" />
+    <EntitySet Name="Herds" EntityType="DreamFieldModel.Herd" />
+    <EntitySet Name="NormIndexGenerals" EntityType="DreamFieldModel.NormIndexGeneral" />
+    <EntitySet Name="RationFeeds" EntityType="DreamFieldModel.RationFeed" />
+    <EntitySet Name="Users" EntityType="DreamFieldModel.User" />
+    <AssociationSet Name="FK_Animals_Herds" Association="DreamFieldModel.FK_Animals_Herds">
+      <End Role="Herd" EntitySet="Herds" />
+      <End Role="Animal" EntitySet="Animals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Herds_Farm" Association="DreamFieldModel.FK_Herds_Farm">
+      <End Role="Farm" EntitySet="Farms" />
+      <End Role="Herd" EntitySet="Herds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RationFeeds_Feed" Association="DreamFieldModel.FK_RationFeeds_Feed">
+      <End Role="Feed" EntitySet="Feeds" />
+      <End Role="RationFeed" EntitySet="RationFeeds" />
+    </AssociationSet>
+    <EntitySet Name="Rations" EntityType="DreamFieldModel.Ration" />
+    <AssociationSet Name="FK_Rations_Farm" Association="DreamFieldModel.FK_Rations_Farm">
+      <End Role="Farm" EntitySet="Farms" />
+      <End Role="Ration" EntitySet="Rations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NormIndexesGeneral_Rations" Association="DreamFieldModel.FK_NormIndexesGeneral_Rations">
+      <End Role="Ration" EntitySet="Rations" />
+      <End Role="NormIndexGeneral" EntitySet="NormIndexGenerals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RationFeeds_Ration" Association="DreamFieldModel.FK_RationFeeds_Ration">
+      <End Role="Ration" EntitySet="Rations" />
+      <End Role="RationFeed" EntitySet="RationFeeds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rations_User" Association="DreamFieldModel.FK_Rations_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Ration" EntitySet="Rations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Farm_Feeds" Association="DreamFieldModel.FK_Farm_Feeds">
+      <End Role="Farm" EntitySet="Farms" />
+      <End Role="Feed" EntitySet="Feeds" />
+    </AssociationSet>
+  </EntityContainer>
+  <EnumType Name="CowBreeds">
+    <Member Name="Холмогорская" />
+    <Member Name="Голштинская" />
+    <Member Name="Джерсейская" />
+    <Member Name="Чернопестрая" />
+    <Member Name="Симментальская" />
+    <Member Name="Шортгорнская" />
+  </EnumType>
+  <EnumType Name="AnimalTypes">
+    <Member Name="Cow" />
+    <Member Name="Pig" />
+    <Member Name="Horse" />
+  </EnumType>
+  <EnumType Name="CowStates">
+    <Member Name="Lactating" Value="1" />
+    <Member Name="IDunno" Value="2" />
+  </EnumType>
+  <EnumType Name="HorseStates">
+    <Member Name="Somestate" Value="1" />
+  </EnumType>
+  <EntityType Name="Animal" Abstract="true">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="herd_id" Type="Int32" Nullable="false" />
+    <Property Name="responsible_user_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sex_age_group" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="birth_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="receipt_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="weight" Type="Single" Nullable="false" />
+    <Property Name="fatness" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Herd" Relationship="DreamFieldModel.FK_Animals_Herds" FromRole="Animal" ToRole="Herd" />
+  </EntityType>
+  <EntityType Name="Cow" Abstract="true" BaseType="DreamFieldModel.Animal">
+    <Property Name="physiological_condition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="breed" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Farm">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="specialization" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Herds" Relationship="DreamFieldModel.FK_Herds_Farm" FromRole="Farm" ToRole="Herd" />
+    <NavigationProperty Name="Rations" Relationship="DreamFieldModel.FK_Rations_Farm" FromRole="Farm" ToRole="Ration" />
+    <NavigationProperty Name="Feeds" Relationship="DreamFieldModel.FK_Farm_Feeds" FromRole="Farm" ToRole="Feed" />
+  </EntityType>
+  <EntityType Name="Feed">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="availability" Type="Boolean" Nullable="false" />
+    <Property Name="current_amount" Type="Single" Nullable="false" />
+    <NavigationProperty Name="RationFeeds" Relationship="DreamFieldModel.FK_RationFeeds_Feed" FromRole="Feed" ToRole="RationFeed" />
+    <Property Name="farm_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Farm_Feeds" FromRole="Feed" ToRole="Farm" />
+  </EntityType>
+  <EntityType Name="Herd">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="farm_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="comment" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Animals" Relationship="DreamFieldModel.FK_Animals_Herds" FromRole="Herd" ToRole="Animal" />
+    <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Herds_Farm" FromRole="Herd" ToRole="Farm" />
+  </EntityType>
+  <EntityType Name="Lactating_cow" BaseType="DreamFieldModel.Cow">
+    <Property Name="lactating_start_datetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NormIndexFatteing" BaseType="DreamFieldModel.NormIndexGeneral">
+    <Property Name="ClevableProtein" Type="Double" Nullable="false" />
+    <Property Name="UnclevableProtein" Type="Double" Nullable="false" />
+    <Property Name="Starch" Type="Double" Nullable="false" />
+    <Property Name="Sugar" Type="Double" Nullable="false" />
+    <Property Name="RawFat" Type="Double" Nullable="false" />
+    <Property Name="K" Type="Double" Nullable="false" />
+    <Property Name="S" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NormIndexGeneral" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnergyFeedUnit" Type="Double" Nullable="false" />
+    <Property Name="ExcahngeEnergy" Type="Double" Nullable="false" />
+    <Property Name="DryMatter" Type="Double" Nullable="false" />
+    <Property Name="RawProtein" Type="Double" Nullable="false" />
+    <Property Name="DigestibleProtein" Type="Double" Nullable="false" />
+    <Property Name="RawCellulose" Type="Double" Nullable="false" />
+    <Property Name="Salt" Type="Double" Nullable="false" />
+    <Property Name="Ca" Type="Double" Nullable="false" />
+    <Property Name="P" Type="Double" Nullable="false" />
+    <Property Name="Mg" Type="Double" Nullable="false" />
+    <Property Name="Fe" Type="Double" Nullable="false" />
+    <Property Name="Cu" Type="Double" Nullable="false" />
+    <Property Name="Zn" Type="Double" Nullable="false" />
+    <Property Name="Co" Type="Double" Nullable="false" />
+    <Property Name="Mn" Type="Double" Nullable="false" />
+    <Property Name="J" Type="Double" Nullable="false" />
+    <Property Name="Carotene" Type="Double" Nullable="false" />
+    <Property Name="VitaminD" Type="Double" Nullable="false" />
+    <Property Name="VitaminE" Type="Double" Nullable="false" />
+    <Property Name="VitaminA" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_NormIndexesGeneral_Rations" FromRole="NormIndexGeneral" ToRole="Ration" />
+  </EntityType>
+  <EntityType Name="NormIndexLactating" BaseType="DreamFieldModel.NormIndexTaurus">
+    <Property Name="Se" Type="Double" Nullable="false" />
+    <Property Name="ExchangeProtein" Type="Double" Nullable="false" />
+    <Property Name="AcidDetergentFiber" Type="Double" Nullable="false" />
+    <Property Name="NeutralDetergentFiber" Type="Double" Nullable="false" />
+    <Property Name="ExcahngeEnergyDryMatter" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NormIndexTaurus" BaseType="DreamFieldModel.NormIndexFatteing">
+    <Property Name="Na" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RationFeed">
+    <Key>
+      <PropertyRef Name="ration_id" />
+      <PropertyRef Name="feed_id" />
+    </Key>
+    <Property Name="ration_id" Type="Int32" Nullable="false" />
+    <Property Name="feed_id" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Feed" Relationship="DreamFieldModel.FK_RationFeeds_Feed" FromRole="RationFeed" ToRole="Feed" />
+    <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_RationFeeds_Ration" FromRole="RationFeed" ToRole="Ration" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Second_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Rations" Relationship="DreamFieldModel.FK_Rations_User" FromRole="User" ToRole="Ration" />
+  </EntityType>
+  <Association Name="FK_Animals_Herds">
+    <End Type="DreamFieldModel.Herd" Role="Herd" Multiplicity="1" />
+    <End Type="DreamFieldModel.Animal" Role="Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Herd">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="herd_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Herds_Farm">
+    <End Type="DreamFieldModel.Farm" Role="Farm" Multiplicity="1" />
+    <End Type="DreamFieldModel.Herd" Role="Herd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Herd">
+        <PropertyRef Name="farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RationFeeds_Feed">
+    <End Type="DreamFieldModel.Feed" Role="Feed" Multiplicity="1" />
+    <End Type="DreamFieldModel.RationFeed" Role="RationFeed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feed">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RationFeed">
+        <PropertyRef Name="feed_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Ration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Author_id" Type="Int32" Nullable="false" />
+    <Property Name="Farm_id" Type="Int32" Nullable="false" />
+    <Property Name="Creation_datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Animal" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Rations_Farm" FromRole="Ration" ToRole="Farm" />
+    <NavigationProperty Name="NormIndexesGeneral" Relationship="DreamFieldModel.FK_NormIndexesGeneral_Rations" FromRole="Ration" ToRole="NormIndexGeneral" />
+    <NavigationProperty Name="RationFeeds" Relationship="DreamFieldModel.FK_RationFeeds_Ration" FromRole="Ration" ToRole="RationFeed" />
+    <NavigationProperty Name="User" Relationship="DreamFieldModel.FK_Rations_User" FromRole="Ration" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Rations_Farm">
+    <End Type="DreamFieldModel.Farm" Role="Farm" Multiplicity="1" />
+    <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ration">
+        <PropertyRef Name="Farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NormIndexesGeneral_Rations">
+    <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="1" />
+    <End Type="DreamFieldModel.NormIndexGeneral" Role="NormIndexGeneral" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Ration">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormIndexGeneral">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RationFeeds_Ration">
+    <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="1" />
+    <End Type="DreamFieldModel.RationFeed" Role="RationFeed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ration">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RationFeed">
+        <PropertyRef Name="ration_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rations_User">
+    <End Type="DreamFieldModel.User" Role="User" Multiplicity="1" />
+    <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ration">
+        <PropertyRef Name="Author_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Farm_Feeds">
+    <End Type="DreamFieldModel.Farm" Role="Farm" Multiplicity="1" />
+    <End Type="DreamFieldModel.Feed" Role="Feed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Feed">
+        <PropertyRef Name="farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

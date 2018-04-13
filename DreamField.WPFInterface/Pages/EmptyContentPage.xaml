@@ -1,0 +1,14 @@
+﻿<Page x:Class="DreamField.WPFInterface.EmptyContentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DreamField.WPFInterface"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="EmptyContentPage">
+
+    <Grid x:Name="NothingChoosenGrid" Grid.Column="1" HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="280">
+        <Label Content="" HorizontalAlignment="Left" Margin="258.8,174.2,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

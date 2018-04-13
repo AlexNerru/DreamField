@@ -1,0 +1,16 @@
+﻿<Window x:Name="Login_Window" x:Class="DreamField.WPFInterface.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DreamField.WPFInterface.Windows"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="364.8" Width="300">
+    <Grid Background="#FFECDD9C">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Frame Content="" Source="/DreamField.WPFInterface;component/Pages/LoginPage.xaml" Margin="10,10,10.2,9.8" NavigationUIVisibility="Hidden"/>
+
+    </Grid>
+</Window>

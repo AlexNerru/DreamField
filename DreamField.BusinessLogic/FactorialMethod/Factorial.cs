@@ -35,32 +35,72 @@ namespace DreamField.BusinessLogic
         /// </summary>
         protected override double EnergyProduction { get { return MilkEnergy * stats.DailyMilk + PregnancyEnergy; } }
 
+        #region Elements
         public override double Starch { get { return ReserveAndFeedEnergy * (0.2344 * stats.DailyMilk + 7.625); } }
         public override double Sugar { get { return ReserveAndFeedEnergy * (0.1563 * stats.DailyMilk + 5.048); } }
         public override double RawFat { get { return FeedExchangeEnergy * (0.04375 * stats.DailyMilk + 2.05); } }
         public override double Salt { get { return FeedExchangeEnergy * (0.0313 * stats.DailyMilk + 5.25); } }
-        public override double Ka { get { return FeedExchangeEnergy * (0.0032 * stats.DailyMilk + 5.25); } }
-        public override double P { get { return Ka * 0.7; } }
-        public override double Mg { get { return FeedExchangeEnergy*(0.19 - 0.0125* stats.DailyMilk); } }
-        public override double K { get { return FeedExchangeEnergy*0.65; } }
-        public override double S { get { return FeedExchangeEnergy*0.21; } }
+        public override double Сa { get { return FeedExchangeEnergy * (0.0032 * stats.DailyMilk + 5.25); } }
+        public override double P { get { return Сa * 0.7; } }
+        public override double Mg { get { return FeedExchangeEnergy * (0.19 - 0.0125 * stats.DailyMilk); } }
+        public override double K { get { return FeedExchangeEnergy * 0.65; } }
+        public override double S { get { return FeedExchangeEnergy * 0.21; } }
         public override double Se { get { return FeedExchangeEnergy * (0.25 * stats.DailyMilk + 6.25); } }
         public override double Cu { get { return FeedExchangeEnergy * (0.0103 * stats.DailyMilk + 6.18); } }
         public override double Zn { get { return FeedExchangeEnergy * (0.0625 * stats.DailyMilk + 4.1); } }
         public override double Mn { get { return Zn; } }
-        public override double Co { get { return FeedExchangeEnergy * FeedExchangeEnergy * 0.0000725
-                    + 0.0631* FeedExchangeEnergy - 1.561; } }
+        public override double Co
+        {
+            get
+            {
+                return FeedExchangeEnergy * FeedExchangeEnergy * 0.0000725
+                        + 0.0631 * FeedExchangeEnergy
+                        - 1.561;
+            }
+        }
         public override double J { get { return FeedExchangeEnergy * (0.0000938 * stats.DailyMilk + 0.0525); } }
         public override double Carotene { get { return FeedExchangeEnergy * (0.0406 * stats.DailyMilk + 3.076); } }
         public override double VitaminD { get { return FeedExchangeEnergy * 0.09; } }
         public override double VitaminE { get { return FeedExchangeEnergy * (0.0125 * stats.DailyMilk + 3.3); } }
+        #endregion
 
         public override NormIndexGeneral CreateNorm()
         {
-            NormIndexLactating norm = new NormIndexLactating();
-            throw new NotImplementedException();
-
-
+            NormIndexLactating norm = new NormIndexLactating
+            {
+                AcidDetergentFiber = 0,
+                Ca = Сa,
+                Carotene = Carotene,
+                ClevableProtein = CleavableProtein,
+                Co = Co,
+                Cu = Cu,
+                DigestibleProtein = 0,
+                DryMatter = DryMatterConsumption,
+                EnergyFeedUnit = 0,
+                ExcahngeEnergy = FeedExchangeEnergy,
+                ExcahngeEnergyDryMatter = 0,
+                ExchangeProtein = 0,
+                Fe = 0,
+                J = J,
+                K = K,
+                Mg = Mg,
+                Mn = Mn,
+                Na = 0,
+                P = P,
+                RawCellulose = RawCellulose,
+                RawFat = RawFat,
+                RawProtein = RawProtein,
+                S = S,
+                Salt = Salt,
+                Se = Se,
+                Starch = Starch,
+                Sugar = Sugar,
+                UnclevableProtein = UncleavablaProtein,
+                VitaminA = 0,
+                VitaminD = VitaminD,
+                VitaminE = VitaminE,
+                Zn = Zn
+            };
             return norm;
         }
     }
@@ -145,7 +185,7 @@ namespace DreamField.BusinessLogic
     public abstract class CowNorm : ICowNorm
     {
 
-        protected CowDTO stats;  
+        protected CowDTO stats;
 
         /// <summary>
         /// Обменная масса А00
@@ -290,7 +330,7 @@ namespace DreamField.BusinessLogic
             get
             {
                 return DryMatterConsumption * 10 * (29.5692 + 0.473822 * stats.DryFeedPercent
-                + 0.007701 * Math.Pow(stats.DryFeedPercent,2)
+                + 0.007701 * Math.Pow(stats.DryFeedPercent, 2)
                 - 0.00005 * Math.Pow(stats.DryFeedPercent, 3));
             }
         }
@@ -301,7 +341,7 @@ namespace DreamField.BusinessLogic
         public abstract double Sugar { get; }
         public abstract double RawFat { get; }
         public abstract double Salt { get; }
-        public abstract double Ka { get; }
+        public abstract double Сa { get; }
         public abstract double P { get; }
         public abstract double Mg { get; }
         public abstract double K { get; }
@@ -318,10 +358,81 @@ namespace DreamField.BusinessLogic
         #endregion
 
         #region Protein
-        public double RawProtein { get; }
-        public double DigestibleProtein { get; }
-        public double CleavablaProtein { get; }
-        public double UncleavablaProtein { get; }
+        /// <summary>
+        /// Потребность в доступном белке PDBP
+        /// </summary>
+        protected double AvailableProteinLiving { get { return 2.2 / (0.7 * BulkWeight); } }
+        /// <summary>
+        /// Потребность в белке на прирост PBPT
+        /// </summary>
+        protected double AvailableProteinIncrement
+        {
+            get
+            {
+                double pbt;
+                if (stats.WeightIncrement > 0)
+                    pbt = 150 * stats.WeightIncrement;
+                else
+                    pbt = 100 * stats.WeightIncrement;
+                return pbt / 0.5;
+            }
+        }
+        /// <summary>
+        /// Потребность в доступном белке на биосинтез белка
+        /// </summary>
+        protected double AvailableProteinMilk { get { return stats.DailyMilk * (34 / 0.72); } }
+        /// <summary>
+        /// Потребность в белке на формирование плода PBKP
+        /// </summary>
+        protected double CalfProtein
+        {
+            get
+            {
+                double pbbp = -4.494734 + 0.2515092 * stats.PregnancyDurability
+                    - 0.00294698 * Math.Pow(stats.PregnancyDurability, 2)
+                    + 0.0000145 * Math.Pow(stats.PregnancyDurability, 3);
+                return pbbp / 0.5;
+            }
+        }
+        /// <summary>
+        /// Доступный протеин Db
+        /// </summary>
+        protected double AvailableProtein
+        {
+            get
+            {
+                return (AvailableProteinLiving
+                        + AvailableProteinIncrement
+                        + AvailableProteinMilk + CalfProtein) * 1.1;
+            }
+        }
+        /// <summary>
+        /// Что-то микробиологическое
+        /// </summary>
+        protected double MicroProtein { get { return FeedExchangeEnergy * 7.16 * 0.8 * 0.8; } }
+        /// <summary>
+        /// Доступный нерасщепляемы протеин
+        /// </summary>
+        public double UncleavablaProtein { get { return AvailableProtein - MicroProtein; } }
+        /// <summary>
+        /// Сырой расщепляемый протеин
+        /// </summary>
+        public double CleavableProtein { get {return (FeedExchangeEnergy * 7.16) / 0.8; } }
+        /// <summary>
+        /// Потребность в сыром протеине
+        /// </summary>
+        public double RawProtein
+        {
+            get
+            {
+                double pnsp = UncleavablaProtein / 0.7;
+                double prsp = CleavableProtein;
+                return pnsp + prsp;
+
+            }
+        }
+        public double DigestibleProtein { get { return 0; } }
+
 
         #endregion
 

@@ -8,5 +8,6 @@ namespace DreamField.DataAccessLevel.Interfaces
 {
     interface IUserRepository
     {
+        
     }
 }

@@ -14,12 +14,12 @@ namespace DreamField.Model
     
     public partial class NormIndexFatteing : NormIndexGeneral
     {
-        public float ClevableProtein { get; set; }
-        public float UnclevableProtein { get; set; }
-        public float Starch { get; set; }
-        public float Sugar { get; set; }
-        public float RawFat { get; set; }
-        public float K { get; set; }
-        public float S { get; set; }
+        public double ClevableProtein { get; set; }
+        public double UnclevableProtein { get; set; }
+        public double Starch { get; set; }
+        public double Sugar { get; set; }
+        public double RawFat { get; set; }
+        public double K { get; set; }
+        public double S { get; set; }
     }
 }

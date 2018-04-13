@@ -47,7 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RationService.cs" />
+    <Compile Include="Concrete\FeedService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Concrete\UserService.cs" />
+    <Compile Include="Interfaces\IFeedService.cs" />
+    <Compile Include="Interfaces\IRationService.cs" />
+    <Compile Include="Concrete\RationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,5 +73,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

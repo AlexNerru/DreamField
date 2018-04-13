@@ -1,0 +1,14 @@
+﻿<Page x:Class="DreamField.WPFInterface.Pages.FeedsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DreamField.WPFInterface.Pages"
+      mc:Ignorable="d"
+      Title="FeedsPage">
+
+    <Grid Margin="10" DataContext="{Binding Source={StaticResource Locator}}">
+        <DataGrid x:Name="FeedsDataGrid" Margin="10" ItemsSource="{Binding Feeds.Feeds}" BorderBrush="Black" Foreground="#FF9AC06A" Background="#FFB1D189" />
+
+    </Grid>
+</Page>

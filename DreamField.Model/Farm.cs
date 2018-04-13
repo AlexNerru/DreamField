@@ -19,6 +19,7 @@ namespace DreamField.Model
         {
             this.Herds = new HashSet<Herd>();
             this.Rations = new HashSet<Ration>();
+            this.Feeds = new HashSet<Feed>();
         }
     
         public int id { get; set; }
@@ -30,5 +31,7 @@ namespace DreamField.Model
         public virtual ICollection<Herd> Herds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ration> Rations { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feed> Feeds { get; set; }
     }
 }

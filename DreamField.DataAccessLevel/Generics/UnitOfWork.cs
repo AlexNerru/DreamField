@@ -23,7 +23,9 @@ namespace DreamField.DataAccessLevel.Generics
             repositories.Add(typeof(NormIndexGeneral), new NormRepository(context));
             repositories.Add(typeof(User), new UserRepository(context));
             repositories.Add(typeof(Farm), new FarmRepository(context));
+            repositories.Add(typeof(Feed), new FeedRepository(context));
         }
+        
 
         
         public IRepository<T> Repository<T>() where T : class

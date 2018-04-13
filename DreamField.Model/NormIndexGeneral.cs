@@ -15,26 +15,26 @@ namespace DreamField.Model
     public abstract partial class NormIndexGeneral
     {
         public int Id { get; set; }
-        public float EnergyFeedUnit { get; set; }
-        public float ExcahngeEnergy { get; set; }
-        public float DryMatter { get; set; }
-        public float RawProtein { get; set; }
-        public float DigestibleProtein { get; set; }
-        public float RawCellulose { get; set; }
-        public float Salt { get; set; }
-        public float Ca { get; set; }
-        public float P { get; set; }
-        public float Mg { get; set; }
-        public float Fe { get; set; }
-        public float Cu { get; set; }
-        public float Zn { get; set; }
-        public float Co { get; set; }
-        public float Mn { get; set; }
-        public float J { get; set; }
-        public float Carotene { get; set; }
-        public float VitaminD { get; set; }
-        public float VitaminE { get; set; }
-        public float VitaminA { get; set; }
+        public double EnergyFeedUnit { get; set; }
+        public double ExcahngeEnergy { get; set; }
+        public double DryMatter { get; set; }
+        public double RawProtein { get; set; }
+        public double DigestibleProtein { get; set; }
+        public double RawCellulose { get; set; }
+        public double Salt { get; set; }
+        public double Ca { get; set; }
+        public double P { get; set; }
+        public double Mg { get; set; }
+        public double Fe { get; set; }
+        public double Cu { get; set; }
+        public double Zn { get; set; }
+        public double Co { get; set; }
+        public double Mn { get; set; }
+        public double J { get; set; }
+        public double Carotene { get; set; }
+        public double VitaminD { get; set; }
+        public double VitaminE { get; set; }
+        public double VitaminA { get; set; }
     
         public virtual Ration Ration { get; set; }
     }

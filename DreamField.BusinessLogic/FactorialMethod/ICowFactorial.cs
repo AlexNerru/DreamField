@@ -5,13 +5,13 @@ namespace DreamField.BusinessLogic
     public interface ICowNorm
     {
         double Carotene { get; }
-        double CleavablaProtein { get; }
+        double CleavableProtein { get; }
         double Cu { get; }
         double DigestibleProtein { get; }
         double FeedExchangeEnergy { get; }
         double J { get; }
         double K { get; }
-        double Ka { get; }
+        double Сa { get; }
         double Co { get; }
         double Mg { get; }
         double Mn { get; }
@@ -28,7 +28,6 @@ namespace DreamField.BusinessLogic
         double VitaminD { get; }
         double VitaminE { get; }
         double Zn { get; }
-
         NormIndexGeneral CreateNorm();
     }
 }

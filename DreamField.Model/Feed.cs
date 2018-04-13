@@ -24,8 +24,10 @@ namespace DreamField.Model
         public decimal price { get; set; }
         public bool availability { get; set; }
         public float current_amount { get; set; }
+        public int farm_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RationFeed> RationFeeds { get; set; }
+        public virtual Farm Farm { get; set; }
     }
 }

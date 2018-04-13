@@ -1,0 +1,58 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+        xmlns:local="clr-namespace:DreamField.WPFInterface"
+        xmlns:Model="clr-namespace:DreamField.Model;assembly=DreamField.Model" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Custom="http://www.galasoft.ch/mvvmlight" x:Name="Main_Window" x:Class="DreamField.WPFInterface.Windows.MainWindow"
+        mc:Ignorable="d"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        Title="{Binding Title}" WindowState="Maximized" ResizeMode="NoResize" Width="1920" Height="1080" Background="#FFF0F4C3">
+
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="195*"/>
+            <ColumnDefinition Width="1718*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <HamburgerMenu:HamburgerMenu x:Name="Menu" Background="#FF6CD66C" MenuIconColor="#033076" SelectionIndicatorColor="#033076" MenuItemForeground="#FF033076" Margin="0,0,0,0.2" HorizontalAlignment="Left">
+            <HamburgerMenu:HamburgerMenuItem x:Name="HomeButton" Text="Home" FontSize="26" FontWeight="Bold" Height="80" FontFamily="Franklin Gothic Heavy" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Selected">
+                        <Custom:EventToCommand Command="{Binding EmptyCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </HamburgerMenu:HamburgerMenuItem>
+            <HamburgerMenu:HamburgerMenuItem x:Name="RationsButton" Text="Rations" FontSize="16" FontWeight="Bold" Height="80">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Selected">
+                        <Custom:EventToCommand Command="{Binding OpenRationsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </HamburgerMenu:HamburgerMenuItem>
+            <HamburgerMenu:HamburgerMenuItem x:Name="SeettingsButton" Text="Settings" FontSize="16" FontWeight="Bold" Height="80"/>
+            <HamburgerMenu:HamburgerMenuItem x:Name="FeedsButton" Text="Feeds" FontSize="16" FontWeight="Bold" Height="80">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Selected">
+                        <Custom:EventToCommand Command="{Binding FeedsCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </HamburgerMenu:HamburgerMenuItem>
+            <HamburgerMenu:HamburgerMenuItem x:Name="ExitButton" Text="Exit" FontSize="26" FontWeight="Bold" Height="80"  VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Hidden" VerticalContentAlignment="Bottom" Margin="0,400,0,0" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Selected">
+                        <Custom:EventToCommand Command="{Binding CloseWindowCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </HamburgerMenu:HamburgerMenuItem>
+
+        </HamburgerMenu:HamburgerMenu>
+        <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden" Source="/DreamField.WPFInterface;component/Pages/EmptyContentPage.xaml" Margin="9.8,35,9.6,10.2" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
+        <Rectangle Fill="#FF6CD66C" Height="35" Margin="50,0,-0.4,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label x:Name="UserNameLabel" Content="{Binding UserName}" Grid.Column="1" HorizontalAlignment="Left" Margin="689.8,4,0,0" VerticalAlignment="Top" Height="26" Width="110"/>
+
+
+    </Grid>
+</Window>

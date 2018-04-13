@@ -8,7 +8,8 @@ namespace DreamField.BusinessLogic
 {
     public class CowDTO
     {
-        public CowDTO(double weight,
+        public CowDTO(int rationId,
+            double weight,
             double weightIncrement,
             double environmentTemperature,
             double bodyTempetature,
@@ -24,6 +25,7 @@ namespace DreamField.BusinessLogic
             bool pasturePeriod,
             int lactDay)
         {
+            RationId = rationId;
             Weight = weight;
             WeightIncrement = weightIncrement;
             EnvironmentTemp = environmentTemperature;
@@ -40,6 +42,7 @@ namespace DreamField.BusinessLogic
             PasturePeriod = pasturePeriod;
             LactDay = lactDay;
         }
+        public int RationId { get; set; }
         public double Weight { get; set; }
         public double WeightIncrement { get; set; }
         public double EnvironmentTemp { get; set; }

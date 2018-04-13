@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="16afe96c0f194a06bdbea1fe22be6f20" Name="Diagram1" ZoomLevel="59">
+      <Diagram DiagramId="16afe96c0f194a06bdbea1fe22be6f20" Name="Diagram1" ZoomLevel="72" DisplayType="true">
         <EntityTypeShape EntityType="DreamFieldModel.Animal" Width="1.5" PointX="5.25" PointY="12.125" />
         <EntityTypeShape EntityType="DreamFieldModel.Cow" Width="1.5" PointX="7.5" PointY="12.625" />
         <EntityTypeShape EntityType="DreamFieldModel.Farm" Width="1.5" PointX="0.75" PointY="6.375" />
-        <EntityTypeShape EntityType="DreamFieldModel.Feed" Width="1.5" PointX="6" PointY="2.5" />
+        <EntityTypeShape EntityType="DreamFieldModel.Feed" Width="1.5" PointX="5.125" PointY="2.125" />
         <EntityTypeShape EntityType="DreamFieldModel.Herd" Width="1.5" PointX="3" PointY="12.5" />
         <EntityTypeShape EntityType="DreamFieldModel.Lactating_cow" Width="1.5" PointX="9.75" PointY="12.875" />
         <EntityTypeShape EntityType="DreamFieldModel.NormIndexFatteing" Width="1.5" PointX="7.5" PointY="6.75" />
@@ -30,6 +30,7 @@
         <AssociationConnector Association="DreamFieldModel.FK_NormIndexesGeneral_Rations" />
         <AssociationConnector Association="DreamFieldModel.FK_RationFeeds_Ration" />
         <AssociationConnector Association="DreamFieldModel.FK_Rations_User" />
+        <AssociationConnector Association="DreamFieldModel.FK_Farm_Feeds" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
