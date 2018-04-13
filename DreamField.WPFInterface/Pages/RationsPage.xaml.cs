@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DreamField.WPFInterface
+namespace DreamField.WPFInterface.Pages
 {
     /// <summary>
     /// Логика взаимодействия для RationsPage.xaml
@@ -24,7 +24,5 @@ namespace DreamField.WPFInterface
         {
             InitializeComponent();
         }
-
-        
     }
 }

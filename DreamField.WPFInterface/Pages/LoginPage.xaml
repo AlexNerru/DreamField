@@ -12,7 +12,7 @@
     <Grid DataContext="{Binding Source={StaticResource Locator}}">
         <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Margin="81.4,192.7,0,0" VerticalAlignment="Top" Width="120" Text="{Binding Login.Password, Mode=TwoWay}" />
         <TextBox x:Name="LoginTextBox" HorizontalAlignment="Left" Height="23" Margin="81.4,128.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Login.Login, Mode=TwoWay}"/>
-        <Button x:Name="SublitLoginButton" Content="Submit" HorizontalAlignment="Left" Margin="81.4,253.6,0,0" VerticalAlignment="Top" Width="120" Command="{Binding Login.LoginCommand, Mode=OneWay}" CommandParameter="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Windows:LoginWindow}}}"/>
+        <Button x:Name="SublitLoginButton" Content="Submit" HorizontalAlignment="Left" Margin="81.4,253.6,0,0" VerticalAlignment="Top" Width="120" Command="{Binding Login.LoginCommand, Mode=OneWay}"/>
         <TextBlock HorizontalAlignment="Left" Height="24.7" Margin="81.4,99.1,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Height="19" Margin="81.4,168.7,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
     </Grid>

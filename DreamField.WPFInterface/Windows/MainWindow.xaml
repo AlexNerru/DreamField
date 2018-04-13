@@ -12,8 +12,8 @@
 
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="195*"/>
-            <ColumnDefinition Width="1718*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="279*"/>
         </Grid.ColumnDefinitions>
 
 
@@ -32,7 +32,6 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </HamburgerMenu:HamburgerMenuItem>
-            <HamburgerMenu:HamburgerMenuItem x:Name="SeettingsButton" Text="Settings" FontSize="16" FontWeight="Bold" Height="80"/>
             <HamburgerMenu:HamburgerMenuItem x:Name="FeedsButton" Text="Feeds" FontSize="16" FontWeight="Bold" Height="80">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
@@ -40,6 +39,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </HamburgerMenu:HamburgerMenuItem>
+            <HamburgerMenu:HamburgerMenuItem x:Name="SeettingsButton" Text="Settings" FontSize="16" FontWeight="Bold" Height="80"/>
             <HamburgerMenu:HamburgerMenuItem x:Name="ExitButton" Text="Exit" FontSize="26" FontWeight="Bold" Height="80"  VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Hidden" VerticalContentAlignment="Bottom" Margin="0,400,0,0" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
@@ -49,9 +49,9 @@
             </HamburgerMenu:HamburgerMenuItem>
 
         </HamburgerMenu:HamburgerMenu>
-        <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden" Source="/DreamField.WPFInterface;component/Pages/EmptyContentPage.xaml" Margin="9.8,35,9.6,10.2" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
+        <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden" Source="/DreamField.WPFInterface;component/Pages/EmptyContentPage.xaml" Margin="10,35,9.6,10.2" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
         <Rectangle Fill="#FF6CD66C" Height="35" Margin="50,0,-0.4,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Label x:Name="UserNameLabel" Content="{Binding UserName}" Grid.Column="1" HorizontalAlignment="Left" Margin="689.8,4,0,0" VerticalAlignment="Top" Height="26" Width="110"/>
+        <Label x:Name="UserNameLabel" Content="{Binding UserName}" Grid.Column="1" HorizontalAlignment="Left" Margin="690,4,0,0" VerticalAlignment="Top" Height="26" Width="110"/>
 
 
     </Grid>

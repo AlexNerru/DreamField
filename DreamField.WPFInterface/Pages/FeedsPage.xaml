@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DreamField.WPFInterface.Pages"
       mc:Ignorable="d"
-      Title="FeedsPage">
+      Title="FeedsPage" Height="314.9" Width="510">
 
     <Grid Margin="10" DataContext="{Binding Source={StaticResource Locator}}">
-        <DataGrid x:Name="FeedsDataGrid" Margin="10" ItemsSource="{Binding Feeds.Feeds}" BorderBrush="Black" Foreground="#FF9AC06A" Background="#FFB1D189" />
+        <DataGrid x:Name="FeedsDataGrid" Margin="10,10,10,9.8" ItemsSource="{Binding Feeds.Feeds}" BorderBrush="Black" Foreground="#FF9AC06A" Background="#FFB1D189" />
 
     </Grid>
 </Page>

@@ -23,10 +23,10 @@ namespace DreamField.WPFInterface.ViewModel
         public RelayCommand FeedsCommand { get; private set; }
         public RelayCommand LoginCommand { get; private set; }
 
-        public string UserName
+        public string WelcomeUser
         {
             get { return _userName; }
-            set { _userName = value;
+            set { _userName = "Welcome, " + value;
                 RaisePropertyChanged("UserName");
             }
         }
@@ -40,9 +40,13 @@ namespace DreamField.WPFInterface.ViewModel
             _navigationService = navigationService;
             _userService = userService;
             if (IsInDesignMode)
-                Title = "DreamField (Design Mode)";
+            {
+                Title = "DreamField Project(Design Mode)";
+            }
             else
-                Title = "DreamField";
+            {
+                Title = "DreamField Project";
+            }
 
             CloseWindowCommand = new RelayCommand(CloseWindow);
             OpenRationsCommand = new RelayCommand(OpenRations);
@@ -64,7 +68,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         private void OnLoginSuccessMessage(LoginSuccessMessage message)
         {
-            this.UserName = message.UserName;
+            this.WelcomeUser = _userService.LoggedUser.Name;
             _navigationService.NavigateTo("Empty");
         }
     }

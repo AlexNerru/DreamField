@@ -54,3 +54,5 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Win
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Windows\MainWindow.g.cs
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Windows\LoginWindow.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Windows\MainWindow.baml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\AddRationPage.g.cs
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\AddRationPage.baml

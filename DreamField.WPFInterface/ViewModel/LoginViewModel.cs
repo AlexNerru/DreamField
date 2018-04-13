@@ -12,7 +12,7 @@ using DreamField.ServiceLayer;
 using GalaSoft.MvvmLight.Messaging;
 
 
-namespace DreamField.WPFInterface
+namespace DreamField.WPFInterface.ViewModel
 {
     public class LoginViewModel : ViewModelBase
     {
@@ -41,16 +41,12 @@ namespace DreamField.WPFInterface
             }
         }
 
-
-
         public LoginViewModel(IUserService userService)
         {
             _userService = userService;
             LoginCommand = new RelayCommand<Window>(this.LoginUser);
         }
 
-        //TODO: Check if user logged in
-        //TODO: Check wrong password
         private void LoginUser(Window window)
         {
             if (_userService.Login(Login, Password))

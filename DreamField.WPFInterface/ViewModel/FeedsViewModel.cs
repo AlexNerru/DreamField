@@ -20,11 +20,8 @@ namespace DreamField.WPFInterface.ViewModel
 
         public ObservableCollection<Feed> Feeds { get; set; }
 
-        public string Title { get; set; }
-
-        public FeedsViewModel(IFeedService feedService)
+        public FeedsViewModel(IFeedService feedService, IUserService userService)
         {
-            Title = "sdfsdfsdfs";
             _feedService = feedService;
             Feeds = new ObservableCollection<Feed>(_feedService.GetAllFamsFeedsByID(1));
         }

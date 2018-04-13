@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DreamField.WPFInterface.Windows"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="364.8" Width="300">
+        Title="Welcome to DreamField" Height="364.8" Width="300">
     <Grid Background="#FFECDD9C">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\App.xaml
-71967647694
+81991792365
 
-18-1143380689
+2527856024
 79-1442911845
-Pages\EmptyContentPage.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Pages\FeedsPage.xaml;Pages\LoginPage.xaml;Pages\RationsPage.xaml;Pages\SettingsPage.xaml;
+Pages\EmptyContentPage.xaml;Pages\RationsPage.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;Pages\FeedsPage.xaml;Pages\LoginPage.xaml;Pages\AddRationPage.xaml;Pages\SettingsPage.xaml;
 mainsplash.png
-False
+True
 

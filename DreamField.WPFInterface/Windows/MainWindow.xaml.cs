@@ -27,7 +27,7 @@ namespace DreamField.WPFInterface.Windows
     public partial class MainWindow : Window
     {
         //RationService rtSer;
-        DbContext context;
+        //DbContext context;
         public MainWindow()
         {
             InitializeComponent();
