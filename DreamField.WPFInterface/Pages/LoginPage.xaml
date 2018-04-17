@@ -5,22 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
-      Title="LoginPage" Height="410" Width="355">
+      Title="LoginPage" Height="410" Width="350">
 
     <Grid DataContext="{Binding Source={StaticResource Locator}}" Margin="10" Grid.IsSharedSizeScope="True">
         <TextBox x:Name="LoginTextBox" materialDesign:HintAssist.Hint="Login" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="45"
-                 Margin="95,180,84.8,0" VerticalAlignment="Top" 
-                 Text="{Binding Login.Login, Mode=TwoWay}" FontSize="14" FontFamily="Roboto Medium" CaretBrush="#FF033076"/>
+                 Margin="92,180,0,0" VerticalAlignment="Top" 
+                 Text="{Binding Login.Login, Mode=TwoWay}" FontSize="14" FontFamily="Roboto Medium" CaretBrush="#FF033076" HorizontalAlignment="Left" Width="146" TextAlignment="Center"/>
         <TextBox x:Name="PasswordTextBox" materialDesign:HintAssist.Hint="Password" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                 Margin="95,242,84.8,0" VerticalAlignment="Top" Text="{Binding Login.Password, Mode=TwoWay}" FontSize="14" FontFamily="Roboto Medium" CaretBrush="#FF033076" />
+                 Margin="92,242,0,0" VerticalAlignment="Top" Text="{Binding Login.Password, Mode=TwoWay}" FontSize="14" FontFamily="Roboto Medium" CaretBrush="#FF033076" HorizontalAlignment="Left" Width="145" TextAlignment="Center" />
         <Button x:Name="SublitLoginButton" Style="{StaticResource MaterialDesignRaisedLightButton}" 
-                Content="Submit" Margin="95,308,84.8,0" VerticalAlignment="Top"
+                Content="Submit" Margin="100,313,78.8,0" VerticalAlignment="Top"
                 Command="{Binding Login.LoginCommand, Mode=OneWay}" FontFamily="Roboto Medium" 
                 Foreground="#FF033076" Background="#FFF8F8F8" BorderBrush="#FF033076"/>
         <Label Content="Welcome to DreamField!" Margin="85,105,72,0" VerticalAlignment="Top" RenderTransformOrigin="0.392,0.617" FontFamily="Roboto Medium" FontSize="14" Foreground="#FF033076" HorizontalContentAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <Image Height="90" Margin="125,10,120.2,0" VerticalAlignment="Top" Source="/DreamField.WPFInterface;component/Resourses/paw_trans.png" HorizontalAlignment="Center"/>
+        <Image Height="90" Margin="120,10,124.8,0" VerticalAlignment="Top" Source="/DreamField.WPFInterface;component/Resourses/paw_trans.png" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>
