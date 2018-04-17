@@ -27,7 +27,7 @@ namespace DreamField.WPFInterface.ViewModel
         {
             get { return _userName; }
             set { _userName = "Welcome, " + value;
-                RaisePropertyChanged("UserName");
+                RaisePropertyChanged("WelcomeUser");
             }
         }
 
@@ -42,10 +42,12 @@ namespace DreamField.WPFInterface.ViewModel
             if (IsInDesignMode)
             {
                 Title = "DreamField Project(Design Mode)";
+
             }
             else
             {
                 Title = "DreamField Project";
+                
             }
 
             CloseWindowCommand = new RelayCommand(CloseWindow);
@@ -68,7 +70,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         private void OnLoginSuccessMessage(LoginSuccessMessage message)
         {
-            this.WelcomeUser = _userService.LoggedUser.Name;
+            this.WelcomeUser = $"{_userService.LoggedUser.Name} {_userService.LoggedUser.Surname}";
             _navigationService.NavigateTo("Empty");
         }
     }

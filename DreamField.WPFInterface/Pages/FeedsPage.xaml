@@ -3,12 +3,33 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:DreamField.WPFInterface.Pages"
       mc:Ignorable="d"
-      Title="FeedsPage" Height="314.9" Width="510">
+      Title="FeedsPage" Height="689.95" Width="1140">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     <Grid Margin="10" DataContext="{Binding Source={StaticResource Locator}}">
-        <DataGrid x:Name="FeedsDataGrid" Margin="10,10,10,9.8" ItemsSource="{Binding Feeds.Feeds}" BorderBrush="Black" Foreground="#FF9AC06A" Background="#FFB1D189" />
-
+        <DataGrid x:Name="FeedsDataGrid" Style="{StaticResource MaterialDesignDataGrid}" 
+                  Margin="10,10,10,9.8"
+                  ItemsSource="{Binding Feeds.Feeds}" 
+                  BorderBrush="White" Foreground="Black" Background="White" HorizontalContentAlignment="Stretch"
+                  CanUserAddRows="False" AutoGenerateColumns="False"
+                  materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+            <DataGrid.Columns>
+                <materialDesign:MaterialDataGridTextColumn  Binding="{Binding current_amount}"
+                                        Header="Amount"
+                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding price}"
+                                        Header="Price"
+                                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

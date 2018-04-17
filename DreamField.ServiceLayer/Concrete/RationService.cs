@@ -13,16 +13,17 @@ namespace DreamField.ServiceLayer
 {
     public class RationService : IRationService
     {
-        public RationsLogic rationCreator;
+        RationsLogic _rationCreator;
+
         public RationService()
         {
-            rationCreator = new RationsLogic(new DreamFieldEntities());
+            _rationCreator = new RationsLogic(new DreamFieldEntities());
         }
-        public NormIndexLactating CreateRation (CowDTO dto)
-        {
-            NormIndexLactating nil= rationCreator.CreateNorm(dto);
-            Console.WriteLine("Что-то получилось");
-            return nil;
-        }
+        
+        public int CreateRation(int userId, int farmId, int animal, string comment = "")
+            => _rationCreator.AddRation(userId, farmId, animal, comment);
+
+        public void CalculateNorm(CowDTO data) => _rationCreator.CreateNorm(data);
+        
     }
 }

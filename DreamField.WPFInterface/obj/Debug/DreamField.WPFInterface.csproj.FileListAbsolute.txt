@@ -56,3 +56,12 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Win
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Windows\MainWindow.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\AddRationPage.g.cs
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\AddRationPage.baml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\MaterialDesignColors.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\MaterialDesignColors.pdb
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\FluentValidation.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\FluentValidation.xml

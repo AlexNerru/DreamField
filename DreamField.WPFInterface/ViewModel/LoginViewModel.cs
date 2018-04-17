@@ -52,6 +52,7 @@ namespace DreamField.WPFInterface.ViewModel
             if (_userService.Login(Login, Password))
             {
                 Messenger.Default.Send(new LoginSuccessMessage(_userService.LoggedUser.Name));
+                
                 Window loginWindow = GetWindowRef("Login_Window");
                 loginWindow.Close();
                 Window mainWindow = Application.Current.MainWindow;

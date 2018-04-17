@@ -3,4 +3,3 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\DreamField
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.csproj.CoreCompileInputs.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.pdb
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.csprojResolveAssemblyReference.cache

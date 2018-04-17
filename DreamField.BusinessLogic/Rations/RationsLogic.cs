@@ -14,30 +14,33 @@ namespace DreamField.BusinessLogic
 {
     public class RationsLogic
     {
-        public IGenericUnitOfWork unitOfWork;
-        private MilkCowFactorial mcf;
+        private IGenericUnitOfWork _unitOfWork;
+        private MilkCowFactorial _cowFactorial;
+
         public RationsLogic(DbContext context)
         {
-            unitOfWork = new UnitOfWork(context);
+            _unitOfWork = new UnitOfWork(context);
         }
+
         public NormIndexLactating CreateNorm (CowDTO dto)
         {
-            mcf = new MilkCowFactorial(dto);
-            NormIndexLactating mil = (NormIndexLactating)mcf.CreateNorm();
-            mil.Ration = unitOfWork.Repository<Ration>().GetById(dto.RationId);
-            unitOfWork.Repository<NormIndexGeneral>().Add(mil);            
-            unitOfWork.SaveChanges();
+            _cowFactorial = new MilkCowFactorial(dto);
+            NormIndexLactating mil = (NormIndexLactating)_cowFactorial.CreateNorm();
+            mil.Ration = _unitOfWork.Repository<Ration>().GetById(dto.RationId);
+            _unitOfWork.Repository<NormIndexGeneral>().Add(mil);            
+            _unitOfWork.SaveChanges();
             return mil;
         }
-        public int AddRationToDb(int authorId, int farmId, int animal, string comment)
+        public int AddRation(int authorId, int farmId, int animal, string comment)
         {
             Ration ration = new Ration();
-            ration.User = unitOfWork.Repository<User>().GetById(authorId);
-            ration.Farm = unitOfWork.Repository<Farm>().GetById(farmId);
+            ration.User = _unitOfWork.Repository<User>().GetById(authorId);
+            ration.Farm = _unitOfWork.Repository<Farm>().GetById(farmId);
             ration.Animal = animal;
             ration.Comment = comment;
             ration.Creation_datetime = DateTime.Now;
-            unitOfWork.Repository<Ration>().Add(ration);
+            _unitOfWork.Repository<Ration>().Add(ration);
+            _unitOfWork.SaveChanges();
             return ration.Id;
         }
     }

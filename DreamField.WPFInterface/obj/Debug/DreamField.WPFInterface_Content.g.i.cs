@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("paw.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resourses/avatar.png")]
 
 

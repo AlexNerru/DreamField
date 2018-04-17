@@ -6,6 +6,8 @@ using DreamField.WPFInterface;
 using DreamField.ServiceLayer;
 using GalaSoft.MvvmLight.Views;
 using System;
+using System.Windows.Controls;
+using MaterialDesignThemes.Wpf;
 
 
 namespace DreamField.WPFInterface.ViewModel

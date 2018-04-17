@@ -1,19 +1,26 @@
-﻿<Page
+﻿<Page x:Class="DreamField.WPFInterface.Pages.LoginPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DreamField.WPFInterface.Pages"
-      xmlns:Windows="clr-namespace:DreamField.WPFInterface.Windows" x:Class="DreamField.WPFInterface.Pages.LoginPage"
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="LoginPage">
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Title="LoginPage" Height="410" Width="355">
 
-    <Grid DataContext="{Binding Source={StaticResource Locator}}">
-        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Margin="81.4,192.7,0,0" VerticalAlignment="Top" Width="120" Text="{Binding Login.Password, Mode=TwoWay}" />
-        <TextBox x:Name="LoginTextBox" HorizontalAlignment="Left" Height="23" Margin="81.4,128.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Login.Login, Mode=TwoWay}"/>
-        <Button x:Name="SublitLoginButton" Content="Submit" HorizontalAlignment="Left" Margin="81.4,253.6,0,0" VerticalAlignment="Top" Width="120" Command="{Binding Login.LoginCommand, Mode=OneWay}"/>
-        <TextBlock HorizontalAlignment="Left" Height="24.7" Margin="81.4,99.1,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Height="19" Margin="81.4,168.7,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
+    <Grid DataContext="{Binding Source={StaticResource Locator}}" Margin="10" Grid.IsSharedSizeScope="True">
+        <TextBox x:Name="LoginTextBox" materialDesign:HintAssist.Hint="Login" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="45"
+                 Margin="95,180,84.8,0" VerticalAlignment="Top" 
+                 Text="{Binding Login.Login, Mode=TwoWay}" FontSize="14" FontFamily="Roboto Medium" CaretBrush="#FF033076"/>
+        <TextBox x:Name="PasswordTextBox" materialDesign:HintAssist.Hint="Password" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                 Margin="95,242,84.8,0" VerticalAlignment="Top" Text="{Binding Login.Password, Mode=TwoWay}" FontSize="14" FontFamily="Roboto Medium" CaretBrush="#FF033076" />
+        <Button x:Name="SublitLoginButton" Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                Content="Submit" Margin="95,308,84.8,0" VerticalAlignment="Top"
+                Command="{Binding Login.LoginCommand, Mode=OneWay}" FontFamily="Roboto Medium" 
+                Foreground="#FF033076" Background="#FFF8F8F8" BorderBrush="#FF033076"/>
+        <Label Content="Welcome to DreamField!" Margin="85,105,72,0" VerticalAlignment="Top" RenderTransformOrigin="0.392,0.617" FontFamily="Roboto Medium" FontSize="14" Foreground="#FF033076" HorizontalContentAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <Image Height="90" Margin="125,10,120.2,0" VerticalAlignment="Top" Source="/DreamField.WPFInterface;component/Resourses/paw_trans.png" HorizontalAlignment="Center"/>
+
     </Grid>
 </Page>
