@@ -4,13 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DreamField.WPFInterface.Windows"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="White"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
-        Title="Welcome to DreamField" Height="364.8" Width="300">
-    <Grid Background="#FFECDD9C">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Frame Content="" Source="/DreamField.WPFInterface;component/Pages/LoginPage.xaml" Margin="10,10,10.2,9.8" NavigationUIVisibility="Hidden"/>
+        Title="Welcome to DreamField" Height="445.6" Width="363.2" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderBrush="#FFFAFDFA">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="#FFF7F7F7" Margin="0,0,3.6,-0.2" HorizontalAlignment="Center">
+        <Frame Content="" Source="/DreamField.WPFInterface;component/Pages/LoginPage.xaml" Margin="10,10,10.6,10" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

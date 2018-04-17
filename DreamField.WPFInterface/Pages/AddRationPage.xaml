@@ -4,20 +4,93 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DreamField.WPFInterface"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
-      Title="RationsPage" Height="409.005" Width="627.962" Foreground="#FFF9F9F9">
+      Title="RationsPage" Height="722" Width="1044.9" Foreground="#FFF9F9F9">
 
-    <Grid x:Name="AddRation" Margin="10,22.348,0,10" Grid.Column="1" DataContext="{Binding Source={StaticResource Locator}}">
-        <TextBox x:Name="WeightBox" Margin="53,0,0,234.852" TextWrapping="Wrap" Text="{Binding AddRation.Weight}" Visibility="Visible" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120"/>
-        <TextBox x:Name="FatBox" HorizontalAlignment="Left" Height="23" Margin="52.687,180.136,0,0" TextWrapping="Wrap" Text="{Binding AddRation.Fat}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Height="30.919" Margin="191.689,36.875,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289.691"><Run Text="Расчет рациона лактирующей коровы"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="WeightIncrementBox" HorizontalAlignment="Left" Margin="231,119,0,0" TextWrapping="Wrap" Text="{Binding AddRation.WeightIncrement}" Width="120" Visibility="Visible" Height="23" VerticalAlignment="Top"/>
-        <TextBox x:Name="ProteinBox" HorizontalAlignment="Left" Height="23" Margin="414.287,119.136,0,0" TextWrapping="Wrap" Text="{Binding AddRation.Protein}" VerticalAlignment="Top" Width="120" Visibility="Visible"/>
-        <Button x:Name="CalculateRationButton" Content="Создать" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="459.287,319.613,0,0"/>
-        <TextBox x:Name="DryFeedBox" HorizontalAlignment="Left" Height="23" Margin="230.687,180.136,0,0" TextWrapping="Wrap" Text="{Binding AddRation.DryFeed}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="DayDistancrBox" HorizontalAlignment="Left" Height="23" Margin="52.687,238.936,0,0" TextWrapping="Wrap" Text="{Binding AddRation.DayDistance}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="DailyMilkBox" HorizontalAlignment="Left" Height="23" Margin="414.287,180.136,0,0" TextWrapping="Wrap" Text="{Binding AddRation.DailyMilk}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.412,-0.562"/>
-        <TextBox x:Name="LactationDayBox" HorizontalAlignment="Left" Height="23" Margin="230.687,238.936,0,0" TextWrapping="Wrap" Text="{Binding AddRation.LactationDay}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="PregnancyBox" HorizontalAlignment="Left" Height="23" Margin="414.287,238.936,0,0" TextWrapping="Wrap" Text="{Binding AddRation.PregnancyDay}" VerticalAlignment="Top" Width="120"/>
+    <Page.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel Orientation="Vertical">
+                <TextBlock  Text="{Binding [0].ErrorContent}" Foreground="#FFCB6E6E" />
+            </StackPanel>
+        </ControlTemplate>
+    </Page.Resources>
+
+    <Grid x:Name="AddRation" Margin="10,22,9.8,10" Grid.Column="1" DataContext="{Binding Source={StaticResource Locator}}">
+        <TextBlock HorizontalAlignment="Center" Height="31"
+                   Margin="315,80,300,459" TextWrapping="Wrap" 
+                   VerticalAlignment="Center" Width="290" Foreground="#FF1C0F98">
+                    <Run Text="Расчет рациона лактирующей коровы"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="WeightBox" Margin="125,214,587,321" 
+                 TextWrapping="Wrap" Text="{Binding AddRation.Weight}"
+                 materialDesign:HintAssist.Hint="Weight" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF180B9E" OpacityMask="#FFFDFCFC" 
+                 FontFamily="Roboto Medium" FontSize="14"
+                 VerticalContentAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch" 
+                 HorizontalAlignment="Center" 
+                 VerticalAlignment="Center" Height="35" Width="193"/>
+        <TextBox x:Name="FatBox"
+                 Margin="125,285,584,249" TextWrapping="Wrap" 
+                 Text="{Binding AddRation.Fat}" materialDesign:HintAssist.Hint="Fat" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch" HorizontalAlignment="Center"
+                 VerticalAlignment="Center" HorizontalContentAlignment="Stretch" Width="196" Height="36"/>
+        <TextBox x:Name="WeightIncrementBox" 
+                 Margin="373,209,315,324" TextWrapping="Wrap" 
+                 Text="{Binding AddRation.WeightIncrement}"
+                 materialDesign:HintAssist.Hint="Weight Increment" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch"
+                 HorizontalAlignment="Center" VerticalAlignment="Center" Width="217"/>
+        <TextBox x:Name="ProteinBox" Margin="645,214,55,319" 
+                 TextWrapping="Wrap" Text="{Binding AddRation.Protein}" 
+                 materialDesign:HintAssist.Hint="Protein" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch" VerticalAlignment="Center"
+                 HorizontalAlignment="Center" Height="37" Width="205"/>
+
+        <TextBox x:Name="DryFeedBox" Margin="373,284,315,249" 
+                 TextWrapping="Wrap" Text="{Binding AddRation.DryFeed}"
+                 materialDesign:HintAssist.Hint="Dry Feed" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" Width="217"/>
+        <TextBox x:Name="DayDistanceBox" Margin="125,355,572,177" TextWrapping="Wrap" 
+                 Text="{Binding AddRation.DayDistance}"
+                 materialDesign:HintAssist.Hint="Day Distance" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch" 
+                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center"
+                 VerticalAlignment="Center" Width="208" Height="38"/>
+        <TextBox x:Name="DailyMilkBox"
+                 Margin="645,284,55,249" TextWrapping="Wrap" 
+                 Text="{Binding AddRation.DailyMilk}"
+                 materialDesign:HintAssist.Hint="Daily Milk Yeild" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch" 
+                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" 
+                 VerticalAlignment="Center" Width="205"/>
+        <TextBox x:Name="LactationDayBox" 
+                 Margin="373,356,315,177" TextWrapping="Wrap"
+                 Text="{Binding AddRation.LactationDay}"
+                 materialDesign:HintAssist.Hint="Lactation Day" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center"
+                 VerticalAlignment="Center" Width="217"/>
+        <TextBox x:Name="PregnancyBox" Margin="645,356,55,177" 
+                 TextWrapping="Wrap" Text="{Binding AddRation.PregnancyDay}"
+                 materialDesign:HintAssist.Hint="Day of pregnancy" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center"
+                 VerticalAlignment="Center" Width="205"/>
+        <Button x:Name="CalculateRationButton" Content="Create" Margin="680,448,70,90"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                Command="{Binding AddRation.AddRationCommand, Mode=OneWay}"/>
+        <materialDesign:Snackbar MessageQueue="{Binding AddRation.MessageQueue}"
+                                                 x:Name="SnackbarThree" Background="#FFF0F0F0" Foreground="#FF5103BE" />
     </Grid>
 </Page>

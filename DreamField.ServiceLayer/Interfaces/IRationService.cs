@@ -6,6 +6,7 @@ namespace DreamField.ServiceLayer
 {
     public interface IRationService
     {
-        NormIndexLactating CreateRation(CowDTO dto);
+        void CalculateNorm(CowDTO dto);
+        int CreateRation(int userId, int farmId, int animal, string comment = "");
     }
 }

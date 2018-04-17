@@ -17,12 +17,14 @@ namespace DreamField.WPFInterface.ViewModel
     public class FeedsViewModel:ViewModelBase
     {
         IFeedService _feedService;
+        IUserService _userService;
 
         public ObservableCollection<Feed> Feeds { get; set; }
 
         public FeedsViewModel(IFeedService feedService, IUserService userService)
         {
             _feedService = feedService;
+            _userService = userService;
             Feeds = new ObservableCollection<Feed>(_feedService.GetAllFamsFeedsByID(1));
         }
     }

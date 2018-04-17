@@ -24,5 +24,6 @@ namespace DreamField.WPFInterface.Pages
         {
             InitializeComponent();
         }
+        
     }
 }

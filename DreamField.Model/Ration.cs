@@ -19,7 +19,7 @@ namespace DreamField.Model
         {
             this.RationFeeds = new HashSet<RationFeed>();
         }
-    
+
         public int Id { get; set; }
         public int Author_id { get; set; }
         public int Farm_id { get; set; }
