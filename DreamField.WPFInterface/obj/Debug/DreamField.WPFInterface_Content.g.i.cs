@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resourses/avatar.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resourses/barley.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resourses/calendar.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resourses/exit.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resourses/home.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resourses/settings.png")]
 
 

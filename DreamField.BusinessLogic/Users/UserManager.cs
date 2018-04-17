@@ -13,11 +13,11 @@ namespace DreamField.BusinessLogic
 {
     public class UserManager
     {
-        private IGenericUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
 
         public UserManager() => _unitOfWork = new UnitOfWork(new DreamFieldEntities());
 
-        public UserManager(IGenericUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
+        public UserManager(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
         public User Login(AuthData data)
         {

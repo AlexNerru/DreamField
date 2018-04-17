@@ -68,7 +68,7 @@
     <Compile Include="Generics\UnitOfWork.cs" />
     <Compile Include="Interfaces\IFarmRepository.cs" />
     <Compile Include="Interfaces\IFeedRepository.cs" />
-    <Compile Include="Interfaces\IGenericUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\INormRepository.cs" />
     <Compile Include="Interfaces\IRationRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

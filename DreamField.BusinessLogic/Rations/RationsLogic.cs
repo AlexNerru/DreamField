@@ -14,7 +14,7 @@ namespace DreamField.BusinessLogic
 {
     public class RationsLogic
     {
-        private IGenericUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
         private MilkCowFactorial _cowFactorial;
 
         public RationsLogic(DbContext context)

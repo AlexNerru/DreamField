@@ -12,7 +12,7 @@ namespace DreamField.BusinessLogic
 {
     public class FeedsLogic
     {
-        private IGenericUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
         
         public FeedsLogic(DbContext context)
         {

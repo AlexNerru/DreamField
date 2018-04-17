@@ -132,23 +132,7 @@ namespace DreamField.WPFInterface.ViewModel
             }
         }
 
-        public string Error
-        {
-            get
-            {
-                if (_rationValidator != null)
-                {
-                    var results = _rationValidator.Validate(this);
-                    if (results != null && results.Errors.Any())
-                    {
-                        var errors = string.Join(Environment.NewLine,
-                            results.Errors.Select(x => x.ErrorMessage).ToArray());
-                        return errors;
-                    }
-                }
-                return string.Empty;
-            }
-        }
+        
 
         ///TODO: Add Back Button
         public AddRationViewModel(IFrameNavigationService navigationService,
@@ -166,17 +150,22 @@ namespace DreamField.WPFInterface.ViewModel
         private void CreateRation()
         {
             int rationId = 0;
+            
             if (_rationValidator.Validate(this).IsValid)
+            {
                 rationId = _rationService.CreateRation(_userService.LoggedUser.Id, 1, 1);
+                //TODO: Refactor for service validation
+                CowDTO dto = new CowDTO(rationId, double.Parse(Weight), double.Parse(WeightIncrement), 24, 28,
+                                    30, 80, double.Parse(Fat), int.Parse(PregnancyDay), double.Parse(DailyMilk),
+                                        double.Parse(DayDistance), double.Parse(Protein), 4.85, 20, true, int.Parse(LactationDay));
+                _rationService.CalculateNorm(dto);
+            }
             else
                 Task.Factory.StartNew(() => MessageQueue.Enqueue("Ошибка данных"));
-            //CowDTO dto = new CowDTO(rationId, Weight, WeightIncrement, 24, 28,
-            //    30, 80, Fat, PregnancyDay, DailyMilk,
-            //    DayDistance, Protein, 4.85, 20, true, LactationDay);
-            //_rationService.CalculateNorm(dto);
+
         }
 
-       
+
 
 
 

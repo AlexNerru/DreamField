@@ -11,7 +11,7 @@ using DreamField.DataAccessLevel.Concrete;
 
 namespace DreamField.DataAccessLevel.Generics
 {
-    public class UnitOfWork : IGenericUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private DbContext context;
         public Dictionary<Type, object> repositories = new Dictionary<Type, object>() {};
@@ -19,6 +19,7 @@ namespace DreamField.DataAccessLevel.Generics
         public UnitOfWork (DbContext context)
         {
             this.context = context;
+            //TODO: think about good dependecy injection
             repositories.Add(typeof(Ration), new RationRepository(context));
             repositories.Add(typeof(NormIndexGeneral), new NormRepository(context));
             repositories.Add(typeof(User), new UserRepository(context));
@@ -35,6 +36,10 @@ namespace DreamField.DataAccessLevel.Generics
 
         public void SaveChanges() => context.SaveChanges();
 
-        public void Dispose() => context.Dispose();
+        public void Dispose()
+        {
+            context.Dispose();
+            GC.SuppressFinalize(this);
+        }
     }
 }
