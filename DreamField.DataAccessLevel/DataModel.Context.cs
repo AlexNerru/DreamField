@@ -30,9 +30,10 @@ namespace DreamField.DataAccessLevel
         public virtual DbSet<Farm> Farms { get; set; }
         public virtual DbSet<Feed> Feeds { get; set; }
         public virtual DbSet<Herd> Herds { get; set; }
-        public virtual DbSet<NormIndexGeneral> NormIndexGenerals { get; set; }
         public virtual DbSet<RationFeed> RationFeeds { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Ration> Rations { get; set; }
+        public virtual DbSet<FeedElement> FeedElements { get; set; }
+        public virtual DbSet<Norm> Norms { get; set; }
     }
 }

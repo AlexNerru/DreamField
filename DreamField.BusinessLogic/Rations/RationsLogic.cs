@@ -22,12 +22,12 @@ namespace DreamField.BusinessLogic
             _unitOfWork = new UnitOfWork(context);
         }
 
-        public NormIndexLactating CreateNorm (CowDTO dto)
+        public Norm CreateNorm (CowDTO dto)
         {
             _cowFactorial = new MilkCowFactorial(dto);
-            NormIndexLactating mil = (NormIndexLactating)_cowFactorial.CreateNorm();
+            Norm mil = (Norm)_cowFactorial.CreateNorm();
             mil.Ration = _unitOfWork.Repository<Ration>().GetById(dto.RationId);
-            _unitOfWork.Repository<NormIndexGeneral>().Add(mil);            
+            _unitOfWork.Repository<Norm>().Add(mil);            
             _unitOfWork.SaveChanges();
             return mil;
         }

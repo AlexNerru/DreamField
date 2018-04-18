@@ -12,12 +12,8 @@ namespace DreamField.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class NormIndexLactating : NormIndexTaurus
+    public partial class LactatingСows : Cow
     {
-        public double Se { get; set; }
-        public double ExchangeProtein { get; set; }
-        public double AcidDetergentFiber { get; set; }
-        public double NeutralDetergentFiber { get; set; }
-        public double ExcahngeEnergyDryMatter { get; set; }
+        public System.DateTime lactating_start_datetime { get; set; }
     }
 }

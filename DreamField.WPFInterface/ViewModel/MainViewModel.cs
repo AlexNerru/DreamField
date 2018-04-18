@@ -14,7 +14,7 @@ namespace DreamField.WPFInterface.ViewModel
         private string _userName;
 
         public string Title { get; set; }
-        IFrameNavigationService _navigationService;
+        ICustomFrameNavigationService _navigationService;
         IUserService _userService;
         public RelayCommand OpenRationsCommand { get; private set; }
         public RelayCommand CloseWindowCommand { get; private set; }
@@ -35,7 +35,7 @@ namespace DreamField.WPFInterface.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IFrameNavigationService navigationService, IUserService userService)
+        public MainViewModel(ICustomFrameNavigationService navigationService, IUserService userService)
         {
             _navigationService = navigationService;
             _userService = userService;

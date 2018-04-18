@@ -21,6 +21,7 @@ namespace DreamField.BusinessLogic
         {
             get
             {
+                //TODO: What's the fuck is this&
                 double c = 1;
                 if (stats.DayDistance > 0)
                     c += (int)stats.DayDistance * 0.02;
@@ -33,73 +34,50 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Энергия продукции лактации А52
         /// </summary>
-        protected override double EnergyProduction { get { return MilkEnergy * stats.DailyMilk + PregnancyEnergy; } }
+        protected override double EnergyProduction => MilkEnergy * stats.DailyMilk + PregnancyEnergy;
+                
 
-        #region Elements
-        public override double Starch { get { return ReserveAndFeedEnergy * (0.2344 * stats.DailyMilk + 7.625); } }
-        public override double Sugar { get { return ReserveAndFeedEnergy * (0.1563 * stats.DailyMilk + 5.048); } }
-        public override double RawFat { get { return FeedExchangeEnergy * (0.04375 * stats.DailyMilk + 2.05); } }
-        public override double Salt { get { return FeedExchangeEnergy * (0.0313 * stats.DailyMilk + 5.25); } }
-        public override double Сa { get { return FeedExchangeEnergy * (0.0032 * stats.DailyMilk + 5.25); } }
-        public override double P { get { return Сa * 0.7; } }
-        public override double Mg { get { return FeedExchangeEnergy * (0.19 - 0.0125 * stats.DailyMilk); } }
-        public override double K { get { return FeedExchangeEnergy * 0.65; } }
-        public override double S { get { return FeedExchangeEnergy * 0.21; } }
-        public override double Se { get { return FeedExchangeEnergy * (0.25 * stats.DailyMilk + 6.25); } }
-        public override double Cu { get { return FeedExchangeEnergy * (0.0103 * stats.DailyMilk + 6.18); } }
-        public override double Zn { get { return FeedExchangeEnergy * (0.0625 * stats.DailyMilk + 4.1); } }
-        public override double Mn { get { return Zn; } }
-        public override double Co
+        public override Norm CreateNorm()
         {
-            get
+            Norm norm = new Norm
             {
-                return FeedExchangeEnergy * FeedExchangeEnergy * 0.0000725
-                        + 0.0631 * FeedExchangeEnergy
-                        - 1.561;
-            }
-        }
-        public override double J { get { return FeedExchangeEnergy * (0.0000938 * stats.DailyMilk + 0.0525); } }
-        public override double Carotene { get { return FeedExchangeEnergy * (0.0406 * stats.DailyMilk + 3.076); } }
-        public override double VitaminD { get { return FeedExchangeEnergy * 0.09; } }
-        public override double VitaminE { get { return FeedExchangeEnergy * (0.0125 * stats.DailyMilk + 3.3); } }
-        #endregion
-
-        public override NormIndexGeneral CreateNorm()
-        {
-            NormIndexLactating norm = new NormIndexLactating
-            {
-                AcidDetergentFiber = 0,
-                Ca = Сa,
-                Carotene = Carotene,
-                ClevableProtein = CleavableProtein,
-                Co = Co,
-                Cu = Cu,
-                DigestibleProtein = 0,
+                EnergyFeedUnit = FeedExchangeEnergy / 10,
                 DryMatter = DryMatterConsumption,
-                EnergyFeedUnit = 0,
-                ExcahngeEnergy = FeedExchangeEnergy,
+                RawProtein = RawProtein,
+                ClevableProtein = CleavableProtein,
+                UnclevableProtein = UncleavablaProtein,
+                RawCellulose = RawCellulose,
+                DigestibleProtein = DigestibleProtein,
+
+                RawFat = FeedExchangeEnergy * (0.04375 * stats.DailyMilk + 2.05),
+                Ca = FeedExchangeEnergy * (0.0032 * stats.DailyMilk + 5.25),
+                Carotene = FeedExchangeEnergy * (0.0406 * stats.DailyMilk + 3.076),
+                Co = FeedExchangeEnergy * FeedExchangeEnergy * 0.0000725
+                                     + 0.0631 * FeedExchangeEnergy
+                                     - 1.561,
+                Cu = FeedExchangeEnergy * (0.0103 * stats.DailyMilk + 6.18),
+                J = FeedExchangeEnergy * (0.0000938 * stats.DailyMilk + 0.0525),
+                K = FeedExchangeEnergy * 0.65,
+                Mg = FeedExchangeEnergy * (0.19 - 0.0125 * stats.DailyMilk),
+                Zn = FeedExchangeEnergy * (0.0625 * stats.DailyMilk + 4.1),
+                Mn = FeedExchangeEnergy * (0.0625 * stats.DailyMilk + 4.1),
+                P = (FeedExchangeEnergy * (0.0032 * stats.DailyMilk + 5.25)) * 0.7,
+                S = FeedExchangeEnergy * 0.21,
+                Se = FeedExchangeEnergy * (0.25 * stats.DailyMilk + 6.25),
+                Starch = ReserveAndFeedEnergy * (0.2344 * stats.DailyMilk + 7.625),
+                Sugar = ReserveAndFeedEnergy * (0.1563 * stats.DailyMilk + 5.048),
+                Salt = FeedExchangeEnergy * (0.0313 * stats.DailyMilk + 5.25),
+                VitaminD = FeedExchangeEnergy * 0.09,
+                VitaminE = FeedExchangeEnergy * (0.0125 * stats.DailyMilk + 3.3),
+
+                NeutralDetergentFiber = 0,
                 ExcahngeEnergyDryMatter = 0,
                 ExchangeProtein = 0,
                 Fe = 0,
-                J = J,
-                K = K,
-                Mg = Mg,
-                Mn = Mn,
                 Na = 0,
-                P = P,
-                RawCellulose = RawCellulose,
-                RawFat = RawFat,
-                RawProtein = RawProtein,
-                S = S,
-                Salt = Salt,
-                Se = Se,
-                Starch = Starch,
-                Sugar = Sugar,
-                UnclevableProtein = UncleavablaProtein,
                 VitaminA = 0,
-                VitaminD = VitaminD,
-                VitaminE = VitaminE,
-                Zn = Zn
+                AcidDetergentFiber = 0
+
             };
             return norm;
         }
@@ -190,63 +168,64 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Обменная масса А00
         /// </summary>
-        protected double BulkWeight { get { return Math.Pow(stats.Weight, (double)(3 / 4)); } }
+        protected double BulkWeight => Math.Pow(stats.Weight, (double)(3 / 4));
 
         #region ExcangeEnergy
+
         /// <summary>
         /// Минимальная теплопродукция А01
         /// </summary>
-        protected double MinHeatProduction { get { return 0.33 * BulkWeight; } }
+        protected double MinHeatProduction => 0.33 * BulkWeight;
 
         /// <summary>
         /// Приращение теплопродукции А02
         /// </summary>
-        protected double HeatProductionIncrement { get { return Math.Exp(0.6 * stats.WeightIncrement); } }
+        protected double HeatProductionIncrement => Math.Exp(0.6 * stats.WeightIncrement);
 
         /// <summary>
         /// Теплоприращение при изменении температуры А03
         /// </summary>
-        protected double EnvironmentHeatProduction { get { return 0.0008 * (stats.BodyTemp - stats.EnvironmentTemp); } }
+        protected double EnvironmentHeatProduction => 0.0008 * (stats.BodyTemp - stats.EnvironmentTemp);
 
         /// <summary>
         /// Теплоприращение при варьировании содержания концентрированных кормов А04
         /// </summary>
-        protected double DryFeedIncrement { get { return 0.504 - 0.00072 * stats.DryFeedPercent; } }
+        protected double DryFeedIncrement => 0.504 - 0.00072 * stats.DryFeedPercent;
 
         /// <summary>
         /// Теплопродукция при повышении влажности воздуха
         /// </summary>
-        protected double HumidityIncrement { get { return Math.Exp(0.00446 * (stats.Humidity - 50)); } }
+        protected double HumidityIncrement => Math.Exp(0.00446 * (stats.Humidity - 50));
 
         /// <summary>
         /// Теплоприращение при использовании резервов тела
         /// </summary>
-        protected double HeatIncrementBody { get { return Math.Exp(-0.33 * stats.Weight); } }
+        protected double HeatIncrementBody => Math.Exp(-0.33 * stats.Weight);
 
         /// <summary>
         /// Чистая энергия молока А07
         /// </summary>
-        protected double MilkEnergy { get { return 1.337 + 0.444 * stats.MilkFat; } }
+        protected double MilkEnergy => 1.337 + 0.444 * stats.MilkFat;
 
         /// <summary>
         /// Выделение тепло МДЖ при биосинтезе 1 кг молока ЭТМ
         /// </summary>
-        protected double MilkHeatProduction { get { return 0.99782 * Math.Pow(stats.MilkFat, 0.5332); } }
+        protected double MilkHeatProduction => 0.99782 * Math.Pow(stats.MilkFat, 0.5332);
 
         /// <summary>
         /// Средние удельные энергетические характеристики прироста массы А08
         /// </summary>
-        protected double EnergyStatsOfWeightIncrement { get { return 32 * stats.WeightIncrement; } }
+        protected double EnergyStatsOfWeightIncrement => 32 * stats.WeightIncrement;
 
         /// <summary>
         /// Средние удельные характеристики использования массы тела А09
         /// </summary>
-        protected double EnergyStatsOfUsingWeight { get { return 24 * stats.WeightIncrement; } }
+        protected double EnergyStatsOfUsingWeight => 24 * stats.WeightIncrement;
 
         /// <summary>
         /// Затраты энергии на рост плода A18
         /// </summary>
-        protected double PregnancyEnergy { get { return 1.13 * Math.Exp((0.00001 * stats.Weight + 0.006) * stats.PregnancyDurability); } }
+        protected double PregnancyEnergy => 1.13 * Math.Exp((0.00001 * stats.Weight + 0.006) * stats.PregnancyDurability);
 
         /// <summary>
         /// Теплопродукция для положительного прироста массы А50
@@ -261,29 +240,23 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Обменная энергия веществ корма и использования резервов тела А53
         /// </summary>
-        protected double ReserveAndFeedEnergy { get { return HeatProduction + EnergyProduction; } }
+        protected double ReserveAndFeedEnergy => HeatProduction + EnergyProduction;
 
         /// <summary>
         /// Затраты обменной энергии за счет потребление кормления А33
         /// </summary>
-        protected double ProductionFeedExchangeEnergy
-        {
-            get
-            {
-                return MilkEnergy * stats.DailyMilk
+        protected double ProductionFeedExchangeEnergy => MilkEnergy * stats.DailyMilk
                     + PregnancyEnergy + EnergyStatsOfUsingWeight * stats.WeightIncrement;
-            }
-        }
 
         /// <summary>
         /// Потребность в обменной энергии корма А35
         /// </summary>
-        public double FeedExchangeEnergy { get { return ProductionFeedExchangeEnergy + HeatProduction; } }
+        public double FeedExchangeEnergy => ProductionFeedExchangeEnergy + HeatProduction;
 
         /// <summary>
         /// Удой от потребление питательных веществ корма А36
         /// </summary>
-        protected double FeedMilkYeild { get { return stats.DailyMilk + (EnergyStatsOfUsingWeight * 0.8) / MilkEnergy; } }
+        protected double FeedMilkYeild => stats.DailyMilk + (EnergyStatsOfUsingWeight * 0.8) / MilkEnergy;
 
         /// <summary>
         /// Потребность в чистой энергии лактации ЧЭЛ
@@ -309,15 +282,9 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Потребление сухого в-ва для коров с удоем меньше 6000кг
         /// </summary>
-        protected double DryMatterConsumption
-        {
-            get
-            {
-                return 114 * BulkWeight + Math.Sqrt(MilkEnergy * stats.DailyMilk) - 3 - 2.828 * Math.Pow(10, -0.0311 * stats.LactDay);
-            }
-        }
-
-        //TODO: Свойство для высокоудойных коров
+        protected double DryMatterConsumption => 114 * BulkWeight 
+            + Math.Sqrt(MilkEnergy * stats.DailyMilk) 
+            - 3 - 2.828 * Math.Pow(10, -0.0311 * stats.LactDay);
 
         #endregion
 
@@ -325,125 +292,74 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Потребность в сырой клетчатке
         /// </summary>
-        public double RawCellulose
-        {
-            get
-            {
-                return DryMatterConsumption * 10 * (29.5692 + 0.473822 * stats.DryFeedPercent
+        protected double RawCellulose => DryMatterConsumption * 10 * (29.5692 + 0.473822 * stats.DryFeedPercent
                 + 0.007701 * Math.Pow(stats.DryFeedPercent, 2)
                 - 0.00005 * Math.Pow(stats.DryFeedPercent, 3));
-            }
-        }
-        #endregion
-
-        #region Elements
-        public abstract double Starch { get; }
-        public abstract double Sugar { get; }
-        public abstract double RawFat { get; }
-        public abstract double Salt { get; }
-        public abstract double Сa { get; }
-        public abstract double P { get; }
-        public abstract double Mg { get; }
-        public abstract double K { get; }
-        public abstract double S { get; }
-        public abstract double Se { get; }
-        public abstract double Cu { get; }
-        public abstract double Zn { get; }
-        public abstract double Mn { get; }
-        public abstract double Co { get; }
-        public abstract double J { get; }
-        public abstract double Carotene { get; }
-        public abstract double VitaminD { get; }
-        public abstract double VitaminE { get; }
         #endregion
 
         #region Protein
         /// <summary>
         /// Потребность в доступном белке PDBP
         /// </summary>
-        protected double AvailableProteinLiving { get { return 2.2 / (0.7 * BulkWeight); } }
+        protected double AvailableProteinLiving => 2.2 / (0.7 * BulkWeight);
+
         /// <summary>
         /// Потребность в белке на прирост PBPT
         /// </summary>
-        protected double AvailableProteinIncrement
-        {
-            get
-            {
-                double pbt;
-                if (stats.WeightIncrement > 0)
-                    pbt = 150 * stats.WeightIncrement;
-                else
-                    pbt = 100 * stats.WeightIncrement;
-                return pbt / 0.5;
-            }
-        }
+        protected double AvailableProteinIncrement => stats.WeightIncrement > 0 ? (150 * stats.WeightIncrement) / 0.5 : (100 * stats.WeightIncrement) / 0.5;
+
         /// <summary>
         /// Потребность в доступном белке на биосинтез белка
         /// </summary>
         protected double AvailableProteinMilk { get { return stats.DailyMilk * (34 / 0.72); } }
+
         /// <summary>
         /// Потребность в белке на формирование плода PBKP
         /// </summary>
-        protected double CalfProtein
-        {
-            get
-            {
-                double pbbp = -4.494734 + 0.2515092 * stats.PregnancyDurability
+        protected double CalfProtein => (-4.494734 + 0.2515092 * stats.PregnancyDurability
                     - 0.00294698 * Math.Pow(stats.PregnancyDurability, 2)
-                    + 0.0000145 * Math.Pow(stats.PregnancyDurability, 3);
-                return pbbp / 0.5;
-            }
-        }
+                    + 0.0000145 * Math.Pow(stats.PregnancyDurability, 3)) / 0.5;
+
         /// <summary>
         /// Доступный протеин Db
         /// </summary>
-        protected double AvailableProtein
-        {
-            get
-            {
-                return (AvailableProteinLiving
+        protected double AvailableProtein => (AvailableProteinLiving
                         + AvailableProteinIncrement
                         + AvailableProteinMilk + CalfProtein) * 1.1;
-            }
-        }
+
         /// <summary>
         /// Что-то микробиологическое
         /// </summary>
-        protected double MicroProtein { get { return FeedExchangeEnergy * 7.16 * 0.8 * 0.8; } }
+        protected double MicroProtein => FeedExchangeEnergy * 7.16 * 0.8 * 0.8;
+
         /// <summary>
         /// Доступный нерасщепляемы протеин
         /// </summary>
-        public double UncleavablaProtein { get { return AvailableProtein - MicroProtein; } }
+        public double UncleavablaProtein =>  AvailableProtein - MicroProtein;
+
         /// <summary>
         /// Сырой расщепляемый протеин
         /// </summary>
-        public double CleavableProtein { get {return (FeedExchangeEnergy * 7.16) / 0.8; } }
+        public double CleavableProtein => (FeedExchangeEnergy * 7.16) / 0.8;
+
         /// <summary>
         /// Потребность в сыром протеине
         /// </summary>
-        public double RawProtein
-        {
-            get
-            {
-                double pnsp = UncleavablaProtein / 0.7;
-                double prsp = CleavableProtein;
-                return pnsp + prsp;
+        public double RawProtein => (UncleavablaProtein / 0.7) + CleavableProtein;
 
-            }
-        }
-        public double DigestibleProtein { get { return 0; } }
+
+        public double DigestibleProtein => (AvailableProteinLiving
+                        + AvailableProteinIncrement
+                        + AvailableProteinMilk + CalfProtein) * 1.1;
 
 
         #endregion
 
         #region Methods
-        public abstract NormIndexGeneral CreateNorm();
+        public abstract Norm CreateNorm();
         #endregion
 
-        public CowNorm(CowDTO dto)
-        {
-            this.stats = dto;
-        }
+        public CowNorm(CowDTO dto) => this.stats = dto;
 
     }
 }

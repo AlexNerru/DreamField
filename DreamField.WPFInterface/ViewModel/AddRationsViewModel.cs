@@ -31,13 +31,12 @@ namespace DreamField.WPFInterface.ViewModel
         private string _pregnancyDay;
         private readonly AddRationValidator _rationValidator;
 
-        IFrameNavigationService _navigationService;
+        ICustomFrameNavigationService _navigationService;
         IRationService _rationService;
         IUserService _userService;
 
         ISnackbarMessageQueue _messageQueue;
 
-        public ISnackbarMessageQueue MessageQueue { get; set; }
 
         public RelayCommand AddRationCommand { get; private set; }
 
@@ -135,14 +134,14 @@ namespace DreamField.WPFInterface.ViewModel
         
 
         ///TODO: Add Back Button
-        public AddRationViewModel(IFrameNavigationService navigationService,
+        public AddRationViewModel(ICustomFrameNavigationService navigationService,
             IRationService rationService, IUserService userService)
         {
             _rationValidator = new AddRationValidator();
             _navigationService = navigationService;
             _rationService = rationService;
             _userService = userService;
-            MessageQueue = new SnackbarMessageQueue();
+            _messageQueue = new SnackbarMessageQueue();
 
             AddRationCommand = new RelayCommand(CreateRation);
         }
@@ -161,7 +160,7 @@ namespace DreamField.WPFInterface.ViewModel
                 _rationService.CalculateNorm(dto);
             }
             else
-                Task.Factory.StartNew(() => MessageQueue.Enqueue("Ошибка данных"));
+                Task.Factory.StartNew(() => _messageQueue.Enqueue("Ошибка данных"));
 
         }
 

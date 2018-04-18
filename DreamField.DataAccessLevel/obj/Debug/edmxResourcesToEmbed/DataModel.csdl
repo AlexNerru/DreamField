@@ -5,7 +5,6 @@
     <EntitySet Name="Farms" EntityType="DreamFieldModel.Farm" />
     <EntitySet Name="Feeds" EntityType="DreamFieldModel.Feed" />
     <EntitySet Name="Herds" EntityType="DreamFieldModel.Herd" />
-    <EntitySet Name="NormIndexGenerals" EntityType="DreamFieldModel.NormIndexGeneral" />
     <EntitySet Name="RationFeeds" EntityType="DreamFieldModel.RationFeed" />
     <EntitySet Name="Users" EntityType="DreamFieldModel.User" />
     <AssociationSet Name="FK_Animals_Herds" Association="DreamFieldModel.FK_Animals_Herds">
@@ -25,10 +24,6 @@
       <End Role="Farm" EntitySet="Farms" />
       <End Role="Ration" EntitySet="Rations" />
     </AssociationSet>
-    <AssociationSet Name="FK_NormIndexesGeneral_Rations" Association="DreamFieldModel.FK_NormIndexesGeneral_Rations">
-      <End Role="Ration" EntitySet="Rations" />
-      <End Role="NormIndexGeneral" EntitySet="NormIndexGenerals" />
-    </AssociationSet>
     <AssociationSet Name="FK_RationFeeds_Ration" Association="DreamFieldModel.FK_RationFeeds_Ration">
       <End Role="Ration" EntitySet="Rations" />
       <End Role="RationFeed" EntitySet="RationFeeds" />
@@ -40,6 +35,16 @@
     <AssociationSet Name="FK_Farm_Feeds" Association="DreamFieldModel.FK_Farm_Feeds">
       <End Role="Farm" EntitySet="Farms" />
       <End Role="Feed" EntitySet="Feeds" />
+    </AssociationSet>
+    <EntitySet Name="FeedElements" EntityType="DreamFieldModel.FeedElement" />
+    <EntitySet Name="Norms" EntityType="DreamFieldModel.Norm" />
+    <AssociationSet Name="FK_FeedElements_Feeds" Association="DreamFieldModel.FK_FeedElements_Feeds">
+      <End Role="Feed" EntitySet="Feeds" />
+      <End Role="FeedElement" EntitySet="FeedElements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Norms_Rations" Association="DreamFieldModel.FK_Norms_Rations">
+      <End Role="Ration" EntitySet="Rations" />
+      <End Role="Norm" EntitySet="Norms" />
     </AssociationSet>
   </EntityContainer>
   <EnumType Name="CowBreeds">
@@ -104,6 +109,8 @@
     <NavigationProperty Name="RationFeeds" Relationship="DreamFieldModel.FK_RationFeeds_Feed" FromRole="Feed" ToRole="RationFeed" />
     <Property Name="farm_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Farm_Feeds" FromRole="Feed" ToRole="Farm" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FeedElement" Relationship="DreamFieldModel.FK_FeedElements_Feeds" FromRole="Feed" ToRole="FeedElement" />
   </EntityType>
   <EntityType Name="Herd">
     <Key>
@@ -115,55 +122,6 @@
     <Property Name="comment" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Animals" Relationship="DreamFieldModel.FK_Animals_Herds" FromRole="Herd" ToRole="Animal" />
     <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Herds_Farm" FromRole="Herd" ToRole="Farm" />
-  </EntityType>
-  <EntityType Name="Lactating_cow" BaseType="DreamFieldModel.Cow">
-    <Property Name="lactating_start_datetime" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="NormIndexFatteing" BaseType="DreamFieldModel.NormIndexGeneral">
-    <Property Name="ClevableProtein" Type="Double" Nullable="false" />
-    <Property Name="UnclevableProtein" Type="Double" Nullable="false" />
-    <Property Name="Starch" Type="Double" Nullable="false" />
-    <Property Name="Sugar" Type="Double" Nullable="false" />
-    <Property Name="RawFat" Type="Double" Nullable="false" />
-    <Property Name="K" Type="Double" Nullable="false" />
-    <Property Name="S" Type="Double" Nullable="false" />
-  </EntityType>
-  <EntityType Name="NormIndexGeneral" Abstract="true">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="EnergyFeedUnit" Type="Double" Nullable="false" />
-    <Property Name="ExcahngeEnergy" Type="Double" Nullable="false" />
-    <Property Name="DryMatter" Type="Double" Nullable="false" />
-    <Property Name="RawProtein" Type="Double" Nullable="false" />
-    <Property Name="DigestibleProtein" Type="Double" Nullable="false" />
-    <Property Name="RawCellulose" Type="Double" Nullable="false" />
-    <Property Name="Salt" Type="Double" Nullable="false" />
-    <Property Name="Ca" Type="Double" Nullable="false" />
-    <Property Name="P" Type="Double" Nullable="false" />
-    <Property Name="Mg" Type="Double" Nullable="false" />
-    <Property Name="Fe" Type="Double" Nullable="false" />
-    <Property Name="Cu" Type="Double" Nullable="false" />
-    <Property Name="Zn" Type="Double" Nullable="false" />
-    <Property Name="Co" Type="Double" Nullable="false" />
-    <Property Name="Mn" Type="Double" Nullable="false" />
-    <Property Name="J" Type="Double" Nullable="false" />
-    <Property Name="Carotene" Type="Double" Nullable="false" />
-    <Property Name="VitaminD" Type="Double" Nullable="false" />
-    <Property Name="VitaminE" Type="Double" Nullable="false" />
-    <Property Name="VitaminA" Type="Double" Nullable="false" />
-    <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_NormIndexesGeneral_Rations" FromRole="NormIndexGeneral" ToRole="Ration" />
-  </EntityType>
-  <EntityType Name="NormIndexLactating" BaseType="DreamFieldModel.NormIndexTaurus">
-    <Property Name="Se" Type="Double" Nullable="false" />
-    <Property Name="ExchangeProtein" Type="Double" Nullable="false" />
-    <Property Name="AcidDetergentFiber" Type="Double" Nullable="false" />
-    <Property Name="NeutralDetergentFiber" Type="Double" Nullable="false" />
-    <Property Name="ExcahngeEnergyDryMatter" Type="Double" Nullable="false" />
-  </EntityType>
-  <EntityType Name="NormIndexTaurus" BaseType="DreamFieldModel.NormIndexFatteing">
-    <Property Name="Na" Type="Double" Nullable="false" />
   </EntityType>
   <EntityType Name="RationFeed">
     <Key>
@@ -235,11 +193,11 @@
     <Property Name="Farm_id" Type="Int32" Nullable="false" />
     <Property Name="Creation_datetime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Animal" Type="Int32" Nullable="false" />
-    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Rations_Farm" FromRole="Ration" ToRole="Farm" />
-    <NavigationProperty Name="NormIndexesGeneral" Relationship="DreamFieldModel.FK_NormIndexesGeneral_Rations" FromRole="Ration" ToRole="NormIndexGeneral" />
     <NavigationProperty Name="RationFeeds" Relationship="DreamFieldModel.FK_RationFeeds_Ration" FromRole="Ration" ToRole="RationFeed" />
     <NavigationProperty Name="User" Relationship="DreamFieldModel.FK_Rations_User" FromRole="Ration" ToRole="User" />
+    <NavigationProperty Name="Norm" Relationship="DreamFieldModel.FK_Norms_Rations" FromRole="Ration" ToRole="Norm" />
   </EntityType>
   <Association Name="FK_Rations_Farm">
     <End Type="DreamFieldModel.Farm" Role="Farm" Multiplicity="1" />
@@ -250,18 +208,6 @@
       </Principal>
       <Dependent Role="Ration">
         <PropertyRef Name="Farm_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_NormIndexesGeneral_Rations">
-    <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="1" />
-    <End Type="DreamFieldModel.NormIndexGeneral" Role="NormIndexGeneral" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Ration">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="NormIndexGeneral">
-        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -298,6 +244,111 @@
       </Principal>
       <Dependent Role="Feed">
         <PropertyRef Name="farm_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LactatingСows" BaseType="DreamFieldModel.Cow">
+    <Property Name="lactating_start_datetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="FeedElement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EnergyFeedUnit" Type="Double" Nullable="false" />
+    <Property Name="DryMatter" Type="Double" Nullable="false" />
+    <Property Name="RawProtein" Type="Double" Nullable="false" />
+    <Property Name="ClevableProtein" Type="Double" Nullable="false" />
+    <Property Name="UnclevableProtein" Type="Double" Nullable="false" />
+    <Property Name="DigestibleProtein" Type="Double" Nullable="false" />
+    <Property Name="RawCellulose" Type="Double" Nullable="false" />
+    <Property Name="Salt" Type="Double" Nullable="false" />
+    <Property Name="Ca" Type="Double" Nullable="false" />
+    <Property Name="P" Type="Double" Nullable="false" />
+    <Property Name="Mg" Type="Double" Nullable="false" />
+    <Property Name="Fe" Type="Double" Nullable="false" />
+    <Property Name="Cu" Type="Double" Nullable="false" />
+    <Property Name="Zn" Type="Double" Nullable="false" />
+    <Property Name="Co" Type="Double" Nullable="false" />
+    <Property Name="K" Type="Double" Nullable="false" />
+    <Property Name="S" Type="Double" Nullable="false" />
+    <Property Name="Mn" Type="Double" Nullable="false" />
+    <Property Name="J" Type="Double" Nullable="false" />
+    <Property Name="Carotene" Type="Double" Nullable="false" />
+    <Property Name="VitaminD" Type="Double" Nullable="false" />
+    <Property Name="VitaminE" Type="Double" Nullable="false" />
+    <Property Name="VitaminA" Type="Double" Nullable="false" />
+    <Property Name="Starch" Type="Double" Nullable="false" />
+    <Property Name="Sugar" Type="Double" Nullable="false" />
+    <Property Name="RawFat" Type="Double" Nullable="false" />
+    <Property Name="Na" Type="Double" Nullable="false" />
+    <Property Name="Se" Type="Double" Nullable="false" />
+    <Property Name="ExchangeProtein" Type="Double" Nullable="false" />
+    <Property Name="AcidDetergentFiber" Type="Double" Nullable="false" />
+    <Property Name="NeutralDetergentFiber" Type="Double" Nullable="false" />
+    <Property Name="ExcahngeEnergyDryMatter" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Feed" Relationship="DreamFieldModel.FK_FeedElements_Feeds" FromRole="FeedElement" ToRole="Feed" />
+  </EntityType>
+  <EntityType Name="Norm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EnergyFeedUnit" Type="Double" Nullable="false" />
+    <Property Name="DryMatter" Type="Double" Nullable="false" />
+    <Property Name="RawProtein" Type="Double" Nullable="false" />
+    <Property Name="ClevableProtein" Type="Double" Nullable="false" />
+    <Property Name="UnclevableProtein" Type="Double" Nullable="false" />
+    <Property Name="DigestibleProtein" Type="Double" Nullable="false" />
+    <Property Name="RawCellulose" Type="Double" Nullable="false" />
+    <Property Name="Salt" Type="Double" Nullable="false" />
+    <Property Name="Ca" Type="Double" Nullable="false" />
+    <Property Name="P" Type="Double" Nullable="false" />
+    <Property Name="Mg" Type="Double" Nullable="false" />
+    <Property Name="Fe" Type="Double" Nullable="false" />
+    <Property Name="Cu" Type="Double" Nullable="false" />
+    <Property Name="Zn" Type="Double" Nullable="false" />
+    <Property Name="Co" Type="Double" Nullable="false" />
+    <Property Name="K" Type="Double" Nullable="false" />
+    <Property Name="S" Type="Double" Nullable="false" />
+    <Property Name="Mn" Type="Double" Nullable="false" />
+    <Property Name="J" Type="Double" Nullable="false" />
+    <Property Name="Carotene" Type="Double" Nullable="false" />
+    <Property Name="VitaminD" Type="Double" Nullable="false" />
+    <Property Name="VitaminE" Type="Double" Nullable="false" />
+    <Property Name="VitaminA" Type="Double" Nullable="false" />
+    <Property Name="Starch" Type="Double" Nullable="false" />
+    <Property Name="Sugar" Type="Double" Nullable="false" />
+    <Property Name="RawFat" Type="Double" Nullable="false" />
+    <Property Name="Na" Type="Double" Nullable="false" />
+    <Property Name="Se" Type="Double" Nullable="false" />
+    <Property Name="ExchangeProtein" Type="Double" Nullable="false" />
+    <Property Name="AcidDetergentFiber" Type="Double" Nullable="false" />
+    <Property Name="NeutralDetergentFiber" Type="Double" Nullable="false" />
+    <Property Name="ExcahngeEnergyDryMatter" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_Norms_Rations" FromRole="Norm" ToRole="Ration" />
+  </EntityType>
+  <Association Name="FK_FeedElements_Feeds">
+    <End Type="DreamFieldModel.Feed" Role="Feed" Multiplicity="1" />
+    <End Type="DreamFieldModel.FeedElement" Role="FeedElement" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Feed">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FeedElement">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Norms_Rations">
+    <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="1" />
+    <End Type="DreamFieldModel.Norm" Role="Norm" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Ration">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Norm">
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

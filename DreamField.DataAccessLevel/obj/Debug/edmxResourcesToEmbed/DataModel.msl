@@ -22,8 +22,8 @@
           <ScalarProperty Name="breed" ColumnName="breed" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.Lactating_cow)">
-        <MappingFragment StoreEntitySet="Lactating_cows">
+      <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.LactatingСows)">
+        <MappingFragment StoreEntitySet="LactatingСows">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="lactating_start_datetime" ColumnName="lactating_start_datetime" />
         </MappingFragment>
@@ -42,6 +42,7 @@
     <EntitySetMapping Name="Feeds">
       <EntityTypeMapping TypeName="DreamFieldModel.Feed">
         <MappingFragment StoreEntitySet="Feeds">
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="farm_id" ColumnName="farm_id" />
           <ScalarProperty Name="current_amount" ColumnName="current_amount" />
           <ScalarProperty Name="availability" ColumnName="availability" />
@@ -57,64 +58,6 @@
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="farm_id" ColumnName="farm_id" />
           <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="NormIndexGenerals">
-      <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.NormIndexGeneral)">
-        <MappingFragment StoreEntitySet="NormIndexesGeneral">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="VitaminA" ColumnName="VitaminA" />
-          <ScalarProperty Name="VitaminE" ColumnName="VitaminE" />
-          <ScalarProperty Name="VitaminD" ColumnName="VitaminD" />
-          <ScalarProperty Name="Carotene" ColumnName="Carotene" />
-          <ScalarProperty Name="J" ColumnName="J" />
-          <ScalarProperty Name="Mn" ColumnName="Mn" />
-          <ScalarProperty Name="Co" ColumnName="Co" />
-          <ScalarProperty Name="Zn" ColumnName="Zn" />
-          <ScalarProperty Name="Cu" ColumnName="Cu" />
-          <ScalarProperty Name="Fe" ColumnName="Fe" />
-          <ScalarProperty Name="Mg" ColumnName="Mg" />
-          <ScalarProperty Name="P" ColumnName="P" />
-          <ScalarProperty Name="Ca" ColumnName="Ca" />
-          <ScalarProperty Name="Salt" ColumnName="Salt" />
-          <ScalarProperty Name="RawCellulose" ColumnName="RawCellulose" />
-          <ScalarProperty Name="DigestibleProtein" ColumnName="DigestibleProtein" />
-          <ScalarProperty Name="RawProtein" ColumnName="RawProtein" />
-          <ScalarProperty Name="DryMatter" ColumnName="DryMatter" />
-          <ScalarProperty Name="ExcahngeEnergy" ColumnName="ExcahngeEnergy" />
-          <ScalarProperty Name="EnergyFeedUnit" ColumnName="EnergyFeedUnit" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.NormIndexFatteing)">
-        <MappingFragment StoreEntitySet="NormIndexesFatteing">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ClevableProtein" ColumnName="ClevableProtein" />
-          <ScalarProperty Name="UnclevableProtein" ColumnName="UnclevableProtein" />
-          <ScalarProperty Name="Starch" ColumnName="Starch" />
-          <ScalarProperty Name="Sugar" ColumnName="Sugar" />
-          <ScalarProperty Name="RawFat" ColumnName="RawFat" />
-          <ScalarProperty Name="K" ColumnName="K" />
-          <ScalarProperty Name="S" ColumnName="S" />
-        </MappingFragment>
-        <MappingFragment StoreEntitySet="NormIndexesGeneral">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.NormIndexTaurus)">
-        <MappingFragment StoreEntitySet="NormIndexesTaurus">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Na" ColumnName="Na" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(DreamFieldModel.NormIndexLactating)">
-        <MappingFragment StoreEntitySet="NormIndexesLactating">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Se" ColumnName="Se" />
-          <ScalarProperty Name="ExchangeProtein" ColumnName="ExchangeProtein" />
-          <ScalarProperty Name="AcidDetergentFiber" ColumnName="AcidDetergentFiber" />
-          <ScalarProperty Name="NeutralDetergentFiber" ColumnName="NeutralDetergentFiber" />
-          <ScalarProperty Name="ExcahngeEnergyDryMatter" ColumnName="ExcahngeEnergyDryMatter" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -149,6 +92,84 @@
           <ScalarProperty Name="Creation_datetime" ColumnName="Creation_datetime" />
           <ScalarProperty Name="Farm_id" ColumnName="Farm_id" />
           <ScalarProperty Name="Author_id" ColumnName="Author_id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedElements">
+      <EntityTypeMapping TypeName="DreamFieldModel.FeedElement">
+        <MappingFragment StoreEntitySet="FeedElements">
+          <ScalarProperty Name="ExcahngeEnergyDryMatter" ColumnName="ExcahngeEnergyDryMatter" />
+          <ScalarProperty Name="NeutralDetergentFiber" ColumnName="NeutralDetergentFiber" />
+          <ScalarProperty Name="AcidDetergentFiber" ColumnName="AcidDetergentFiber" />
+          <ScalarProperty Name="ExchangeProtein" ColumnName="ExchangeProtein" />
+          <ScalarProperty Name="Se" ColumnName="Se" />
+          <ScalarProperty Name="Na" ColumnName="Na" />
+          <ScalarProperty Name="RawFat" ColumnName="RawFat" />
+          <ScalarProperty Name="Sugar" ColumnName="Sugar" />
+          <ScalarProperty Name="Starch" ColumnName="Starch" />
+          <ScalarProperty Name="VitaminA" ColumnName="VitaminA" />
+          <ScalarProperty Name="VitaminE" ColumnName="VitaminE" />
+          <ScalarProperty Name="VitaminD" ColumnName="VitaminD" />
+          <ScalarProperty Name="Carotene" ColumnName="Carotene" />
+          <ScalarProperty Name="J" ColumnName="J" />
+          <ScalarProperty Name="Mn" ColumnName="Mn" />
+          <ScalarProperty Name="S" ColumnName="S" />
+          <ScalarProperty Name="K" ColumnName="K" />
+          <ScalarProperty Name="Co" ColumnName="Co" />
+          <ScalarProperty Name="Zn" ColumnName="Zn" />
+          <ScalarProperty Name="Cu" ColumnName="Cu" />
+          <ScalarProperty Name="Fe" ColumnName="Fe" />
+          <ScalarProperty Name="Mg" ColumnName="Mg" />
+          <ScalarProperty Name="P" ColumnName="P" />
+          <ScalarProperty Name="Ca" ColumnName="Ca" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="RawCellulose" ColumnName="RawCellulose" />
+          <ScalarProperty Name="DigestibleProtein" ColumnName="DigestibleProtein" />
+          <ScalarProperty Name="UnclevableProtein" ColumnName="UnclevableProtein" />
+          <ScalarProperty Name="ClevableProtein" ColumnName="ClevableProtein" />
+          <ScalarProperty Name="RawProtein" ColumnName="RawProtein" />
+          <ScalarProperty Name="DryMatter" ColumnName="DryMatter" />
+          <ScalarProperty Name="EnergyFeedUnit" ColumnName="EnergyFeedUnit" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Norms">
+      <EntityTypeMapping TypeName="DreamFieldModel.Norm">
+        <MappingFragment StoreEntitySet="Norms">
+          <ScalarProperty Name="ExcahngeEnergyDryMatter" ColumnName="ExcahngeEnergyDryMatter" />
+          <ScalarProperty Name="NeutralDetergentFiber" ColumnName="NeutralDetergentFiber" />
+          <ScalarProperty Name="AcidDetergentFiber" ColumnName="AcidDetergentFiber" />
+          <ScalarProperty Name="ExchangeProtein" ColumnName="ExchangeProtein" />
+          <ScalarProperty Name="Se" ColumnName="Se" />
+          <ScalarProperty Name="Na" ColumnName="Na" />
+          <ScalarProperty Name="RawFat" ColumnName="RawFat" />
+          <ScalarProperty Name="Sugar" ColumnName="Sugar" />
+          <ScalarProperty Name="Starch" ColumnName="Starch" />
+          <ScalarProperty Name="VitaminA" ColumnName="VitaminA" />
+          <ScalarProperty Name="VitaminE" ColumnName="VitaminE" />
+          <ScalarProperty Name="VitaminD" ColumnName="VitaminD" />
+          <ScalarProperty Name="Carotene" ColumnName="Carotene" />
+          <ScalarProperty Name="J" ColumnName="J" />
+          <ScalarProperty Name="Mn" ColumnName="Mn" />
+          <ScalarProperty Name="S" ColumnName="S" />
+          <ScalarProperty Name="K" ColumnName="K" />
+          <ScalarProperty Name="Co" ColumnName="Co" />
+          <ScalarProperty Name="Zn" ColumnName="Zn" />
+          <ScalarProperty Name="Cu" ColumnName="Cu" />
+          <ScalarProperty Name="Fe" ColumnName="Fe" />
+          <ScalarProperty Name="Mg" ColumnName="Mg" />
+          <ScalarProperty Name="P" ColumnName="P" />
+          <ScalarProperty Name="Ca" ColumnName="Ca" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="RawCellulose" ColumnName="RawCellulose" />
+          <ScalarProperty Name="DigestibleProtein" ColumnName="DigestibleProtein" />
+          <ScalarProperty Name="UnclevableProtein" ColumnName="UnclevableProtein" />
+          <ScalarProperty Name="ClevableProtein" ColumnName="ClevableProtein" />
+          <ScalarProperty Name="RawProtein" ColumnName="RawProtein" />
+          <ScalarProperty Name="DryMatter" ColumnName="DryMatter" />
+          <ScalarProperty Name="EnergyFeedUnit" ColumnName="EnergyFeedUnit" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

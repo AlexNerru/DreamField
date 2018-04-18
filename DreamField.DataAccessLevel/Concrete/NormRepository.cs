@@ -10,7 +10,7 @@ using System.Data.Entity;
 
 namespace DreamField.DataAccessLevel.Concrete
 {
-    public class NormRepository : GenericRepository<NormIndexGeneral>, INormRepository
+    public class NormRepository : GenericRepository<Norm>, INormRepository
     {
         public NormRepository(DbContext context) : base(context) { }
 

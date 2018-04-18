@@ -99,7 +99,7 @@
     </ApplicationDefinition>
     <Compile Include="Helpers\AddRationValidator.cs" />
     <Compile Include="Helpers\FrameNavigationService.cs" />
-    <Compile Include="Interfaces\IFrameNavigationService.cs" />
+    <Compile Include="Interfaces\ICustomFrameNavigationService.cs" />
     <Compile Include="Messages\LoginSuccessMessage.cs" />
     <Compile Include="Pages\EmptyContentPage.xaml.cs">
       <DependentUpon>EmptyContentPage.xaml</DependentUpon>

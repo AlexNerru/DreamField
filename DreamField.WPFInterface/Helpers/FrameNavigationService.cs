@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 
 namespace DreamField.WPFInterface
 {
-    class FrameNavigationService : IFrameNavigationService, INotifyPropertyChanged
+    class FrameNavigationService : ICustomFrameNavigationService, INotifyPropertyChanged
     {
         #region Fields
         private readonly Dictionary<string, Uri> _pagesByKey;

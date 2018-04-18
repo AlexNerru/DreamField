@@ -7,7 +7,7 @@ using GalaSoft.MvvmLight.Views;
 
 namespace DreamField.WPFInterface
 {
-    public interface IFrameNavigationService : INavigationService
+    public interface ICustomFrameNavigationService : INavigationService
     {
         object Parameter { get; }
     }

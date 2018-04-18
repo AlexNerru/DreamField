@@ -14,11 +14,11 @@ namespace DreamField.WPFInterface.ViewModel
     public class RationsViewModel:ViewModelBase
     {
         IRationService _rationService;
-        IFrameNavigationService _navigationService;
+        ICustomFrameNavigationService _navigationService;
 
         public RelayCommand AddRationCommand { get; private set; }
 
-        public RationsViewModel(IFrameNavigationService navigationService, IRationService rationService)
+        public RationsViewModel(ICustomFrameNavigationService navigationService, IRationService rationService)
         {
             _navigationService = navigationService;
             _rationService = rationService;

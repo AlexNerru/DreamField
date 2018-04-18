@@ -68,7 +68,7 @@ namespace DreamField.WPFInterface.ViewModel
             navigationService.Configure("Rations", new Uri("../Pages/RationsPage.xaml", UriKind.Relative));
             navigationService.Configure("Settings", new Uri("../Pages/SettingsPage.xaml", UriKind.Relative));
             navigationService.Configure("Login", new Uri("../Pages/LoginPage.xaml", UriKind.Relative));
-            SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
+            SimpleIoc.Default.Register<ICustomFrameNavigationService>(() => navigationService);
         }
 
         public static void Cleanup()
