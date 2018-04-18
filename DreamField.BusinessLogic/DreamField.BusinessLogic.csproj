@@ -57,6 +57,7 @@
     <Compile Include="Rations\RationsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rations\RationStructure.cs" />
+    <Compile Include="Simplex.cs" />
     <Compile Include="Users\AuthData.cs" />
     <Compile Include="Users\UserManager.cs" />
   </ItemGroup>

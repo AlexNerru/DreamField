@@ -17,18 +17,20 @@ namespace DreamField.BusinessLogic
         private IUnitOfWork _unitOfWork;
         private MilkCowFactorial _cowFactorial;
 
-        public RationsLogic(DbContext context)
+        public RationsLogic()
         {
-            _unitOfWork = new UnitOfWork(context);
+            _unitOfWork = new UnitOfWork();
         }
 
         public Norm CreateNorm (CowDTO dto)
         {
             _cowFactorial = new MilkCowFactorial(dto);
-            Norm mil = (Norm)_cowFactorial.CreateNorm();
+            Norm mil = _cowFactorial.CreateNorm();
+            Simplex.CalculateForAll(mil);
             mil.Ration = _unitOfWork.Repository<Ration>().GetById(dto.RationId);
             _unitOfWork.Repository<Norm>().Add(mil);            
             _unitOfWork.SaveChanges();
+            
             return mil;
         }
         public int AddRation(int authorId, int farmId, int animal, string comment)
@@ -43,5 +45,6 @@ namespace DreamField.BusinessLogic
             _unitOfWork.SaveChanges();
             return ration.Id;
         }
+
     }
 }

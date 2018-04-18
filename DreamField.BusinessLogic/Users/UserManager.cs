@@ -15,7 +15,7 @@ namespace DreamField.BusinessLogic
     {
         private IUnitOfWork _unitOfWork;
 
-        public UserManager() => _unitOfWork = new UnitOfWork(new DreamFieldEntities());
+        public UserManager() => _unitOfWork = new UnitOfWork();
 
         public UserManager(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 

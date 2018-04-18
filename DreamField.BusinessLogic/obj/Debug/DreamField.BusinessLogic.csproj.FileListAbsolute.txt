@@ -14,3 +14,5 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\Dr
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.csproj.CoreCompileInputs.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.pdb
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\Microsoft.Solver.Foundation.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\Microsoft.Solver.Foundation.xml

@@ -17,7 +17,7 @@ namespace DreamField.ServiceLayer
 
         public RationService()
         {
-            _rationCreator = new RationsLogic(new DreamFieldEntities());
+            _rationCreator = new RationsLogic();
         }
         
         public int CreateRation(int userId, int farmId, int animal, string comment = "")

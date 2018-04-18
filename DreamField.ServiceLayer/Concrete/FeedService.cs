@@ -17,7 +17,7 @@ namespace DreamField.ServiceLayer
 
         public FeedService()
         {
-            _feedsLogic = new FeedsLogic(new DreamFieldEntities());
+            _feedsLogic = new FeedsLogic();
         }
 
         public IEnumerable<Feed> GetAllFamsFeedsByID(int farmId) => _feedsLogic.GetAllFarmFeeds(farmId);

@@ -17,3 +17,5 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\obj\Debug\Dre
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\DreamField.ServiceLayer.dll.config
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\Microsoft.Solver.Foundation.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\Microsoft.Solver.Foundation.xml
