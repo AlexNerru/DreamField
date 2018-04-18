@@ -12,7 +12,7 @@ namespace DreamField.DataAccessLevel.Generics
 {
     public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext _context;
+        private readonly DbContext _context;
         protected readonly DbSet<TEntity> _entities;
 
         public GenericRepository(DbContext context)
@@ -23,6 +23,7 @@ namespace DreamField.DataAccessLevel.Generics
 
         public TEntity GetById(int id) => _entities.Find(id);
         
+        //TODO: Think about IEnumerable and IQuirable
         public IEnumerable<TEntity> GetAll() => _entities.ToList();
         
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate) => _entities.Where(predicate);

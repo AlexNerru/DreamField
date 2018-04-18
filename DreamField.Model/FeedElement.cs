@@ -11,6 +11,7 @@ namespace DreamField.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Reflection;
     
     public partial class FeedElement
     {
@@ -49,5 +50,22 @@ namespace DreamField.Model
         public double ExcahngeEnergyDryMatter { get; set; }
     
         public virtual Feed Feed { get; set; }
+
+        public object this[string propertyName]
+        {
+            get
+            {
+                Type myType = typeof(FeedElement);
+                PropertyInfo myPropInfo = myType.GetProperty(propertyName);
+                return myPropInfo.GetValue(this, null);
+            }
+            set
+            {
+                Type myType = typeof(FeedElement);
+                PropertyInfo myPropInfo = myType.GetProperty(propertyName);
+                myPropInfo.SetValue(this, value, null);
+            }
+        }
     }
 }
+

@@ -11,6 +11,7 @@ namespace DreamField.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Reflection;
     
     public partial class Norm
     {
@@ -49,5 +50,21 @@ namespace DreamField.Model
         public double ExcahngeEnergyDryMatter { get; set; }
     
         public virtual Ration Ration { get; set; }
+
+        public object this[string propertyName]
+        {
+            get
+            {
+                Type myType = typeof(Norm);
+                PropertyInfo myPropInfo = myType.GetProperty(propertyName);
+                return myPropInfo.GetValue(this, null);
+            }
+            set
+            {
+                Type myType = typeof(Norm);
+                PropertyInfo myPropInfo = myType.GetProperty(propertyName);
+                myPropInfo.SetValue(this, value, null);
+            }
+        }
     }
 }

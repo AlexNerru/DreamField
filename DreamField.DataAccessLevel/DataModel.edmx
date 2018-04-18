@@ -79,9 +79,9 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar(max)" />
-          <Property Name="availability" Type="bit" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="current_amount" Type="float" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
           <Property Name="price" Type="money" Nullable="false" />
           <Property Name="farm_id" Type="int" Nullable="false" />
         </EntityType>
@@ -469,13 +469,13 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="availability" Type="Boolean" Nullable="false" />
           <Property Name="current_amount" Type="Single" Nullable="false" />
           <NavigationProperty Name="RationFeeds" Relationship="DreamFieldModel.FK_RationFeeds_Feed" FromRole="Feed" ToRole="RationFeed" />
           <Property Name="farm_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Farm" Relationship="DreamFieldModel.FK_Farm_Feeds" FromRole="Feed" ToRole="Farm" />
-          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="FeedElement" Relationship="DreamFieldModel.FK_FeedElements_Feeds" FromRole="Feed" ToRole="FeedElement" />
+          <Property Name="type" Type="DreamFieldModel.FeedTypes" Nullable="false" />
         </EntityType>
         <EntityType Name="Herd">
           <Key>
@@ -717,6 +717,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EnumType Name="FeedTypes">
+          <Member Name="Rough" Value="1" />
+          <Member Name="Juicy" Value="2" />
+          <Member Name="Concentrate" Value="3" />
+        </EnumType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -764,10 +769,10 @@
           <EntitySetMapping Name="Feeds">
             <EntityTypeMapping TypeName="DreamFieldModel.Feed">
               <MappingFragment StoreEntitySet="Feeds">
+                <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="farm_id" ColumnName="farm_id" />
                 <ScalarProperty Name="current_amount" ColumnName="current_amount" />
-                <ScalarProperty Name="availability" ColumnName="availability" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

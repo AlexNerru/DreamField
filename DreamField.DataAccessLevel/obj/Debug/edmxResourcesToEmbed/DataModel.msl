@@ -42,10 +42,10 @@
     <EntitySetMapping Name="Feeds">
       <EntityTypeMapping TypeName="DreamFieldModel.Feed">
         <MappingFragment StoreEntitySet="Feeds">
+          <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="farm_id" ColumnName="farm_id" />
           <ScalarProperty Name="current_amount" ColumnName="current_amount" />
-          <ScalarProperty Name="availability" ColumnName="availability" />
           <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>

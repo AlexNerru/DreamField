@@ -74,9 +74,9 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar(max)" />
-    <Property Name="availability" Type="bit" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="current_amount" Type="float" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
     <Property Name="price" Type="money" Nullable="false" />
     <Property Name="farm_id" Type="int" Nullable="false" />
   </EntityType>

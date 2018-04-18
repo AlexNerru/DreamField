@@ -26,7 +26,8 @@ namespace DreamField.BusinessLogic
         {
             _cowFactorial = new MilkCowFactorial(dto);
             Norm mil = _cowFactorial.CreateNorm();
-            Simplex.CalculateForAll(mil);
+            Simplex simplex = new Simplex(_unitOfWork);
+            simplex.Calculate(mil, new RationStructure(0.25,0.5,0.25), 0.01);
             mil.Ration = _unitOfWork.Repository<Ration>().GetById(dto.RationId);
             _unitOfWork.Repository<Norm>().Add(mil);            
             _unitOfWork.SaveChanges();
