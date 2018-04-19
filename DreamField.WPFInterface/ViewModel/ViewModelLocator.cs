@@ -45,7 +45,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public LoginViewModel Login => ServiceLocator.Current.GetInstance<LoginViewModel>();
 
-        public AddRationViewModel addRationViewModel => ServiceLocator.Current.GetInstance<AddRationViewModel>();
+        public AddRationViewModel AddRation => ServiceLocator.Current.GetInstance<AddRationViewModel>();
 
         public RationsViewModel Rations => ServiceLocator.Current.GetInstance<RationsViewModel>();
 

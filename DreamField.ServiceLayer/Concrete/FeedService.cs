@@ -18,11 +18,13 @@ namespace DreamField.ServiceLayer
 
         public FeedService(IUnitOfWork unitOfWork)
         {
-            _feedsLogic = new FeedsLogic();
             _unitOfWork = unitOfWork;
+            _feedsLogic = new FeedsLogic(_unitOfWork);
         }
 
-        public IEnumerable<Feed> GetAllFamsFeedsByID(int farmId) => _feedsLogic.GetAllFarmFeeds(farmId);
+        public IEnumerable<Feed> GetAllFarmsFeedsByID(int farmId) => _feedsLogic.GetAllFarmFeeds(farmId);
+
+
         
     }
 }

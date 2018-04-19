@@ -13,10 +13,10 @@ namespace DreamField.BusinessLogic
     public class FeedsLogic
     {
         private IUnitOfWork _unitOfWork;
-        
-        public FeedsLogic() => _unitOfWork = new UnitOfWork();
 
-        public IEnumerable<Feed> GetAllFarmFeeds(int farmId) => _unitOfWork.Repository<Feed>().Find(feed => feed.farm_id == farmId);
+        public FeedsLogic(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
+
+        public IEnumerable<Feed> GetAllFarmFeeds(int farmId) => _unitOfWork.FeedRepository.Find(feed => feed.farm_id == farmId);
 
     }
 }

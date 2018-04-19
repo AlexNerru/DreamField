@@ -25,7 +25,7 @@ namespace DreamField.WPFInterface.ViewModel
         {
             _feedService = feedService;
             _userService = userService;
-            Feeds = new ObservableCollection<Feed>(_feedService.GetAllFamsFeedsByID(1));
+            Feeds = new ObservableCollection<Feed>(_feedService.GetAllFarmsFeedsByID(1));
         }
     }
 }

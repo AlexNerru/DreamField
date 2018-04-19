@@ -5,6 +5,6 @@ namespace DreamField.ServiceLayer
 {
     public interface IFeedService
     {
-        IEnumerable<Feed> GetAllFamsFeedsByID(int farmId);
+        IEnumerable<Feed> GetAllFarmsFeedsByID(int farmId);
     }
 }

@@ -25,8 +25,10 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string WelcomeUser
         {
-            get { return _userName; }
-            set { _userName = "Welcome, " + value;
+            get => _userName;
+            set
+            {
+                _userName = "Welcome, " + value;
                 RaisePropertyChanged("WelcomeUser");
             }
         }

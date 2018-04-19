@@ -6,24 +6,33 @@ using System.Threading.Tasks;
 using DreamField.BusinessLogic;
 using System.Data.Entity;
 using DreamField.Model;
-using DreamField.DataAccessLevel;
+using DreamField.DataAccessLevel.Interfaces;
 
 
 namespace DreamField.ServiceLayer
 {
     public class RationService : IRationService
     {
-        RationsLogic _rationCreator;
+        RationsLogic _rations;
+        IUnitOfWork _unitOfWork;
 
-        public RationService()
+        public RationService(IUnitOfWork unitOfWork)
         {
-            _rationCreator = new RationsLogic();
+            _unitOfWork = unitOfWork;
+            _rations = new RationsLogic(_unitOfWork);
         }
-        
-        public int CreateRation(int userId, int farmId, int animal, string comment = "")
-            => _rationCreator.AddRation(userId, farmId, animal, comment);
+            
+        public Ration CreateRation(int userId, int farmId, int animal, string comment = "")
+            => _rations.AddRation(userId, farmId, animal, comment);
 
-        public void CalculateNorm(CowDTO data) => _rationCreator.CreateNorm(data);
+        public Norm CalculateNorm(Ration ration, CowDTO data) => _rations.CreateNorm(ration, data);
+
+
+        public void CalculateRation (Norm norm, RationStructure structure)
+        {
+            List<Feed> feeds = _unitOfWork.FeedRepository.GetAll().ToList();
+            _rations.Calculate(feeds, structure, norm);
+        }
         
     }
 }

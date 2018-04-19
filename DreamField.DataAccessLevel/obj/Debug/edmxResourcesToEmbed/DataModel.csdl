@@ -130,7 +130,7 @@
     </Key>
     <Property Name="ration_id" Type="Int32" Nullable="false" />
     <Property Name="feed_id" Type="Int32" Nullable="false" />
-    <Property Name="amount" Type="Single" Nullable="false" />
+    <Property Name="amount" Type="Double" Nullable="false" />
     <NavigationProperty Name="Feed" Relationship="DreamFieldModel.FK_RationFeeds_Feed" FromRole="RationFeed" ToRole="Feed" />
     <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_RationFeeds_Ration" FromRole="RationFeed" ToRole="Ration" />
   </EntityType>

@@ -17,42 +17,50 @@ namespace DreamField.BusinessLogic
         private IUnitOfWork _unitOfWork;
         private MilkCowFactorial _cowFactorial;
 
-        public RationsLogic()
-        {
-            _unitOfWork = new UnitOfWork();
-        }
+        public RationsLogic(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
-        public Norm CreateNorm (CowDTO dto)
+        public Norm CreateNorm (Ration ration, CowDTO dto)
         {
             _cowFactorial = new MilkCowFactorial(dto);
-            Norm mil = _cowFactorial.CreateNorm();
-            Calculate(mil);
-            mil.Ration = _unitOfWork.Repository<Ration>().GetById(dto.RationId);
-            _unitOfWork.Repository<Norm>().Add(mil);            
+            Norm norm = _cowFactorial.CreateNorm();
+            norm.Ration = ration;
+            _unitOfWork.NormRepository.Add(norm);            
             _unitOfWork.SaveChanges();
-            
-            return mil;
+            return norm;
         }
 
-        public void Calculate(Norm norm)
+        public void Calculate(List<Feed> feeds, RationStructure structure, Norm norm)
         {
-            Simplex simplex = new Simplex(_unitOfWork.Repository<Feed>().GetAll().ToList(),
-                norm, new RationStructure(0.25, 0.5, 0.25));
-            List<string> toOptimise = new List<string>() { "EnergyFeedUnit", "DigestibleProtein", "DryMatter", "Sugar", "Starch" }; 
-            simplex.Calculate(toOptimise, 0.01);
+            List<string> toOptimise = new List<string>() { "EnergyFeedUnit", "DigestibleProtein", "DryMatter", "Sugar", "Starch" };
+            double abnormality = 0.01;
+
+            Simplex simplex = new Simplex(feeds, norm, structure);
+            Dictionary<Feed, double> dict = simplex.Calculate(toOptimise, abnormality);
+            foreach (Feed item in dict.Keys)
+            {
+                RationFeed rf = new RationFeed();
+                rf.Ration = norm.Ration;
+                rf.Feed = item;
+                rf.amount = dict[item];
+                norm.Ration.RationFeeds.Add(rf);
+            }
+            _unitOfWork.SaveChanges();
+
         }
 
-        public int AddRation(int authorId, int farmId, int animal, string comment)
+        public Ration AddRation(int authorId, int farmId, int animal, string comment)
         {
             Ration ration = new Ration();
-            ration.User = _unitOfWork.Repository<User>().GetById(authorId);
-            ration.Farm = _unitOfWork.Repository<Farm>().GetById(farmId);
+            ration.User = _unitOfWork.UserRepository.GetById(authorId);
+            ration.Farm = _unitOfWork.FarmRepository.GetById(farmId);
             ration.Animal = animal;
             ration.Comment = comment;
             ration.Creation_datetime = DateTime.Now;
-            _unitOfWork.Repository<Ration>().Add(ration);
+
+            _unitOfWork.RationRepository.Add(ration);
             _unitOfWork.SaveChanges();
-            return ration.Id;
+
+            return ration;
         }
 
     }

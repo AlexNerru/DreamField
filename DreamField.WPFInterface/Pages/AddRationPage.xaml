@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DreamField.WPFInterface"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
-      Title="RationsPage" Height="802" Width="1150" Foreground="#FFF9F9F9">
+      Title="RationsPage" Height="887" Width="1245" Foreground="#FFF9F9F9">
 
     <Page.Resources>
         <ControlTemplate x:Key="ValidationTemplate">

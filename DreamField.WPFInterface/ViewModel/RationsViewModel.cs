@@ -25,9 +25,6 @@ namespace DreamField.WPFInterface.ViewModel
             AddRationCommand = new RelayCommand(AddRation);
         }
 
-        private void AddRation()
-        {
-            _navigationService.NavigateTo("AddRation");
-        }
+        private void AddRation() => _navigationService.NavigateTo("AddRation");
     }
 }

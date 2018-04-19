@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Windows;
 using GalaSoft.MvvmLight;
@@ -43,7 +39,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string Weight
         {
-            get { return _weight; }
+            get => _weight; 
             set
             {
                 _weight = value;
@@ -53,7 +49,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string WeightIncrement
         {
-            get { return _weightIncrement; }
+            get => _weightIncrement;
             set
             {
                 _weightIncrement = value;
@@ -63,7 +59,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string Protein
         {
-            get { return _protein; }
+            get => _protein; 
             set
             {
                 _protein = value;
@@ -73,7 +69,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string Fat
         {
-            get { return _fat; }
+            get => _fat;
             set
             {
                 _fat = value;
@@ -83,7 +79,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string DryFeed
         {
-            get { return _dryFeed; }
+            get => _dryFeed; 
             set
             {
                 _dryFeed = value;
@@ -93,7 +89,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string DailyMilk
         {
-            get { return _dailyMilk; }
+            get => _dailyMilk;
             set
             {
                 _dailyMilk = value;
@@ -103,7 +99,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string DayDistance
         {
-            get { return _dayDistanse; }
+            get => _dayDistanse;
             set
             {
                 _dayDistanse = value;
@@ -148,16 +144,20 @@ namespace DreamField.WPFInterface.ViewModel
 
         private void CreateRation()
         {
-            int rationId = 0;
-            
             if (_rationValidator.Validate(this).IsValid)
             {
-                rationId = _rationService.CreateRation(_userService.LoggedUser.Id, 1, 1);
+                Ration ration = _rationService.CreateRation(_userService.LoggedUser.Id, 1, 1);
+                
                 //TODO: Refactor for service validation
-                CowDTO dto = new CowDTO(rationId, double.Parse(Weight), double.Parse(WeightIncrement), 24, 28,
-                                    30, 80, double.Parse(Fat), int.Parse(PregnancyDay), double.Parse(DailyMilk),
+                CowDTO dto = new CowDTO(double.Parse(Weight), double.Parse(WeightIncrement), 24, 28,
+                                    double.Parse(DryFeed), 80, double.Parse(Fat), int.Parse(PregnancyDay), double.Parse(DailyMilk),
                                         double.Parse(DayDistance), double.Parse(Protein), 4.85, 20, true, int.Parse(LactationDay));
-                _rationService.CalculateNorm(dto);
+                Norm norm = _rationService.CalculateNorm(ration, dto);
+                _rationService.CalculateRation(norm, new RationStructure(0.25, 0.5, 0.25));
+
+                foreach (var item in ration.RationFeeds)
+                    System.Console.WriteLine($"{item.Feed.name} {item.amount}");
+
             }
             else
                 Task.Factory.StartNew(() => _messageQueue.Enqueue("Ошибка данных"));

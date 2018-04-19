@@ -16,7 +16,7 @@ namespace DreamField.Model
     {
         public int ration_id { get; set; }
         public int feed_id { get; set; }
-        public float amount { get; set; }
+        public double amount { get; set; }
     
         public virtual Feed Feed { get; set; }
         public virtual Ration Ration { get; set; }

@@ -4,8 +4,12 @@ namespace DreamField.DataAccessLevel.Interfaces
 {
     public interface IUnitOfWork:IDisposable
     {
-        IRepository<T> Repository<T>() where T : class;
-       
+        IFeedRepository FeedRepository { get; }
+        IFarmRepository FarmRepository { get; }
+        INormRepository NormRepository { get; }
+        IRationRepository RationRepository { get; }
+        IUserRepository UserRepository { get; }
+
         void SaveChanges();
     }
 }

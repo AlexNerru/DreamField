@@ -13,29 +13,34 @@ namespace DreamField.DataAccessLevel.Generics
     public class UnitOfWork : IUnitOfWork
     {
         private DbContext _context;
-        private Dictionary<Type, object> repositories = new Dictionary<Type, object>() {};
-
-        private Dictionary<Type, object> interfaces = new Dictionary<Type, object>() { };
 
         IFeedRepository feedRepository;
+        IFarmRepository farmRepository;
+        INormRepository normRepository;
+        IRationRepository rationRepository;
+        IUserRepository userRepository;
 
         public UnitOfWork ()
         {
-            this._context = new DreamFieldEntities();
-            //TODO: think about good dependecy injection
-            repositories.Add(typeof(Ration), new RationRepository(_context));
-            repositories.Add(typeof(Norm), new NormRepository(_context));
-            repositories.Add(typeof(User), new UserRepository(_context));
-            repositories.Add(typeof(Farm), new FarmRepository(_context));
-            repositories.Add(typeof(Feed), new FeedRepository(_context));
+            _context = new DreamFieldEntities();
 
-            
+            feedRepository = new FeedRepository(_context);
+            farmRepository = new FarmRepository(_context);
+            normRepository = new NormRepository(_context);
+            rationRepository = new RationRepository(_context);
+            userRepository = new UserRepository(_context);
             
         }
-        
-        public IRepository<T> Repository<T>() where T : class => repositories[typeof(T)] as IRepository<T>;
 
         public IFeedRepository FeedRepository => feedRepository;
+
+        public IFarmRepository FarmRepository => farmRepository;
+
+        public INormRepository NormRepository => normRepository;
+
+        public IRationRepository RationRepository => rationRepository;
+
+        public IUserRepository UserRepository => userRepository;
 
         public void SaveChanges() => _context.SaveChanges();
 

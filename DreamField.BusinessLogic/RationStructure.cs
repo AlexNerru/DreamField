@@ -9,7 +9,7 @@ namespace DreamField.BusinessLogic
     /// <summary>
     /// 
     /// </summary>
-    struct RationStructure
+    public struct RationStructure
     {
         /// <summary>
         /// Percent of rough feeds in ration

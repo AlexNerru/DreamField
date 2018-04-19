@@ -15,20 +15,18 @@ namespace DreamField.BusinessLogic
     {
         private IUnitOfWork _unitOfWork;
 
-        public UserManager() => _unitOfWork = new UnitOfWork();
-
         public UserManager(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
         public User Login(AuthData data)
         {
-            if (this.isUserValid(data))
-                return _unitOfWork.Repository<User>()
+            if (isUserValid(data))
+                return _unitOfWork.UserRepository
                     .Find(user => user.Login == data.Login && user.Password == data.Password).First();
             else
                 return null;
         }
 
-        private bool isUserValid(AuthData data) => _unitOfWork.Repository<User>()
+        private bool isUserValid(AuthData data) => _unitOfWork.UserRepository
                                                     .GetAll()
                                                     .Any(savedUser => savedUser.Login == data.Login 
                                                                         && savedUser.Password == data.Password);

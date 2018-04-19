@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DreamField.WPFInterface.Pages"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
-      Title="RationsPage" Width="725" Height="464.95">
+      Title="RationsPage" Width="1215" Height="774.9">
 
     <Grid Margin="10,10,9.8,10" DataContext="{Binding Source={StaticResource Locator}}">
         <Button x:Name="AddRationButton" Style="{StaticResource MaterialDesignFloatingActionDarkButton}"

@@ -14,7 +14,7 @@
         xmlns:Model="clr-namespace:DreamField.Model;assembly=DreamField.Model" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Custom="http://www.galasoft.ch/mvvmlight" x:Name="Main_Window" x:Class="DreamField.WPFInterface.Windows.MainWindow"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="{Binding Title}" WindowState="Maximized" ResizeMode="NoResize" Width="1503.2" Height="1005.6">
+        Title="{Binding Title}" WindowState="Maximized" ResizeMode="NoResize" Width="1503.2" Height="880.6">
 
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <HamburgerMenu:HamburgerMenu x:Name="Menu" Background="#FF033076" MenuIconColor="White" SelectionIndicatorColor="#033076" MenuItemForeground="#FF033076" Margin="0,0,0,0.2" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+        <HamburgerMenu:HamburgerMenu x:Name="Menu" Background="#FF033076" MenuIconColor="White" SelectionIndicatorColor="#033076" MenuItemForeground="#FF033076" Margin="0,0,0,0.2" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Hidden" IsOpen="True">
             <HamburgerMenu:HamburgerMenuItem x:Name="HomeButton" Text="Home" FontSize="26" FontWeight="Bold" Height="80" FontFamily="Franklin Gothic Heavy" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/home.png" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
@@ -54,7 +54,7 @@
             </HamburgerMenu:HamburgerMenuItem>
 
         </HamburgerMenu:HamburgerMenu>
-        <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden" Source="/DreamField.WPFInterface;component/Pages/EmptyContentPage.xaml" Margin="245,42,9.8,9.8" RenderTransformOrigin="0.5,0.5"/>
+        <Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden" Source="/DreamField.WPFInterface;component/Pages/EmptyContentPage.xaml" Margin="300,42,9.8,9.8" RenderTransformOrigin="0.5,0.5"/>
         <Rectangle Fill="#FF033076" Height="42" Margin="50,0,-0.2,0" VerticalAlignment="Top"/>
         <materialDesign:Chip Content="{Binding WelcomeUser}" Margin="1247,5,0,0" Width="240" VerticalAlignment="Top" Background="#FF6277AC" IconBackground="#FFFDFDFD">
             <materialDesign:Chip.Icon>
