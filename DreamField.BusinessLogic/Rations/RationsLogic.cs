@@ -26,14 +26,22 @@ namespace DreamField.BusinessLogic
         {
             _cowFactorial = new MilkCowFactorial(dto);
             Norm mil = _cowFactorial.CreateNorm();
-            Simplex simplex = new Simplex(_unitOfWork);
-            simplex.Calculate(mil, new RationStructure(0.25,0.5,0.25), 0.01);
+            Calculate(mil);
             mil.Ration = _unitOfWork.Repository<Ration>().GetById(dto.RationId);
             _unitOfWork.Repository<Norm>().Add(mil);            
             _unitOfWork.SaveChanges();
             
             return mil;
         }
+
+        public void Calculate(Norm norm)
+        {
+            Simplex simplex = new Simplex(_unitOfWork.Repository<Feed>().GetAll().ToList(),
+                norm, new RationStructure(0.25, 0.5, 0.25));
+            List<string> toOptimise = new List<string>() { "EnergyFeedUnit", "DigestibleProtein", "DryMatter", "Sugar", "Starch" }; 
+            simplex.Calculate(toOptimise, 0.01);
+        }
+
         public int AddRation(int authorId, int farmId, int animal, string comment)
         {
             Ration ration = new Ration();

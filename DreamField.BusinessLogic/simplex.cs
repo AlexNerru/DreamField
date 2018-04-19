@@ -13,93 +13,134 @@ using System.Collections.Specialized;
 
 namespace DreamField.BusinessLogic
 {
+    /// <summary>
+    /// Represents solver for simplex method
+    /// </summary>
     class Simplex
     {
-        private IUnitOfWork _unitOfWork;
-        private List<Feed> feeds;
+        private List<Feed> _feeds;
         private List<int> feedIds;
         private SimplexSolver solver = new SimplexSolver();
 
-        public Simplex(IUnitOfWork unitOfWork)
+        private Norm _norm;
+        private RationStructure _rationStructure;
+
+        /// <summary>
+        /// Creates new example of simplex
+        /// </summary>
+        /// <param name="feeds">Feeds to calculate ration</param>
+        /// <param name="norm">Norm to calculate ration</param>
+        /// <param name="rationStructure">Structure of ration</param>
+        public Simplex(List<Feed> feeds, Norm norm, RationStructure rationStructure)
         {
-            _unitOfWork = unitOfWork;
-            feeds = _unitOfWork.Repository<Feed>().GetAll().ToList();
-            feedIds = new List<int>(feeds.Count);
+            _feeds = feeds;
+            feedIds = new List<int>(_feeds.Count);
+
+            _norm = norm;
+            _rationStructure = rationStructure;
         }
 
-        public void Calculate(Norm norm, RationStructure rationStructure, double abrormality)
+        /// <summary>
+        /// Calculates ration for feeds and ration structure in costructor
+        /// </summary>
+        /// <param name="parametersToOptimise">Names of Norm properties to optimise</param>
+        /// <param name="abrormality">percent of abnormality 5% = 0.05</param>
+        public void Calculate(List<string> parametersToOptimise, double abrormality)
         {
-
+            //setting abnormality
             double upAbnormality = 1 + abrormality;
             double downAbnormality = 1 - abrormality;
-
-            List<string> toOpt = new List<string>() { "EnergyFeedUnit", "DigestibleProtein", "DryMatter", "Sugar", "Starch" };
-
+            
+            //List to store indexes of parameters in solver
             List<int> toOptIndexes = new List<int>();
 
+
             AddVariablesToSolver(ref solver);
-            AddOptimisationRows(ref solver, toOpt, ref toOptIndexes);
 
-            int cost;
+            AddOptimisationRows(ref solver, parametersToOptimise, ref toOptIndexes);
 
-            int roughFeedUnitStructure;
-            solver.AddRow("feedUnitStructure", out roughFeedUnitStructure);
+            #region Rough feeds structure
+            //Adding row to normalise rough feeds
+            int roughStructure;
+            solver.AddRow("feedUnitStructure", out roughStructure);
 
             List<Feed> roughFeeds = new List<Feed>();
-            roughFeeds = feeds.Where(feed => feed.type == FeedTypes.Rough).ToList();
-
+            roughFeeds = _feeds.Where(feed => feed.type == FeedTypes.Rough).ToList();
 
             for (int i = 0; i < roughFeeds.Count; i++)
-                solver.SetCoefficient(roughFeedUnitStructure, feeds.IndexOf(roughFeeds[i]), (double)feeds[feeds.IndexOf(roughFeeds[i])].FeedElement.EnergyFeedUnit);
-            solver.SetBounds(roughFeedUnitStructure, norm.EnergyFeedUnit * rationStructure.RoughFeedsPercent * downAbnormality,
-                norm.EnergyFeedUnit * rationStructure.RoughFeedsPercent * upAbnormality);
+            {
+                int id = _feeds.IndexOf(roughFeeds[i]);
+                solver.SetCoefficient(roughStructure, id, (double)_feeds[id].FeedElement.EnergyFeedUnit);
+            }
 
+            double roughFeedUnit = _norm.EnergyFeedUnit * _rationStructure.RoughFeedsPercent;
 
+            solver.SetBounds(roughStructure, roughFeedUnit * downAbnormality,
+                roughFeedUnit * upAbnormality);
+            #endregion
+
+            #region Juicy feeds structure
+            //Add row to normalise juicy feeds structure
             int juicyFeedUnitStructure;
             solver.AddRow("juicyStructure", out juicyFeedUnitStructure);
 
             List<Feed> juicyFeeds = new List<Feed>();
-            juicyFeeds = feeds.Where(feed => feed.type == FeedTypes.Juicy).ToList();
-
+            juicyFeeds = _feeds.Where(feed => feed.type == FeedTypes.Juicy).ToList();
 
             for (int i = 0; i < juicyFeeds.Count; i++)
-                solver.SetCoefficient(juicyFeedUnitStructure, feeds.IndexOf(juicyFeeds[i]), (double)feeds[feeds.IndexOf(juicyFeeds[i])].FeedElement.EnergyFeedUnit);
-            solver.SetBounds(juicyFeedUnitStructure, norm.EnergyFeedUnit * rationStructure.JuicyFeedsPercent * downAbnormality,
-                norm.EnergyFeedUnit * rationStructure.JuicyFeedsPercent * upAbnormality);
-
-            solver.AddRow("cost", out cost);
-
-
-            for (int j = 0; j < toOpt.Count; j++)
             {
-                for (int i = 0; i < feeds.Count; i++)
-                    solver.SetCoefficient(toOptIndexes[j], feedIds[i], (double)feeds[i].FeedElement[toOpt[j]]);
-
-                solver.SetBounds(toOptIndexes[j], (double)(norm[toOpt[j]]) * downAbnormality,
-                    (double)norm[toOpt[j]] * upAbnormality);
+                int id = _feeds.IndexOf(juicyFeeds[i]);
+                solver.SetCoefficient(juicyFeedUnitStructure, id, (double)_feeds[id].FeedElement.EnergyFeedUnit);
             }
 
-            for (int i = 0; i < feeds.Count; i++)
-                solver.SetCoefficient(cost, feedIds[i], (double)feeds[i].price);
+            solver.SetBounds(juicyFeedUnitStructure, _norm.EnergyFeedUnit * _rationStructure.JuicyFeedsPercent * downAbnormality,
+                _norm.EnergyFeedUnit * _rationStructure.JuicyFeedsPercent * upAbnormality);
+            #endregion
 
+            
+            //iterate all parameters to optimise to set it to norm
+            for (int j = 0; j < parametersToOptimise.Count; j++)
+            {
+                //for each parameter adding all feeds coefficient
+                for (int i = 0; i < _feeds.Count; i++)
+                    solver.SetCoefficient(toOptIndexes[j], feedIds[i], (double)_feeds[i].FeedElement[parametersToOptimise[j]]);
+
+                //settings bounds with abnormality
+                solver.SetBounds(toOptIndexes[j], (double)(_norm[parametersToOptimise[j]]) * downAbnormality,
+                    (double)_norm[parametersToOptimise[j]] * upAbnormality);
+            }
+
+            int cost;
+            solver.AddRow("cost", out cost);
+            AddCost(ref solver, ref cost);
             solver.AddGoal(cost, 1, true);
 
+            //solving
             solver.Solve(new SimplexSolverParams());
 
 #if DEBUG
             Console.WriteLine(solver);
 
             foreach (var item in feedIds)
-                Console.WriteLine($"{feeds[item].name} - {solver.GetValue(item).ToDouble()}\n");
+                Console.WriteLine($"{_feeds[item].name} - {solver.GetValue(item).ToDouble()}\n");
 
             foreach (var item in toOptIndexes)
-                Console.WriteLine($"{toOpt[item - feedIds.Count]} - {solver.GetValue(item).ToDouble()}\n");
+                Console.WriteLine($"{parametersToOptimise[item - feedIds.Count]} - {solver.GetValue(item).ToDouble()}\n");
 
             Console.WriteLine($"{solver.GetValue(cost).ToDouble()}");
-            Console.WriteLine("hgfhg");
 #endif
         }
 
+        /// <summary>
+        /// Add cost coefficient to solver
+        /// </summary>
+        /// <param name="solver">Simplex solver object</param>
+        /// <param name="cost">cost index in solver</param>
+        private void AddCost(ref SimplexSolver solver, ref int cost)
+        {
+            for (int i = 0; i < _feeds.Count; i++)
+                solver.SetCoefficient(cost, feedIds[i], (double)_feeds[i].price);
+        }
 
         /// <summary>
         /// Adds variables to solver for each feed
@@ -108,11 +149,12 @@ namespace DreamField.BusinessLogic
         private void AddVariablesToSolver(ref SimplexSolver simplexSolver)
         {
             int a = 0;
-            for (int i = 0; i < feeds.Count; i++)
+            for (int i = 0; i < _feeds.Count; i++)
             {
-                solver.AddVariable(feeds[i], out a);
+                solver.AddVariable(_feeds[i], out a);
                 feedIds.Add(a);
-                solver.SetBounds(feedIds[i], 0, feeds[i].current_amount);
+                solver.SetBounds(feedIds[i], 0, _feeds[i].current_amount);
+                
             }
         }
 
@@ -122,7 +164,9 @@ namespace DreamField.BusinessLogic
         /// <param name="simplexSolver">Simplex solver object</param>
         /// <param name="propertiesToOptimise">List of norm/feedElement properties names</param>
         /// <param name="optimisationIndexes">List of indexes of rows in solver</param>
-        private void AddOptimisationRows(ref SimplexSolver simplexSolver, List<string> propertiesToOptimise, ref List<int> optimisationIndexes)
+        private void AddOptimisationRows(ref SimplexSolver simplexSolver,
+            List<string> propertiesToOptimise,
+            ref List<int> optimisationIndexes)
         {
             int b = 0;
             for (int i = 0; i < propertiesToOptimise.Count; i++)
