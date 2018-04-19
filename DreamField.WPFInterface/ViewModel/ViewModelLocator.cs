@@ -8,6 +8,8 @@ using GalaSoft.MvvmLight.Views;
 using System;
 using System.Windows.Controls;
 using MaterialDesignThemes.Wpf;
+using DreamField.DataAccessLevel.Interfaces;
+using DreamField.DataAccessLevel.Generics;
 
 
 namespace DreamField.WPFInterface.ViewModel
@@ -23,9 +25,12 @@ namespace DreamField.WPFInterface.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SetupNavigation();
 
+            SimpleIoc.Default.Register<IUnitOfWork, UnitOfWork>();
+
             SimpleIoc.Default.Register<IFeedService, FeedService>();
             SimpleIoc.Default.Register<IUserService, UserService>();
             SimpleIoc.Default.Register<IRationService, RationService>();
+            
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginViewModel>();
@@ -34,30 +39,15 @@ namespace DreamField.WPFInterface.ViewModel
             SimpleIoc.Default.Register<RationsViewModel>();
         }
 
-        public MainViewModel Main
-        {
-            get => ServiceLocator.Current.GetInstance<MainViewModel>();
-        }
+        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
 
-        public FeedsViewModel Feeds
-        {
-            get => ServiceLocator.Current.GetInstance<FeedsViewModel>();
-        }
+        public FeedsViewModel Feeds => ServiceLocator.Current.GetInstance<FeedsViewModel>();
 
-        public LoginViewModel Login
-        {
-            get => ServiceLocator.Current.GetInstance<LoginViewModel>();
-        }
+        public LoginViewModel Login => ServiceLocator.Current.GetInstance<LoginViewModel>();
 
-        public AddRationViewModel AddRation
-        {
-            get => ServiceLocator.Current.GetInstance<AddRationViewModel>();
-        }
+        public AddRationViewModel addRationViewModel => ServiceLocator.Current.GetInstance<AddRationViewModel>();
 
-        public RationsViewModel Rations
-        {
-            get => ServiceLocator.Current.GetInstance<RationsViewModel>();
-        }
+        public RationsViewModel Rations => ServiceLocator.Current.GetInstance<RationsViewModel>();
 
         private static void SetupNavigation()
         {
