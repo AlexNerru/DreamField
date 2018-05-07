@@ -23,7 +23,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string Login
         {
-            get { return _login; }
+            get => _login;
             set
             {
                 _login = value;
@@ -33,7 +33,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string Password
         {
-            get { return _password; }
+            get => _password; 
             set
             {
                 _password = value;
@@ -49,10 +49,10 @@ namespace DreamField.WPFInterface.ViewModel
 
         private void LoginUser(Window window)
         {
+           
             if (_userService.Login(Login, Password))
             {
                 Messenger.Default.Send(new LoginSuccessMessage(_userService.LoggedUser.Name));
-                
                 Window loginWindow = GetWindowRef("Login_Window");
                 loginWindow.Close();
                 Window mainWindow = Application.Current.MainWindow;
@@ -60,7 +60,7 @@ namespace DreamField.WPFInterface.ViewModel
             }
         }
 
-        public static Window GetWindowRef(string WindowName)
+        private static Window GetWindowRef(string WindowName)
         {
             Window retVal = null;
             foreach (Window window in Application.Current.Windows)
@@ -71,8 +71,6 @@ namespace DreamField.WPFInterface.ViewModel
                 }
             return retVal;
         }
-
-
 
     }
 }

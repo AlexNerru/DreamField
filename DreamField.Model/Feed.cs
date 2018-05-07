@@ -11,6 +11,7 @@ namespace DreamField.Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Reflection;
     
     public partial class Feed
     {
@@ -20,7 +21,6 @@ namespace DreamField.Model
             this.RationFeeds = new HashSet<RationFeed>();
         }
     
-        
         public int id { get; set; }
         public decimal price { get; set; }
         public float current_amount { get; set; }
@@ -33,7 +33,6 @@ namespace DreamField.Model
         public virtual Farm Farm { get; set; }
         public virtual FeedElement FeedElement { get; set; }
 
-        
+
     }
 }
-

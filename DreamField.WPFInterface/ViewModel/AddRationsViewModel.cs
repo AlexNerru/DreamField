@@ -163,18 +163,5 @@ namespace DreamField.WPFInterface.ViewModel
                 Task.Factory.StartNew(() => _messageQueue.Enqueue("Ошибка данных"));
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

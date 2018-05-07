@@ -6,91 +6,75 @@
       xmlns:local="clr-namespace:DreamField.WPFInterface"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
-      Title="RationsPage" Height="887" Width="1245" Foreground="#FFF9F9F9">
+      Title="RationsPage" Height="821.9" Width="1245" Foreground="#FFF9F9F9">
 
     <Page.Resources>
-        <ControlTemplate x:Key="ValidationTemplate">
-            <StackPanel Orientation="Vertical">
-                <TextBlock  Text="{Binding [0].ErrorContent}" Foreground="#FFCB6E6E" />
-            </StackPanel>
-        </ControlTemplate>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DreamField.WPFInterface;component/Styles/TextBoxStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <ControlTemplate x:Key="ValidationTemplate">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock  Text="{Binding [0].ErrorContent}" Foreground="#FFCB6E6E" />
+                </StackPanel>
+            </ControlTemplate>
+        </ResourceDictionary>
     </Page.Resources>
 
-    <Grid x:Name="AddRation" Margin="10,22,9.8,10" Grid.Column="1" DataContext="{Binding Source={StaticResource Locator}}">
+    <Grid x:Name="AddRation" Margin="10,22,9.8,10.2" Grid.Column="1" DataContext="{Binding Source={StaticResource Locator}}">
         <TextBlock HorizontalAlignment="Center" Height="50"
                    Margin="385,105,335.2,615" TextWrapping="Wrap" 
                    VerticalAlignment="Center" Width="410" Foreground="#FF1C0F98" FontFamily="Roboto Medium" FontSize="22">
                     <Run Text="Расчет рациона лактирующей коровы"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="WeightBox" Margin="154,309,725.2,421" 
-                 TextWrapping="Wrap" Text="{Binding AddRation.Weight}"
+        <TextBox Margin="154,309,725.2,421"
+                 Text="{Binding AddRation.Weight}"
                  materialDesign:HintAssist.Hint="Weight" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF180B9E" OpacityMask="#FFFDFCFC" 
-                 FontFamily="Roboto Medium" FontSize="14"
-                 VerticalContentAlignment="Stretch"
-                 HorizontalContentAlignment="Stretch" 
-                 HorizontalAlignment="Center" 
-                 VerticalAlignment="Center" Height="40" Width="251"/>
-        <TextBox x:Name="FatBox"
-                 Margin="154,384,725.2,350" TextWrapping="Wrap" 
-                 Text="{Binding AddRation.Fat}" materialDesign:HintAssist.Hint="Fat" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch" HorizontalAlignment="Center"
-                 VerticalAlignment="Center" HorizontalContentAlignment="Stretch" Width="251" Height="36" FontFamily="Roboto Medium" FontSize="14"/>
-        <TextBox x:Name="WeightIncrementBox" 
-                 Margin="486,309,427.2,421" TextWrapping="Wrap" 
+                 Style="{StaticResource TextBoxDesign}"/>
+        <TextBox Margin="154,384,725.2,350"
+                 Text="{Binding AddRation.Fat}"
+                 materialDesign:HintAssist.Hint="Fat" 
+                 Style="{StaticResource TextBoxDesign}"/>
+        <TextBox Margin="486,309,427.2,421"
                  Text="{Binding AddRation.WeightIncrement}"
                  materialDesign:HintAssist.Hint="Weight Increment" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch"
-                 HorizontalAlignment="Center" VerticalAlignment="Center" Width="217" FontFamily="Roboto Medium" Height="40" FontSize="14"/>
-        <TextBox x:Name="ProteinBox" Margin="780,309,110.2,421" 
-                 TextWrapping="Wrap" Text="{Binding AddRation.Protein}" 
+                 Style="{StaticResource TextBoxDesign}"/>
+        <TextBox Margin="780,309,110.2,421"
+                 Text="{Binding AddRation.Protein}" 
                  materialDesign:HintAssist.Hint="Protein" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch" VerticalAlignment="Center"
-                 HorizontalAlignment="Center" Height="40" Width="240" FontFamily="Roboto Medium" FontSize="14"/>
-
-        <TextBox x:Name="DryFeedBox" Margin="486,384,427.2,349" 
-                 TextWrapping="Wrap" Text="{Binding AddRation.DryFeed}"
+                 Style="{StaticResource TextBoxDesign}"/>
+        <TextBox Margin="486,384,427.2,349" 
+                 Text="{Binding AddRation.DryFeed}"
                  materialDesign:HintAssist.Hint="Dry Feed" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch"
-                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" Width="217" FontSize="14" FontFamily="Roboto Medium"/>
-        <TextBox x:Name="DayDistanceBox" Margin="154,456,725.2,276" TextWrapping="Wrap" 
+                 Style="{StaticResource TextBoxDesign}"/>
+        <TextBox Margin="154,456,725.2,276"
                  Text="{Binding AddRation.DayDistance}"
                  materialDesign:HintAssist.Hint="Day Distance" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch" 
-                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center"
-                 VerticalAlignment="Center" Width="251" Height="38" FontFamily="Roboto Medium" FontSize="14"/>
-        <TextBox x:Name="DailyMilkBox"
-                 Margin="780,383,110.2,350" TextWrapping="Wrap" 
+                 Style="{StaticResource TextBoxDesign}"/>
+        <TextBox Margin="780,383,110.2,350" 
                  Text="{Binding AddRation.DailyMilk}"
                  materialDesign:HintAssist.Hint="Daily Milk Yeild" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch" 
-                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" 
-                 VerticalAlignment="Center" Width="240" RenderTransformOrigin="0.646,0.435" FontFamily="Roboto Medium" FontSize="14"/>
-        <TextBox x:Name="LactationDayBox" 
-                 Margin="373,356,315,177" TextWrapping="Wrap"
+                 Style="{StaticResource TextBoxDesign}"/>
+        <TextBox Margin="373,356,315,177"
                  Text="{Binding AddRation.LactationDay}"
                  materialDesign:HintAssist.Hint="Lactation Day" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch"
-                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center"
-                 VerticalAlignment="Center" Width="217" FontFamily="Roboto Medium" FontSize="14"/>
-        <TextBox x:Name="PregnancyBox" Margin="780,457,110.2,276" 
+                 Style="{StaticResource TextBoxDesign}"/>
+        <TextBox Margin="780,457,110.2,276" 
                  TextWrapping="Wrap" Text="{Binding AddRation.PregnancyDay}"
                  materialDesign:HintAssist.Hint="Day of pregnancy" 
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Foreground="#FF1700FF" VerticalContentAlignment="Stretch"
-                 HorizontalContentAlignment="Stretch" HorizontalAlignment="Center"
-                 VerticalAlignment="Center" Width="240" FontFamily="Roboto Medium" FontSize="14"/>
-        <Button x:Name="CalculateRationButton" Content="Create" Margin="910,703,35.2,35"
+                 Style="{StaticResource TextBoxDesign}"/>
+        <Button x:Name="CalculateRationButton" Content="Create" Margin="915,713,30,0"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}" 
-                Command="{Binding AddRation.AddRationCommand, Mode=OneWay}"/>
+                Command="{Binding AddRation.AddRationCommand, Mode=OneWay}" VerticalAlignment="Top"/>
         <materialDesign:Snackbar MessageQueue="{Binding AddRation.MessageQueue}"
-                                                 x:Name="SnackbarThree" Background="#FFF0F0F0" Foreground="#FF5103BE" />
+                                                 x:Name="SnackbarThree" Background="#FFF0F0F0" Foreground="#FF5103BE" Height="46" Margin="468,0,469,0" RenderTransformOrigin="0.5,0.5" >
+            <materialDesign:Snackbar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </materialDesign:Snackbar.RenderTransform>
+        </materialDesign:Snackbar>
     </Grid>
 </Page>

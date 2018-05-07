@@ -162,8 +162,8 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Second_name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="E-mail" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -192,7 +192,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Farm_Feeds">
-    <End Role="Farms" Type="Self.Farms" Multiplicity="1" />
+    <End Role="Farms" Type="Self.Farms" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Feeds" Type="Self.Feeds" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Farms">
@@ -240,7 +242,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Norms_Rations">
-    <End Role="Rations" Type="Self.Rations" Multiplicity="1" />
+    <End Role="Rations" Type="Self.Rations" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Norms" Type="Self.Norms" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Rations">
@@ -264,7 +268,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_RationFeeds_Ration">
-    <End Role="Rations" Type="Self.Rations" Multiplicity="1" />
+    <End Role="Rations" Type="Self.Rations" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="RationFeeds" Type="Self.RationFeeds" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Rations">
@@ -276,7 +282,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Rations_Farm">
-    <End Role="Farms" Type="Self.Farms" Multiplicity="1" />
+    <End Role="Farms" Type="Self.Farms" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Rations" Type="Self.Rations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Farms">
@@ -288,7 +296,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Rations_User">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Rations" Type="Self.Rations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">

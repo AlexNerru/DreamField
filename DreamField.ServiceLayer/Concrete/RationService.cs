@@ -33,6 +33,9 @@ namespace DreamField.ServiceLayer
             List<Feed> feeds = _unitOfWork.FeedRepository.GetAll().ToList();
             _rations.Calculate(feeds, structure, norm);
         }
+
+        public IEnumerable<Ration> GetAllRations(int userId) 
+            => _unitOfWork.RationRepository.GetAll().Where(ration => ration.Author_id == userId);
         
     }
 }

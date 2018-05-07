@@ -67,3 +67,4 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\Sys
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\FluentValidation.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\Microsoft.Solver.Foundation.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\Microsoft.Solver.Foundation.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Styles\TextBoxStyles.baml

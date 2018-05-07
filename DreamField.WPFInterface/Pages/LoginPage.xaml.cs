@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Security;
 
 namespace DreamField.WPFInterface.Pages
 {
@@ -20,10 +21,7 @@ namespace DreamField.WPFInterface.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
-        public LoginPage()
-        {
-            InitializeComponent();
-        }
-        
+        public LoginPage() => InitializeComponent();
+
     }
 }

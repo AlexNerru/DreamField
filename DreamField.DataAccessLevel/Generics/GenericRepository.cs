@@ -23,11 +23,12 @@ namespace DreamField.DataAccessLevel.Generics
 
         public TEntity GetById(int id) => _entities.Find(id);
         
-        //TODO: Think about IEnumerable and IQuirable
         public IEnumerable<TEntity> GetAll() => _entities.ToList();
         
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate) => _entities.Where(predicate);
-        
+
+        public TEntity FindOne(Expression<Func<TEntity, bool>> predicate) => _entities.Where(predicate).FirstOrDefault();
+
         public void Add(TEntity entity) => _entities.Add(entity);
    
         public void AddRange(IEnumerable<TEntity> entities) => _entities.AddRange(entities);

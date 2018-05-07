@@ -124,7 +124,7 @@ namespace DreamField.BusinessLogic
                     rationFeeds.Add(_feeds[feedIds[i]], solver.GetValue(feedIds[i]).ToDouble());
             
 
-#if DEBUG
+
             Console.WriteLine(solver);
 
             foreach (var item in feedIds)
@@ -134,7 +134,7 @@ namespace DreamField.BusinessLogic
                 Console.WriteLine($"{parametersToOptimise[item - feedIds.Count]} - {solver.GetValue(item).ToDouble()}\n");
 
             Console.WriteLine($"{solver.GetValue(cost).ToDouble()}");
-#endif
+
 
             return rationFeeds;
         }
