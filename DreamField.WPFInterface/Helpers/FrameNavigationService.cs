@@ -47,6 +47,8 @@ namespace DreamField.WPFInterface
             _pagesByKey = new Dictionary<string, Uri>();
             _historic = new List<string>();
         }
+
+
         public void GoBack()
         {
             if (_historic.Count > 1)
@@ -55,26 +57,19 @@ namespace DreamField.WPFInterface
                 NavigateTo(_historic.Last(), null);
             }
         }
-        public void NavigateTo(string pageKey)
-        {
-            NavigateTo(pageKey, null);
-        }
+        public void NavigateTo(string pageKey) => NavigateTo(pageKey, null);
 
         public virtual void NavigateTo(string pageKey, object parameter)
         {
             lock (_pagesByKey)
             {
                 if (!_pagesByKey.ContainsKey(pageKey))
-                {
                     throw new ArgumentException(string.Format("No such page: {0} ", pageKey), "pageKey");
-                }
 
                 var frame = GetDescendantFromName(Application.Current.MainWindow, "ContentFrame") as Frame;
 
                 if (frame != null)
-                {
                     frame.Source = _pagesByKey[pageKey];
-                }
                 Parameter = parameter;
                 _historic.Add(pageKey);
                 CurrentPageKey = pageKey;
@@ -86,13 +81,9 @@ namespace DreamField.WPFInterface
             lock (_pagesByKey)
             {
                 if (_pagesByKey.ContainsKey(key))
-                {
                     _pagesByKey[key] = pageType;
-                }
                 else
-                {
                     _pagesByKey.Add(key, pageType);
-                }
             }
         }
 
@@ -101,9 +92,7 @@ namespace DreamField.WPFInterface
             var count = VisualTreeHelper.GetChildrenCount(parent);
 
             if (count < 1)
-            {
                 return null;
-            }
 
             for (var i = 0; i < count; i++)
             {
@@ -111,15 +100,11 @@ namespace DreamField.WPFInterface
                 if (frameworkElement != null)
                 {
                     if (frameworkElement.Name == name)
-                    {
                         return frameworkElement;
-                    }
 
                     frameworkElement = GetDescendantFromName(frameworkElement, name);
                     if (frameworkElement != null)
-                    {
                         return frameworkElement;
-                    }
                 }
             }
             return null;

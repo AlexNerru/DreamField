@@ -42,15 +42,9 @@ namespace DreamField.WPFInterface.ViewModel
             _navigationService = navigationService;
             _userService = userService;
             if (IsInDesignMode)
-            {
                 Title = "DreamField Project(Design Mode)";
-
-            }
             else
-            {
                 Title = "DreamField Project";
-                
-            }
 
             CloseWindowCommand = new RelayCommand(CloseWindow);
             OpenRationsCommand = new RelayCommand(OpenRations);
@@ -62,7 +56,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         private void CloseWindow() => Application.Current.MainWindow.Close();
         
-        private void OpenRations() => _navigationService.NavigateTo("Rations");
+        private void OpenRations() => _navigationService.NavigateTo("AllRations");
 
         private void EmptyPage() => _navigationService.NavigateTo("Empty");
 

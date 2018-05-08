@@ -109,7 +109,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string LactationDay
         {
-            get { return _lactationDay; }
+            get => _lactationDay;
             set
             {
                 _lactationDay = value;
@@ -119,7 +119,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string PregnancyDay
         {
-            get { return _pregnancyDay; }
+            get => _pregnancyDay; 
             set
             {
                 _pregnancyDay = value;
@@ -146,18 +146,17 @@ namespace DreamField.WPFInterface.ViewModel
         {
             if (_rationValidator.Validate(this).IsValid)
             {
-                Ration ration = _rationService.CreateRation(_userService.LoggedUser.Id, 1, 1);
+                Ration ration = _rationService.Create(_userService.LoggedUser.Id, 1, 0);
                 
                 //TODO: Refactor for service validation
                 CowDTO dto = new CowDTO(double.Parse(Weight), double.Parse(WeightIncrement), 24, 28,
                                     double.Parse(DryFeed), 80, double.Parse(Fat), int.Parse(PregnancyDay), double.Parse(DailyMilk),
                                         double.Parse(DayDistance), double.Parse(Protein), 4.85, 20, true, int.Parse(LactationDay));
                 Norm norm = _rationService.CalculateNorm(ration, dto);
-                _rationService.CalculateRation(norm, new RationStructure(0.25, 0.5, 0.25));
+                _rationService.Calculate(norm, new RationStructure(0.25, 0.5, 0.25));
 
                 foreach (var item in ration.RationFeeds)
                     System.Console.WriteLine($"{item.Feed.name} {item.amount}");
-
             }
             else
                 Task.Factory.StartNew(() => _messageQueue.Enqueue("Ошибка данных"));

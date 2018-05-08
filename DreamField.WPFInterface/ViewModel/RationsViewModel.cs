@@ -30,6 +30,6 @@ namespace DreamField.WPFInterface.ViewModel
             Rations = new ObservableCollection<Ration>(_rationService.GetAllRations(_userService.LoggedUser.Id));
         }
 
-        private void AddRation() => _navigationService.NavigateTo("AddRation");
+        private void AddRation() => _navigationService.NavigateTo("CreateRation");
     }
 }

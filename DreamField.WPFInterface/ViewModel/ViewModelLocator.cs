@@ -54,8 +54,9 @@ namespace DreamField.WPFInterface.ViewModel
             var navigationService = new FrameNavigationService();
             navigationService.Configure("Empty", new Uri("../Pages/EmptyContentPage.xaml", UriKind.Relative));
             navigationService.Configure("Feeds", new Uri("../Pages/FeedsPage.xaml", UriKind.Relative));
-            navigationService.Configure("AddRation", new Uri("../Pages/AddRationPage.xaml", UriKind.Relative));
-            navigationService.Configure("Rations", new Uri("../Pages/RationsPage.xaml", UriKind.Relative));
+            navigationService.Configure("AddRationStats", new Uri("../Pages/Rations/AddRationStatsPage.xaml", UriKind.Relative));
+            navigationService.Configure("AllRations", new Uri("../Pages/Rations/AllRationsPage.xaml", UriKind.Relative));
+            navigationService.Configure("CreateRation", new Uri("../Pages/Rations/CreateRationPage.xaml", UriKind.Relative));
             navigationService.Configure("Settings", new Uri("../Pages/SettingsPage.xaml", UriKind.Relative));
             navigationService.Configure("Login", new Uri("../Pages/LoginPage.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<ICustomFrameNavigationService>(() => navigationService);

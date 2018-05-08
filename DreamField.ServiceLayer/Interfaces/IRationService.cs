@@ -7,9 +7,9 @@ namespace DreamField.ServiceLayer
 {
     public interface IRationService
     {
-        Ration CreateRation(int userId, int farmId, int animal, string comment = "");
+        Ration Create(int userId, int farmId, int animal, string comment = "");
         Norm CalculateNorm(Ration ration, CowDTO dto);
-        void CalculateRation(Norm norm, RationStructure structure);
+        void Calculate(Norm norm, RationStructure structure);
         IEnumerable<Ration> GetAllRations(int userId);
     }
 }

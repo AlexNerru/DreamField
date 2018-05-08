@@ -40,10 +40,8 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\Gal
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\App.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\EmptyContentPage.g.cs
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\RationsPage.g.cs
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\SettingsPage.g.cs
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\EmptyContentPage.baml
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\RationsPage.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\SettingsPage.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\HamburgerMenu.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\FeedsPage.g.cs
@@ -54,8 +52,6 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Win
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Windows\MainWindow.g.cs
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Windows\LoginWindow.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Windows\MainWindow.baml
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\AddRationPage.g.cs
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\AddRationPage.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\MaterialDesignColors.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\MaterialDesignThemes.Wpf.pdb
@@ -68,3 +64,9 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\Flu
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\Microsoft.Solver.Foundation.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\Microsoft.Solver.Foundation.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Styles\TextBoxStyles.baml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\CreateRationPage.g.cs
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\AllRationsPage.g.cs
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\AddRationStatsPage.g.cs
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\CreateRationPage.baml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\AllRationsPage.baml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\AddRationStatsPage.baml

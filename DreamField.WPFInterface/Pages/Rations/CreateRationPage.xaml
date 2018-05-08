@@ -1,0 +1,58 @@
+﻿<Page x:Class="DreamField.WPFInterface.Pages.CreateRation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DreamField.WPFInterface"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="CreateRation" Height="822" Width="1245" Foreground="#FFF9F9F9">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DreamField.WPFInterface;component/Styles/TextBoxStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <ControlTemplate x:Key="ValidationTemplate">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock  Text="{Binding [0].ErrorContent}" Foreground="#FFCB6E6E" />
+                </StackPanel>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="AddRation" Margin="10,22,9.8,10.2" Grid.Column="1" DataContext="{Binding Source={StaticResource Locator}}">
+        <TextBlock HorizontalAlignment="Center" Height="50"
+                   Margin="497,110,510,629.8" TextWrapping="Wrap" 
+                   VerticalAlignment="Center" Width="218" Foreground="#FF1C0F98" FontFamily="Roboto Medium" FontSize="22">
+                    <Run Text="Создание рациона"/><LineBreak/><Run/></TextBlock>
+        <TextBox Margin="497,235,543,514.8"
+                 Text="{Binding AddRation.Weight}"
+                 materialDesign:HintAssist.Hint="Name/Comment" 
+                 Style="{StaticResource TextBoxDesign}" Width="185"/>
+        <TextBox Margin="330,381,695,368.8"
+                 Text="{Binding AddRation.WeightIncrement}"
+                 materialDesign:HintAssist.Hint="Roughage percentage" 
+                 Style="{StaticResource TextBoxDesign}" Width="200"/>
+        <TextBox Margin="665,381,355,368.8"
+                 Text="{Binding AddRation.Protein}" 
+                 materialDesign:HintAssist.Hint="Juicy food percentage" 
+                 Style="{StaticResource TextBoxDesign}" Width="205"/>
+
+        <Button x:Name="CalculateRationButton" Content="Next" Margin="915,713,30,0"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                Command="{Binding AddRation.AddRationCommand, Mode=OneWay}" VerticalAlignment="Top"/>
+        <materialDesign:Snackbar MessageQueue="{Binding AddRation.MessageQueue}"
+                                                 x:Name="SnackbarThree" Background="#FFF0F0F0" Foreground="#FF5103BE" Height="46" Margin="468,0,469,0" RenderTransformOrigin="0.5,0.5" >
+            <materialDesign:Snackbar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </materialDesign:Snackbar.RenderTransform>
+        </materialDesign:Snackbar>
+    </Grid>
+</Page>

@@ -98,9 +98,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helpers\AddRationValidator.cs" />
+    <Compile Include="Helpers\AnimalTypesToStringConverter.cs" />
     <Compile Include="Helpers\FrameNavigationService.cs" />
     <Compile Include="Interfaces\ICustomFrameNavigationService.cs" />
     <Compile Include="Messages\LoginSuccessMessage.cs" />
+    <Compile Include="Pages\Rations\CreateRationPage.xaml.cs">
+      <DependentUpon>CreateRationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EmptyContentPage.xaml.cs">
       <DependentUpon>EmptyContentPage.xaml</DependentUpon>
     </Compile>
@@ -110,26 +114,31 @@
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddRationPage.xaml.cs">
-      <DependentUpon>AddRationPage.xaml</DependentUpon>
+    <Compile Include="Pages\Rations\AddRationStatsPage.xaml.cs">
+      <DependentUpon>AddRationStatsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RationsPage.xaml.cs">
-      <DependentUpon>RationsPage.xaml</DependentUpon>
+    <Compile Include="Pages\Rations\AllRationsPage.xaml.cs">
+      <DependentUpon>AllRationsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AddRationsViewModel.cs" />
+    <Compile Include="ViewModel\CreateRationViewModel.cs" />
     <Compile Include="ViewModel\FeedsViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RationsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Page Include="Pages\Rations\CreateRationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EmptyContentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\RationsPage.xaml">
+    <Page Include="Pages\Rations\AllRationsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,7 +173,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AddRationPage.xaml">
+    <Page Include="Pages\Rations\AddRationStatsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

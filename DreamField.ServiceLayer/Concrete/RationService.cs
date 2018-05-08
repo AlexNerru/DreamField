@@ -22,13 +22,12 @@ namespace DreamField.ServiceLayer
             _rations = new RationsLogic(_unitOfWork);
         }
             
-        public Ration CreateRation(int userId, int farmId, int animal, string comment = "")
+        public Ration Create(int userId, int farmId, int animal, string comment = "")
             => _rations.AddRation(userId, farmId, animal, comment);
 
         public Norm CalculateNorm(Ration ration, CowDTO data) => _rations.CreateNorm(ration, data);
 
-
-        public void CalculateRation (Norm norm, RationStructure structure)
+        public void Calculate (Norm norm, RationStructure structure)
         {
             List<Feed> feeds = _unitOfWork.FeedRepository.GetAll().ToList();
             _rations.Calculate(feeds, structure, norm);
@@ -36,6 +35,8 @@ namespace DreamField.ServiceLayer
 
         public IEnumerable<Ration> GetAllRations(int userId) 
             => _unitOfWork.RationRepository.GetAll().Where(ration => ration.Author_id == userId);
+
+        //public RationDto Create(RationDto customerDto)
         
     }
 }
