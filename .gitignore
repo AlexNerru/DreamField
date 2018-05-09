@@ -1,7 +1,4 @@
-﻿################################################################################
-# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
-################################################################################
-/.vs
+﻿/.vs
 /DreamField.Model/bin
 /DreamField.Model/obj
 /DreamField.DataAccessLevel/bin
