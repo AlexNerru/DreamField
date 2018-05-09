@@ -174,5 +174,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RationStructures">
+      <EntityTypeMapping TypeName="DreamFieldModel.RationStructure">
+        <MappingFragment StoreEntitySet="RationStructures">
+          <ScalarProperty Name="concentrates" ColumnName="concentrates" />
+          <ScalarProperty Name="juicy_food" ColumnName="juicy_food" />
+          <ScalarProperty Name="roughage" ColumnName="roughage" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

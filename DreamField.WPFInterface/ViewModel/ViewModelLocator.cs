@@ -35,8 +35,9 @@ namespace DreamField.WPFInterface.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginViewModel>();
             SimpleIoc.Default.Register<FeedsViewModel>();
-            SimpleIoc.Default.Register<AddRationViewModel>();
+            SimpleIoc.Default.Register<AddRationStatsViewModel>();
             SimpleIoc.Default.Register<RationsViewModel>();
+            SimpleIoc.Default.Register<CreateRationViewModel>();
         }
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
@@ -45,9 +46,11 @@ namespace DreamField.WPFInterface.ViewModel
 
         public LoginViewModel Login => ServiceLocator.Current.GetInstance<LoginViewModel>();
 
-        public AddRationViewModel AddRation => ServiceLocator.Current.GetInstance<AddRationViewModel>();
+        public AddRationStatsViewModel AddRationStats => ServiceLocator.Current.GetInstance<AddRationStatsViewModel>();
 
         public RationsViewModel Rations => ServiceLocator.Current.GetInstance<RationsViewModel>();
+
+        public CreateRationViewModel CreateRation => ServiceLocator.Current.GetInstance<CreateRationViewModel>();
 
         private static void SetupNavigation()
         {
@@ -70,11 +73,12 @@ namespace DreamField.WPFInterface.ViewModel
                 SimpleIoc.Default.Unregister<FeedsViewModel>();
             if (SimpleIoc.Default.IsRegistered<LoginViewModel>())
                 SimpleIoc.Default.Unregister<LoginViewModel>();
-            if (SimpleIoc.Default.IsRegistered<AddRationViewModel>())
-                SimpleIoc.Default.Unregister<AddRationViewModel>();
+            if (SimpleIoc.Default.IsRegistered<AddRationStatsViewModel>())
+                SimpleIoc.Default.Unregister<AddRationStatsViewModel>();
             if (SimpleIoc.Default.IsRegistered<RationsViewModel>())
                 SimpleIoc.Default.Unregister<RationsViewModel>();
-            // TODO Clear the ViewModels
+            if (SimpleIoc.Default.IsRegistered<CreateRationViewModel>())
+                SimpleIoc.Default.Unregister<CreateRationViewModel>();
         }
     }
 }

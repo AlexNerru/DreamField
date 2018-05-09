@@ -58,3 +58,4 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\GalaSoft.M
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\FluentValidation.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\DreamField.Tests.dll.config

@@ -11,3 +11,4 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.DataAccessLevel\obj\Debug\
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.DataAccessLevel\obj\Debug\DreamField.DataAccessLevel.csproj.CoreCompileInputs.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.DataAccessLevel\obj\Debug\DreamField.DataAccessLevel.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.DataAccessLevel\obj\Debug\DreamField.DataAccessLevel.pdb
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.DataAccessLevel\bin\Debug\DreamField.Model.dll.config

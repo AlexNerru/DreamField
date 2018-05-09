@@ -19,15 +19,7 @@ namespace DreamField.BusinessLogic
 
         public RationsLogic(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
 
-        public Norm CreateNorm (Ration ration, CowDTO dto)
-        {
-            _cowFactorial = new MilkCowFactorial(dto);
-            Norm norm = _cowFactorial.CreateNorm();
-            norm.Ration = ration;
-            _unitOfWork.NormRepository.Add(norm);            
-            _unitOfWork.SaveChanges();
-            return norm;
-        }
+       
 
         public void Calculate(List<Feed> feeds, RationStructure structure, Norm norm)
         {

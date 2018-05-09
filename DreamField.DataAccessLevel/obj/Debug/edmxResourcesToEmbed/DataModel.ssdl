@@ -154,6 +154,15 @@
     <Property Name="Animal" Type="int" Nullable="false" />
     <Property Name="Comment" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="RationStructures">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="roughage" Type="float" Nullable="false" />
+    <Property Name="juicy_food" Type="float" Nullable="false" />
+    <Property Name="concentrates" Type="float" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id" />
@@ -206,7 +215,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_FeedElements_Feeds">
-    <End Role="Feeds" Type="Self.Feeds" Multiplicity="1" />
+    <End Role="Feeds" Type="Self.Feeds" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="FeedElements" Type="Self.FeedElements" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Feeds">
@@ -309,6 +320,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_RationStructures_RationStructures">
+    <End Role="Rations" Type="Self.Rations" Multiplicity="1" />
+    <End Role="RationStructures" Type="Self.RationStructures" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Rations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RationStructures">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="Хранилище DreamFieldModelContainer">
     <EntitySet Name="Animals" EntityType="Self.Animals" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cows" EntityType="Self.Cows" Schema="dbo" store:Type="Tables" />
@@ -320,6 +343,7 @@
     <EntitySet Name="Norms" EntityType="Self.Norms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RationFeeds" EntityType="Self.RationFeeds" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rations" EntityType="Self.Rations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RationStructures" EntityType="Self.RationStructures" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Animals_Herds" Association="Self.FK_Animals_Herds">
       <End Role="Herds" EntitySet="Herds" />
@@ -364,6 +388,10 @@
     <AssociationSet Name="FK_Rations_User" Association="Self.FK_Rations_User">
       <End Role="Users" EntitySet="Users" />
       <End Role="Rations" EntitySet="Rations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RationStructures_RationStructures" Association="Self.FK_RationStructures_RationStructures">
+      <End Role="Rations" EntitySet="Rations" />
+      <End Role="RationStructures" EntitySet="RationStructures" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Concrete\FarmRepository.cs" />
     <Compile Include="Concrete\FeedRepository.cs" />
-    <Compile Include="Concrete\NormRepository.cs" />
     <Compile Include="Concrete\RationsRepository.cs" />
     <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="DataModel.Context.cs">
@@ -69,7 +68,6 @@
     <Compile Include="Interfaces\IFarmRepository.cs" />
     <Compile Include="Interfaces\IFeedRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Interfaces\INormRepository.cs" />
     <Compile Include="Interfaces\IRationRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />

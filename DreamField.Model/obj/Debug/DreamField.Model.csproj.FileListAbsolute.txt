@@ -3,4 +3,11 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\DreamField
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.csproj.CoreCompileInputs.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.pdb
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\DreamField.Model.dll.config
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\EntityFramework.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\EntityFramework.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.csprojResolveAssemblyReference.cache

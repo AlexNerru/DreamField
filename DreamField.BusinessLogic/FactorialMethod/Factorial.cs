@@ -8,11 +8,12 @@ using DreamField.DataAccessLevel.Generics;
 using DreamField.DataAccessLevel.Interfaces;
 using System.Data.Entity;
 
+
 namespace DreamField.BusinessLogic
 {
     public class MilkCowFactorial : CowNorm
     {
-        public MilkCowFactorial(CowDTO dto) : base(dto) { }
+        public MilkCowFactorial(RationStatsDto dto) : base(dto) { }
 
         /// <summary>
         /// Теплопродукция лактирующих А50
@@ -21,7 +22,7 @@ namespace DreamField.BusinessLogic
         {
             get
             {
-                //TODO: What's the fuck is this&
+                //TODO: Change it fot another coef
                 double c = 1;
                 if (stats.DayDistance > 0)
                     c += (int)stats.DayDistance * 0.02;
@@ -37,7 +38,7 @@ namespace DreamField.BusinessLogic
         protected override double EnergyProduction => MilkEnergy * stats.DailyMilk + PregnancyEnergy;
                 
 
-        public override Norm CreateNorm()
+        public override Norm Create()
         {
             Norm norm = new Norm
             {
@@ -163,7 +164,7 @@ namespace DreamField.BusinessLogic
     public abstract class CowNorm : ICowNorm
     {
 
-        protected CowDTO stats;
+        protected RationStatsDto stats;
 
         /// <summary>
         /// Обменная масса А00
@@ -356,10 +357,10 @@ namespace DreamField.BusinessLogic
         #endregion
 
         #region Methods
-        public abstract Norm CreateNorm();
+        public abstract Norm Create();
         #endregion
 
-        public CowNorm(CowDTO dto) => this.stats = dto;
+        public CowNorm(RationStatsDto dto) => this.stats = dto;
 
     }
 }

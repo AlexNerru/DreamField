@@ -4,6 +4,6 @@ namespace DreamField.BusinessLogic
 {
     public interface ICowNorm
     {
-       Norm CreateNorm();
+       Norm Create();
     }
 }

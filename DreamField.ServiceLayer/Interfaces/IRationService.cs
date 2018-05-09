@@ -5,11 +5,22 @@ using System.Collections.Generic;
 
 namespace DreamField.ServiceLayer
 {
+    /// <summary>
+    /// Objects that can act like service for rations
+    /// </summary>
     public interface IRationService
     {
-        Ration Create(int userId, int farmId, int animal, string comment = "");
-        Norm CalculateNorm(Ration ration, CowDTO dto);
-        void Calculate(Norm norm, RationStructure structure);
+        //TODO: Change return type to dto
+        Ration Create(int userId, int farmId, AnimalTypes animal, string comment);
+
+        Norm Create(RationStatsDto dto);
+
+        Ration Add(int rationId, Norm norm);
+
+        Ration Add(int rationId, RationStructure rationStructure);
+
+        Ration Calculate(int rationId);
+
         IEnumerable<Ration> GetAllRations(int userId);
     }
 }

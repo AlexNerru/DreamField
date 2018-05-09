@@ -16,7 +16,7 @@ namespace DreamField.DataAccessLevel.Generics
 
         IFeedRepository feedRepository;
         IFarmRepository farmRepository;
-        INormRepository normRepository;
+        //INormRepository normRepository;
         IRationRepository rationRepository;
         IUserRepository userRepository;
 
@@ -26,7 +26,7 @@ namespace DreamField.DataAccessLevel.Generics
 
             feedRepository = new FeedRepository(_context);
             farmRepository = new FarmRepository(_context);
-            normRepository = new NormRepository(_context);
+            //normRepository = new NormRepository(_context);
             rationRepository = new RationRepository(_context);
             userRepository = new UserRepository(_context);
             
@@ -36,7 +36,7 @@ namespace DreamField.DataAccessLevel.Generics
 
         public IFarmRepository FarmRepository => farmRepository;
 
-        public INormRepository NormRepository => normRepository;
+        //public INormRepository NormRepository => normRepository;
 
         public IRationRepository RationRepository => rationRepository;
 

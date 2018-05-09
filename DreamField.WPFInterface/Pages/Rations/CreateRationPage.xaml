@@ -28,22 +28,22 @@
                    VerticalAlignment="Center" Width="218" Foreground="#FF1C0F98" FontFamily="Roboto Medium" FontSize="22">
                     <Run Text="Создание рациона"/><LineBreak/><Run/></TextBlock>
         <TextBox Margin="497,235,543,514.8"
-                 Text="{Binding AddRation.Weight}"
+                 Text="{Binding CreateRation.Comment}"
                  materialDesign:HintAssist.Hint="Name/Comment" 
                  Style="{StaticResource TextBoxDesign}" Width="185"/>
         <TextBox Margin="330,381,695,368.8"
-                 Text="{Binding AddRation.WeightIncrement}"
+                 Text="{Binding CreateRation.Roughage}"
                  materialDesign:HintAssist.Hint="Roughage percentage" 
                  Style="{StaticResource TextBoxDesign}" Width="200"/>
         <TextBox Margin="665,381,355,368.8"
-                 Text="{Binding AddRation.Protein}" 
+                 Text="{Binding CreateRation.Juicy}" 
                  materialDesign:HintAssist.Hint="Juicy food percentage" 
                  Style="{StaticResource TextBoxDesign}" Width="205"/>
 
         <Button x:Name="CalculateRationButton" Content="Next" Margin="915,713,30,0"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}" 
-                Command="{Binding AddRation.AddRationCommand, Mode=OneWay}" VerticalAlignment="Top"/>
-        <materialDesign:Snackbar MessageQueue="{Binding AddRation.MessageQueue}"
+                Command="{Binding CreateRation.CreateRationCommand, Mode=OneWay}" VerticalAlignment="Top"/>
+        <materialDesign:Snackbar MessageQueue="{Binding CreateRation.MessageQueue}"
                                                  x:Name="SnackbarThree" Background="#FFF0F0F0" Foreground="#FF5103BE" Height="46" Margin="468,0,469,0" RenderTransformOrigin="0.5,0.5" >
             <materialDesign:Snackbar.RenderTransform>
                 <TransformGroup>
