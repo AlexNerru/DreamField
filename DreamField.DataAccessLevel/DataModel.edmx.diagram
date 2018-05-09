@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="16afe96c0f194a06bdbea1fe22be6f20" Name="Diagram1" ZoomLevel="68" DisplayType="true">
+      <Diagram DiagramId="16afe96c0f194a06bdbea1fe22be6f20" Name="Diagram1" ZoomLevel="59" DisplayType="true">
         <EntityTypeShape EntityType="DreamFieldModel.Animal" Width="1.5" PointX="5.25" PointY="12.125" />
         <EntityTypeShape EntityType="DreamFieldModel.Cow" Width="1.5" PointX="7.5" PointY="12.625" />
         <EntityTypeShape EntityType="DreamFieldModel.Farm" Width="1.5" PointX="0.5" PointY="5.875" />
@@ -27,6 +27,8 @@
         <EntityTypeShape EntityType="DreamFieldModel.Norm" Width="1.5" PointX="8.125" PointY="25" />
         <AssociationConnector Association="DreamFieldModel.FK_FeedElements_Feeds" />
         <AssociationConnector Association="DreamFieldModel.FK_Norms_Rations" />
+        <EntityTypeShape EntityType="DreamFieldModel.RationStructure" Width="1.5" PointX="8.125" PointY="7.875" />
+        <AssociationConnector Association="DreamFieldModel.FK_RationStructures_RationStructures" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

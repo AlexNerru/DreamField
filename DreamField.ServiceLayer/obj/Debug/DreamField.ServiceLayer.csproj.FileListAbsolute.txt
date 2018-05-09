@@ -19,3 +19,8 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\Ent
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\Microsoft.Solver.Foundation.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\Microsoft.Solver.Foundation.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\FluentValidation.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\FluentValidation.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\DreamField.Model.dll.config

@@ -6,7 +6,7 @@ namespace DreamField.DataAccessLevel.Interfaces
     {
         IFeedRepository FeedRepository { get; }
         IFarmRepository FarmRepository { get; }
-        INormRepository NormRepository { get; }
+        //INormRepository NormRepository { get; }
         IRationRepository RationRepository { get; }
         IUserRepository UserRepository { get; }
 

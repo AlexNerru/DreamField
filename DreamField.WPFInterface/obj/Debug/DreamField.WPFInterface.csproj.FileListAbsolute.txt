@@ -23,8 +23,6 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\Dre
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\DreamField.DataAccessLevel.dll.config
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\DreamField.Model.pdb
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\EntityFramework.xml
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\DreamField.ServiceLayer.dll.config
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\CommonServiceLocator.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\GalaSoft.MvvmLight.dll
@@ -70,3 +68,8 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pag
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\CreateRationPage.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\AllRationsPage.baml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\obj\Debug\Pages\Rations\AddRationStatsPage.baml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\DreamField.Model.dll.config
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.WPFInterface\bin\Debug\ru\EntityFramework.SqlServer.resources.dll

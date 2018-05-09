@@ -46,6 +46,11 @@
       <End Role="Ration" EntitySet="Rations" />
       <End Role="Norm" EntitySet="Norms" />
     </AssociationSet>
+    <EntitySet Name="RationStructures" EntityType="DreamFieldModel.RationStructure" />
+    <AssociationSet Name="FK_RationStructures_RationStructures" Association="DreamFieldModel.FK_RationStructures_RationStructures">
+      <End Role="Ration" EntitySet="Rations" />
+      <End Role="RationStructure" EntitySet="RationStructures" />
+    </AssociationSet>
   </EntityContainer>
   <EnumType Name="CowBreeds">
     <Member Name="Холмогорская" />
@@ -198,6 +203,7 @@
     <NavigationProperty Name="RationFeeds" Relationship="DreamFieldModel.FK_RationFeeds_Ration" FromRole="Ration" ToRole="RationFeed" />
     <NavigationProperty Name="User" Relationship="DreamFieldModel.FK_Rations_User" FromRole="Ration" ToRole="User" />
     <NavigationProperty Name="Norm" Relationship="DreamFieldModel.FK_Norms_Rations" FromRole="Ration" ToRole="Norm" />
+    <NavigationProperty Name="RationStructure" Relationship="DreamFieldModel.FK_RationStructures_RationStructures" FromRole="Ration" ToRole="RationStructure" />
   </EntityType>
   <Association Name="FK_Rations_Farm">
     <End Type="DreamFieldModel.Farm" Role="Farm" Multiplicity="1" />
@@ -357,4 +363,26 @@
     <Member Name="Juicy" Value="2" />
     <Member Name="Concentrate" Value="3" />
   </EnumType>
+  <EntityType Name="RationStructure">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="roughage" Type="Double" Nullable="false" />
+    <Property Name="juicy_food" Type="Double" Nullable="false" />
+    <Property Name="concentrates" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Ration" Relationship="DreamFieldModel.FK_RationStructures_RationStructures" FromRole="RationStructure" ToRole="Ration" />
+  </EntityType>
+  <Association Name="FK_RationStructures_RationStructures">
+    <End Type="DreamFieldModel.Ration" Role="Ration" Multiplicity="1" />
+    <End Type="DreamFieldModel.RationStructure" Role="RationStructure" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Ration">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RationStructure">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

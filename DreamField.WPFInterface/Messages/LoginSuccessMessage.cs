@@ -11,6 +11,5 @@ namespace DreamField.WPFInterface
     {
         public string UserName { get; set; }
         public LoginSuccessMessage(string userNmae) => UserName = userNmae;
-
     }
 }

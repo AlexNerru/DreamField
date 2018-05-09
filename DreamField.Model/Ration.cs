@@ -32,5 +32,6 @@ namespace DreamField.Model
         public virtual ICollection<RationFeed> RationFeeds { get; set; }
         public virtual User User { get; set; }
         public virtual Norm Norm { get; set; }
+        public virtual RationStructure RationStructure { get; set; }
     }
 }

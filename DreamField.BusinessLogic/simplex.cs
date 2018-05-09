@@ -16,7 +16,7 @@ namespace DreamField.BusinessLogic
     /// <summary>
     /// Represents solver for simplex method
     /// </summary>
-    class Simplex
+    public class Simplex
     {
         private List<Feed> _feeds;
         private List<int> feedIds;
@@ -77,7 +77,7 @@ namespace DreamField.BusinessLogic
                 solver.SetCoefficient(rough, id, _feeds[id].FeedElement.EnergyFeedUnit);
             }
 
-            double roughFeedUnit = _norm.EnergyFeedUnit * _rationStructure.RoughFeedsPercent;
+            double roughFeedUnit = _norm.EnergyFeedUnit * _rationStructure.roughage;
 
             solver.SetBounds(rough, roughFeedUnit * downAbnormality,
                 roughFeedUnit * upAbnormality);
@@ -94,8 +94,8 @@ namespace DreamField.BusinessLogic
                 solver.SetCoefficient(juicy, id, _feeds[id].FeedElement.EnergyFeedUnit);
             }
 
-            solver.SetBounds(juicy, _norm.EnergyFeedUnit * _rationStructure.JuicyFeedsPercent * downAbnormality,
-                _norm.EnergyFeedUnit * _rationStructure.JuicyFeedsPercent * upAbnormality);
+            solver.SetBounds(juicy, _norm.EnergyFeedUnit * _rationStructure.juicy_food * downAbnormality,
+                _norm.EnergyFeedUnit * _rationStructure.juicy_food * upAbnormality);
             #endregion
 
             
@@ -122,9 +122,9 @@ namespace DreamField.BusinessLogic
             for (int i = 0; i < feedIds.Count; i++)
                 if (solver.GetValue(feedIds[i]).ToDouble() != 0)
                     rationFeeds.Add(_feeds[feedIds[i]], solver.GetValue(feedIds[i]).ToDouble());
-            
 
 
+#if DEBUG
             Console.WriteLine(solver);
 
             foreach (var item in feedIds)
@@ -134,11 +134,12 @@ namespace DreamField.BusinessLogic
                 Console.WriteLine($"{parametersToOptimise[item - feedIds.Count]} - {solver.GetValue(item).ToDouble()}\n");
 
             Console.WriteLine($"{solver.GetValue(cost).ToDouble()}");
-
+#endif
 
             return rationFeeds;
         }
 
+        //TODO: move to repositoty
         private List<Feed> GetFeedsOfType (FeedTypes type) => _feeds.Where(feed => feed.type == type).ToList();
 
         /// <summary>

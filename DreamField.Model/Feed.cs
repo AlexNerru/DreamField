@@ -11,7 +11,6 @@ namespace DreamField.Model
 {
     using System;
     using System.Collections.Generic;
-    using System.Reflection;
     
     public partial class Feed
     {
@@ -32,7 +31,5 @@ namespace DreamField.Model
         public virtual ICollection<RationFeed> RationFeeds { get; set; }
         public virtual Farm Farm { get; set; }
         public virtual FeedElement FeedElement { get; set; }
-
-
     }
 }

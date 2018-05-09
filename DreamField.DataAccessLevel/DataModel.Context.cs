@@ -35,5 +35,6 @@ namespace DreamField.DataAccessLevel
         public virtual DbSet<Ration> Rations { get; set; }
         public virtual DbSet<FeedElement> FeedElements { get; set; }
         public virtual DbSet<Norm> Norms { get; set; }
+        public virtual DbSet<RationStructure> RationStructures { get; set; }
     }
 }

@@ -27,45 +27,45 @@
                    VerticalAlignment="Center" Width="410" Foreground="#FF1C0F98" FontFamily="Roboto Medium" FontSize="22">
                     <Run Text="Расчет рациона лактирующей коровы"/><LineBreak/><Run/></TextBlock>
         <TextBox Margin="154,309,725.2,421"
-                 Text="{Binding AddRation.Weight}"
+                 Text="{Binding AddRationStats.Weight}"
                  materialDesign:HintAssist.Hint="Weight" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="154,384,725.2,350"
-                 Text="{Binding AddRation.Fat}"
+                 Text="{Binding AddRationStats.Fat}"
                  materialDesign:HintAssist.Hint="Fat" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="486,309,427.2,421"
-                 Text="{Binding AddRation.WeightIncrement}"
+                 Text="{Binding AddRationStats.WeightIncrement}"
                  materialDesign:HintAssist.Hint="Weight Increment" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="780,309,110.2,421"
-                 Text="{Binding AddRation.Protein}" 
+                 Text="{Binding AddRationStats.Protein}" 
                  materialDesign:HintAssist.Hint="Protein" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="486,384,427.2,349" 
-                 Text="{Binding AddRation.DryFeed}"
+                 Text="{Binding AddRationStats.DryFeed}"
                  materialDesign:HintAssist.Hint="Dry Feed" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="154,456,725.2,276"
-                 Text="{Binding AddRation.DayDistance}"
+                 Text="{Binding AddRationStats.DayDistance}"
                  materialDesign:HintAssist.Hint="Day Distance" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="780,383,110.2,350" 
-                 Text="{Binding AddRation.DailyMilk}"
+                 Text="{Binding AddRationStats.DailyMilk}"
                  materialDesign:HintAssist.Hint="Daily Milk Yeild" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="373,356,315,177"
-                 Text="{Binding AddRation.LactationDay}"
+                 Text="{Binding AddRationStats.LactationDay}"
                  materialDesign:HintAssist.Hint="Lactation Day" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="780,457,110.2,276" 
-                 TextWrapping="Wrap" Text="{Binding AddRation.PregnancyDay}"
+                 TextWrapping="Wrap" Text="{Binding AddRationStats.PregnancyDay}"
                  materialDesign:HintAssist.Hint="Day of pregnancy" 
                  Style="{StaticResource TextBoxDesign}"/>
         <Button x:Name="CalculateRationButton" Content="Create" Margin="915,713,30,0"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}" 
-                Command="{Binding AddRation.AddRationCommand, Mode=OneWay}" VerticalAlignment="Top"/>
-        <materialDesign:Snackbar MessageQueue="{Binding AddRation.MessageQueue}"
+                Command="{Binding AddRationStats.AddRationStatsCommand, Mode=OneWay}" VerticalAlignment="Top"/>
+        <materialDesign:Snackbar MessageQueue="{Binding AddRationStats.MessageQueue}"
                                                  x:Name="SnackbarThree" Background="#FFF0F0F0" Foreground="#FF5103BE" Height="46" Margin="468,0,469,0" RenderTransformOrigin="0.5,0.5" >
             <materialDesign:Snackbar.RenderTransform>
                 <TransformGroup>

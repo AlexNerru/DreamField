@@ -10,6 +10,8 @@ using DreamField.WPFInterface.Helpers;
 using System.ComponentModel;
 using System.Reflection;
 using MaterialDesignThemes.Wpf;
+using GalaSoft.MvvmLight.Messaging;
+using DreamField.WPFInterface.Messages;
 
 
 
@@ -17,10 +19,14 @@ namespace DreamField.WPFInterface.ViewModel
 {
     public class CreateRationViewModel : ViewModelBase
     {
+        #region private fields
+
         private string _comment;
         private string _roughage;
         private string _juicy;
-       
+
+        #endregion
+
 
         ICustomFrameNavigationService _navigationService;
         IRationService _rationService;
@@ -28,9 +34,12 @@ namespace DreamField.WPFInterface.ViewModel
 
         ISnackbarMessageQueue _messageQueue;
 
+        CreateRationValidator validator = new CreateRationValidator();
 
-        public RelayCommand AddRationCommand { get; private set; }
 
+        public RelayCommand CreateRationCommand { get; private set; }
+
+        #region Binding Properties
 
         public string Comment
         {
@@ -62,6 +71,8 @@ namespace DreamField.WPFInterface.ViewModel
             }
         }
 
+        #endregion
+
 
         ///TODO: Add Back Button
         public CreateRationViewModel(ICustomFrameNavigationService navigationService,
@@ -73,12 +84,29 @@ namespace DreamField.WPFInterface.ViewModel
 
             _messageQueue = new SnackbarMessageQueue();
 
-            AddRationCommand = new RelayCommand(CreateRation);
+            CreateRationCommand = new RelayCommand(CreateRation);
         }
 
         private void CreateRation()
         {
-            
+            if (validator.Validate(this).IsValid)
+            {
+                //TODO: Add farms and animal type change
+                Ration ration = _rationService.Create(_userService.LoggedUser.Id, 1, AnimalTypes.Cow, Comment);
+
+                RationStructure rationStructure = new RationStructure();
+                rationStructure.roughage = double.Parse(Roughage);
+                rationStructure.juicy_food = double.Parse(Juicy);
+                rationStructure.concentrates = 1 - (rationStructure.roughage + rationStructure.juicy_food);
+                _rationService.Add(ration.Id, rationStructure);
+
+                CurrentRationSingleton rationSingleton = CurrentRationSingleton.Source;
+                rationSingleton.RationId = ration.Id;
+
+                _navigationService.NavigateTo("AddRationStats");
+            }
+            else
+                Task.Factory.StartNew(() => _messageQueue.Enqueue("Ошибка данных"));
 
         }
     }
