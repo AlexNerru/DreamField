@@ -33,11 +33,10 @@ namespace DreamField.WPFInterface.ViewModel
         IRationService _rationService;
         IUserService _userService;
 
-        ISnackbarMessageQueue _messageQueue;
-
 
         public RelayCommand AddRationStatsCommand { get; private set; }
 
+        #region Binding Properties
 
         public string Weight
         {
@@ -129,7 +128,10 @@ namespace DreamField.WPFInterface.ViewModel
             }
         }
 
-        
+        public ISnackbarMessageQueue MessageQueue { get; set; }
+
+        #endregion
+
 
         ///TODO: Add Back Button
         public AddRationStatsViewModel(ICustomFrameNavigationService navigationService,
@@ -139,7 +141,7 @@ namespace DreamField.WPFInterface.ViewModel
             _navigationService = navigationService;
             _rationService = rationService;
             _userService = userService;
-            _messageQueue = new SnackbarMessageQueue();
+            MessageQueue = new SnackbarMessageQueue();
 
             AddRationStatsCommand = new RelayCommand(AddStatsRation);
         }
@@ -165,7 +167,7 @@ namespace DreamField.WPFInterface.ViewModel
                 _navigationService.NavigateTo("AllRations");
             }
             else
-                Task.Factory.StartNew(() => _messageQueue.Enqueue("Ошибка данных"));
+                Task.Factory.StartNew(() => MessageQueue.Enqueue("Ошибка данных"));
         }
 
     }

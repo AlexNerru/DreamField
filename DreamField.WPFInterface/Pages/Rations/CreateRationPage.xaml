@@ -44,15 +44,8 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}" 
                 Command="{Binding CreateRation.CreateRationCommand, Mode=OneWay}" VerticalAlignment="Top"/>
         <materialDesign:Snackbar MessageQueue="{Binding CreateRation.MessageQueue}"
-                                                 x:Name="SnackbarThree" Background="#FFF0F0F0" Foreground="#FF5103BE" Height="46" Margin="468,0,469,0" RenderTransformOrigin="0.5,0.5" >
-            <materialDesign:Snackbar.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </materialDesign:Snackbar.RenderTransform>
-        </materialDesign:Snackbar>
+                                                 x:Name="SnackbarThree" Background="#FFF0F0F0" 
+                                 Foreground="#FF5103BE" Height="46" Margin="467,0,470,30.8" />
+
     </Grid>
 </Page>

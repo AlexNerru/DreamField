@@ -1,6 +1,16 @@
 ﻿################################################################################
 # Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
 ################################################################################
-
-/.vs/DreamField/v15/Server/sqlite3
 /.vs
+/DreamField.Model/bin
+/DreamField.Model/obj
+/DreamField.DataAccessLevel/bin
+/DreamField.DataAccessLevel/obj
+/DreamField.BusinessLogic/bin
+/DreamField.BusinessLogic/obj
+/DreamField.ServiceLayer/bin
+/DreamField.ServiceLayer/obj
+/DreamField.WPFInterface/bin
+/DreamField.WPFInterface/obj
+/DreamField.Tests/bin
+/DreamField.Test/obj

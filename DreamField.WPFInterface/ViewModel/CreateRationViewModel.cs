@@ -27,15 +27,11 @@ namespace DreamField.WPFInterface.ViewModel
 
         #endregion
 
-
         ICustomFrameNavigationService _navigationService;
         IRationService _rationService;
         IUserService _userService;
 
-        ISnackbarMessageQueue _messageQueue;
-
         CreateRationValidator validator = new CreateRationValidator();
-
 
         public RelayCommand CreateRationCommand { get; private set; }
 
@@ -71,6 +67,8 @@ namespace DreamField.WPFInterface.ViewModel
             }
         }
 
+        public ISnackbarMessageQueue MessageQueue { get; set; }
+
         #endregion
 
 
@@ -82,7 +80,7 @@ namespace DreamField.WPFInterface.ViewModel
             _rationService = rationService;
             _userService = userService;
 
-            _messageQueue = new SnackbarMessageQueue();
+            MessageQueue = new SnackbarMessageQueue();
 
             CreateRationCommand = new RelayCommand(CreateRation);
         }
@@ -106,7 +104,7 @@ namespace DreamField.WPFInterface.ViewModel
                 _navigationService.NavigateTo("AddRationStats");
             }
             else
-                Task.Factory.StartNew(() => _messageQueue.Enqueue("Ошибка данных"));
+                Task.Factory.StartNew(() => MessageQueue.Enqueue("Ошибка данных"));
 
         }
     }

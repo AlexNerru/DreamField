@@ -54,7 +54,6 @@
     <Compile Include="FactorialMethod\ICowFactorial.cs" />
     <Compile Include="Feeds\FeedsLogic.cs" />
     <Compile Include="RationStatsDto.cs" />
-    <Compile Include="Rations\RationsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simplex.cs" />
     <Compile Include="Users\AuthData.cs" />
