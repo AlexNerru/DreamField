@@ -1,0 +1,14 @@
+﻿namespace DreamField.ServiceLayer.Dto
+{
+    public class RationDto
+    {
+        public string Comment { get; set; }
+        public int Animal { get; set; }
+        public string FarmName { get; set; }
+        public double EnergyFeedUnit { get; set; }
+        public double DigestibleProtein { get; set; }
+        public double RoughPercent { get; set; }
+        public double JuicyPercent { get; set; }
+        public double Consentrates { get; set; }
+    }
+}

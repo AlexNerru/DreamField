@@ -97,11 +97,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Helpers\CreateRationValidator.cs" />
-    <Compile Include="Helpers\CurrentRationSingleton.cs" />
-    <Compile Include="Helpers\NumericPositivValidator.cs" />
+    <Compile Include="Helpers\Singletons\CurrentRationSingleton.cs" />
     <Compile Include="Helpers\AnimalTypesToStringConverter.cs" />
     <Compile Include="Helpers\FrameNavigationService.cs" />
+    <Compile Include="Helpers\Validators\CreateRationValidator.cs" />
+    <Compile Include="Helpers\Validators\NumericPositivValidator.cs" />
     <Compile Include="Interfaces\ICustomFrameNavigationService.cs" />
     <Compile Include="Messages\LoginSuccessMessage.cs" />
     <Compile Include="Messages\RationCreatedMessage.cs" />

@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
-using FluentValidation.Validators;
-using FluentValidation.TestHelper;
-using DreamField.BusinessLogic;
 using System.Text.RegularExpressions;
 using DreamField.WPFInterface.ViewModel;
-using GalaSoft.MvvmLight;
+using FluentValidation;
 
-namespace DreamField.WPFInterface.Helpers
+namespace DreamField.WPFInterface.Helpers.Validators
 {
     class NumericPositivValidator:AbstractValidator<AddRationStatsViewModel>
     {

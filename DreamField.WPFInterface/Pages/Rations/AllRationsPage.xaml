@@ -6,68 +6,132 @@
       xmlns:local="clr-namespace:DreamField.WPFInterface"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
-      Title="RationsPage" Width="1215" Height="774.9">
+      Title="RationsPage" Width="1295" Height="774.9">
 
     <Page.Resources>
         <ResourceDictionary>
-            <local:AnimalTypesToStringConverter x:Key="DefaultEnumToStringConverter"/> 
+            <local:AnimalTypesToStringConverter x:Key="DefaultEnumToStringConverter"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Margin="10,10,0.2,-0.2" DataContext="{Binding Source={StaticResource Locator}}">
+    <Grid Margin="10,10,10.2,-0.2" DataContext="{Binding Source={StaticResource Locator}}">
         <ListView ItemsSource="{Binding Rations.Rations}"
-                  IsSynchronizedWithCurrentItem="True" SelectionMode="Single" Focusable="False">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Focusable" Value="false"/>
-                </Style>
-            </ListView.ItemContainerStyle>
+                  IsSynchronizedWithCurrentItem="True" SelectionMode="Single" Focusable="False" Margin="10,-10,9.8,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <materialDesign:Card Background="#FF033076"
-                      Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
-                      Padding="10,0,0,10" Height="120" Width="1175">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" MinHeight="60" />
-                                <RowDefinition Height="Auto" MinHeight="67.6" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Text="{Binding Path=Comment}" Margin="35,10,654.8,10" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
-                            <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="20" Height="Auto" 
+                    <materialDesign:Flipper Background="#FF033076" Style="{StaticResource MaterialDesignCardFlipper}" Foreground="White">
+                        <materialDesign:Flipper.FrontContent>
+                            <Grid Background="#FF033076" Height="130">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="{Binding Path=Comment}" Margin="35,10,654.8,10" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+                                <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="20" Height="Auto" 
                                                      Margin="140,15,0,27.6" Grid.Row="1" VerticalAlignment="Stretch" />
-                            <TextBlock Grid.Row="1" Margin="179,16,929.8,27.6"
+                                <TextBlock Grid.Row="1" Margin="179,16,929.8,27.6"
                                        Text="{Binding Path=Animal, 
                                             Converter={StaticResource DefaultEnumToStringConverter}}" 
-                                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="24" Width="86"/>
-                            <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="345,11,0,23.6" Grid.Row="1" VerticalAlignment="Stretch" />
-                            <TextBlock Grid.Row="1" Margin="375,16,691.8,31.6" VerticalAlignment="Center"
-                                       Text="Cocтояние" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="20"/>
-                            <Button HorizontalAlignment="Right"  Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
+                                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto" Width="86"/>
+                                <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="345,11,0,23.6" Grid.Row="1" VerticalAlignment="Stretch" />
+                                <TextBlock Grid.Row="1" Margin="375,16,691.8,31.6" VerticalAlignment="Center"
+                                       Text="Дойная" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
+                                <Button HorizontalAlignment="Right"  Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
                                 materialDesign:RippleAssist.IsCentered="True" Margin="0,10,164.8,10" Width="60" Height="Auto">
-                                <materialDesign:PackIcon Kind="Pencil" Height="40" Width="40"/>
-                            </Button>
-                            <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
-                                materialDesign:RippleAssist.IsCentered="True" Margin="0,10,84.8,10" Width="60" Height="Auto">
-                                <materialDesign:PackIcon Kind="Information" Height="40" Width="40"/>
-                            </Button>
-                            <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
+                                    <materialDesign:PackIcon Kind="Pencil" Height="40" Width="40"/>
+                                </Button>
+                                <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
+                                materialDesign:RippleAssist.IsCentered="True" 
+                            Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                            Margin="0,10,84.8,10" Width="60" Height="Auto">
+                                    <materialDesign:PackIcon Kind="Information" Height="40" Width="40"/>
+                                </Button>
+                                <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
                                 materialDesign:RippleAssist.IsCentered="True" Margin="0,10,9.8,10" Width="60" Height="Auto">
-                                <materialDesign:PackIcon Kind="Delete" Height="40" Width="40"/>
-                            </Button>
-                            <TextBlock Grid.Row="1" Margin="585,17,481.8,30.6" VerticalAlignment="Center" Text="Фаза" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="20"/>
-                            <TextBlock Grid.Row="1" Margin="780,15,286.8,32.6" VerticalAlignment="Center" Text="{Binding Path=Farm.name}" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="20"/>
-                            <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="20" Height="Auto" Margin="550,14,0,20.6" Grid.Row="1" VerticalAlignment="Stretch" RenderTransformOrigin="0.474,0.387" />
-                            <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="750,11,0,24.6" Grid.Row="1" VerticalAlignment="Stretch" />
-                        </Grid>
-                    </materialDesign:Card>
+                                    <materialDesign:PackIcon Kind="Delete" Height="40" Width="40"/>
+                                </Button>
+                                <TextBlock Grid.Row="1" Margin="585,17,481.8,30.6" VerticalAlignment="Center" Text="First phase" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
+                                <TextBlock Grid.Row="1" Margin="780,15,286.8,32.6" VerticalAlignment="Center" Text="{Binding Path=FarmName}" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
+                                <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="20" Height="Auto" Margin="550,14,0,20.6" Grid.Row="1" VerticalAlignment="Stretch" RenderTransformOrigin="0.474,0.387" />
+                                <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="750,11,0,24.6" Grid.Row="1" VerticalAlignment="Stretch" />
+                            </Grid>
+                        </materialDesign:Flipper.FrontContent>
+                        <materialDesign:Flipper.BackContent>
+                            <Grid Background="#FF033076" Height="200"  Width="1200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="1" Grid.Row="0" Text="Rough feed percent:" 
+                       VerticalAlignment="Center" Margin="49.934,23.65,-150.486,-47.59"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
+                                           FontFamily="Roboto Medium" Grid.RowSpan="3"/>
+                                <TextBlock Grid.Column="1" Grid.Row="1" Text="Juicy feed percent:" 
+                       VerticalAlignment="Center" Margin="49.934,63.396,-150.486,-87.337"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" 
+                                           FontFamily="Roboto Medium"   Grid.RowSpan="2"/>
+                                <TextBlock Grid.Column="1" Grid.Row="2" Text="Consentrates percent:" 
+                       VerticalAlignment="Center" Margin="49.934,107.22,-150.486,-131.16"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                                           FontFamily="Roboto Medium" FontSize="18"/>
+                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=RoughPercent}" 
+                       VerticalAlignment="Center" Margin="247.534,23.65,-212.886,-47.59"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
+                                           FontFamily="Roboto Medium" Grid.RowSpan="3"/>
+                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=JuicyPercent}" 
+                       VerticalAlignment="Center" Margin="247.534,63.396,-212.886,-87.337"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
+                                           FontFamily="Roboto Medium" Grid.RowSpan="2"/>
+                                <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Path=Consentrates}" 
+                       VerticalAlignment="Center" Margin="247.534,107.22,-227.286,-131.16"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                                           FontFamily="Roboto Medium" FontSize="18"/>
+                                <Separator Grid.Column="1" HorizontalAlignment="Left"  Height="63.686" Margin="301.221,46.465,-375.619,-109.151" Grid.Row="2" VerticalAlignment="Top" Width="151.629" RenderTransformOrigin="0.5,0.5">
+                                    <Separator.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90.065"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Separator.RenderTransform>
+                                </Separator>
+                                <TextBlock Grid.Column="1" Grid.Row="0" Text="Energy feed unit:" 
+                       VerticalAlignment="Center" Margin="432.334,25.318,-532.886,-45.922"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
+                                           FontFamily="Roboto Medium" Grid.RowSpan="3"/>
+                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=EnergyFeedUnit}" 
+                       VerticalAlignment="Center" Margin="618.684,29.818,-584.036,-50.422"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" 
+                                           FontFamily="Roboto Medium" Grid.RowSpan="3"/>
+                                <TextBlock Grid.Column="1" Grid.Row="2" Text="Digestible protein" 
+                       VerticalAlignment="Center" Margin="432.334,65.064,-532.886,-85.669"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                                           FontFamily="Roboto Medium" FontSize="18"/>
+                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=DigestibleProtein}" 
+                       VerticalAlignment="Center" Margin="618.684,65.064,-621.636,-85.669"
+                       Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" 
+                                           FontFamily="Roboto Medium" Grid.RowSpan="2"/>
+                                <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
+                                        materialDesign:RippleAssist.IsCentered="True" 
+                                        Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                        Margin="0,10,84.8,10" Width="60" Height="Auto">
+                                    <materialDesign:PackIcon Kind="Information" Height="40" Width="40"/>
+                                </Button>
+                            </Grid>
+                        </materialDesign:Flipper.BackContent>
+                    </materialDesign:Flipper>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -76,5 +140,7 @@
                 Command="{Binding AddRationCommand, Mode=OneWay}" Width="73" Height="65" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
         </Button>
+        
+
     </Grid>
 </Page>

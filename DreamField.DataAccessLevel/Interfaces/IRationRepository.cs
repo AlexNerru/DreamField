@@ -12,5 +12,7 @@ namespace DreamField.DataAccessLevel.Interfaces
     public interface IRationRepository:IRepository<Ration>
     {
         IEnumerable<Ration> GetAllRationsAnimalType(AnimalTypes animal);
+
+        IEnumerable<Ration> GetUserRations(int userId);
     }
 }

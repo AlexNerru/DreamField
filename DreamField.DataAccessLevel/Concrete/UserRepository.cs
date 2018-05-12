@@ -10,7 +10,7 @@ using DreamField.DataAccessLevel.Interfaces;
 
 namespace DreamField.DataAccessLevel.Concrete
 {
-    class UserRepository:Generics.GenericRepository<User>, IUserRepository
+    internal class UserRepository: Generics.GenericRepository<User>, IUserRepository
     {
         public UserRepository(DbContext context) : base(context) { }
     }

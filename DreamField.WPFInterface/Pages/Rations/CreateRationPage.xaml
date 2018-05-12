@@ -26,7 +26,7 @@
         <TextBlock HorizontalAlignment="Center" Height="50"
                    Margin="497,110,510,629.8" TextWrapping="Wrap" 
                    VerticalAlignment="Center" Width="218" Foreground="#FF1C0F98" FontFamily="Roboto Medium" FontSize="22">
-                    <Run Text="Создание рациона"/><LineBreak/><Run/></TextBlock>
+                    <Run Text="Creating Ration"/><LineBreak/><Run/></TextBlock>
         <TextBox Margin="497,235,543,514.8"
                  Text="{Binding CreateRation.Comment}"
                  materialDesign:HintAssist.Hint="Name/Comment" 

@@ -9,6 +9,8 @@ using DreamField.BusinessLogic;
 using DreamField.WPFInterface.Helpers;
 using System.ComponentModel;
 using System.Reflection;
+using DreamField.WPFInterface.Helpers.Singletons;
+using DreamField.WPFInterface.Helpers.Validators;
 using MaterialDesignThemes.Wpf;
 using GalaSoft.MvvmLight.Messaging;
 using DreamField.WPFInterface.Messages;

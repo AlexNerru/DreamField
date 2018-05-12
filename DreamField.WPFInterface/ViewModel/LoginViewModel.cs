@@ -16,7 +16,7 @@ namespace DreamField.WPFInterface.ViewModel
 {
     public class LoginViewModel : ViewModelBase
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
         public RelayCommand<Window> LoginCommand { get; private set; }
         private string _login;
         private string _password;
@@ -49,15 +49,12 @@ namespace DreamField.WPFInterface.ViewModel
 
         private void LoginUser(Window window)
         {
-           
-            if (_userService.Login(Login, Password))
-            {
-                Messenger.Default.Send(new LoginSuccessMessage(_userService.LoggedUser.Name));
-                Window loginWindow = GetWindowRef("Login_Window");
-                loginWindow.Close();
-                Window mainWindow = Application.Current.MainWindow;
-                mainWindow.Show();
-            }
+            if (!_userService.Login(Login, Password)) return;
+            Messenger.Default.Send(new LoginSuccessMessage(_userService.LoggedUser.Name));
+            Window loginWindow = GetWindowRef("Login_Window");
+            loginWindow.Close();
+            Window mainWindow = Application.Current.MainWindow;
+            mainWindow?.Show();
         }
 
         private static Window GetWindowRef(string WindowName)

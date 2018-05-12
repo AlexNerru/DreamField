@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using DreamField.Model;
 using DreamField.DataAccessLevel.Interfaces;
+using DreamField.DataAccessLevel.Generics;
 using System.Data.Entity;
 
 namespace DreamField.DataAccessLevel.Concrete
 {
-    class FeedRepository : Generics.GenericRepository<Feed>, IFeedRepository
+    internal class FeedRepository : GenericRepository<Feed>, IFeedRepository
     {
         public FeedRepository(DbContext context) : base(context) { }
 

@@ -10,4 +10,5 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\EntityFram
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.csprojResolveAssemblyReference.cache
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.csprojAssemblyReference.cache
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Model\obj\Debug\DreamField.Model.csproj.CopyComplete
