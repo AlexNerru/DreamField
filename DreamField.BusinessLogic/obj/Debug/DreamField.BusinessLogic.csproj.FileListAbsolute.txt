@@ -10,10 +10,11 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\Dr
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\DreamField.Model.pdb
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\EntityFramework.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.csprojResolveAssemblyReference.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.csproj.CoreCompileInputs.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.pdb
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\Microsoft.Solver.Foundation.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\Microsoft.Solver.Foundation.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\bin\Debug\DreamField.Model.dll.config
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.csprojAssemblyReference.cache
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.BusinessLogic\obj\Debug\DreamField.BusinessLogic.csproj.CopyComplete

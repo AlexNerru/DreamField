@@ -10,14 +10,16 @@ using DreamField.DataAccessLevel.Interfaces;
 
 namespace DreamField.DataAccessLevel.Concrete
 {
-    public class RationRepository:GenericRepository<Ration>, IRationRepository
+    public class RationRepository: GenericRepository<Ration>, IRationRepository
     {
         public RationRepository(DbContext context): base(context) { }
 
+        //rework
         public IEnumerable<Ration> GetAllRationsAnimalType(AnimalTypes animal)
         {
             return _entities.Where(p => p.Animal == (int)animal);
         }
 
+        public IEnumerable<Ration> GetUserRations(int userId) => _entities.Where(ration => ration.Author_id == userId);
     }
 }

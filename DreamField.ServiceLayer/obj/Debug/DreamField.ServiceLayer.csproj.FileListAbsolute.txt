@@ -10,7 +10,6 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\Dre
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\DreamField.DataAccessLevel.dll.config
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\EntityFramework.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\DreamField.Model.pdb
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\obj\Debug\DreamField.ServiceLayer.csprojResolveAssemblyReference.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\obj\Debug\DreamField.ServiceLayer.csproj.CoreCompileInputs.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\obj\Debug\DreamField.ServiceLayer.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\obj\Debug\DreamField.ServiceLayer.pdb
@@ -24,3 +23,7 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\Sys
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\System.ComponentModel.Primitives.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\FluentValidation.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\DreamField.Model.dll.config
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\obj\Debug\DreamField.ServiceLayer.csprojAssemblyReference.cache
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\obj\Debug\DreamField.ServiceLayer.csproj.CopyComplete
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\AutoMapper.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.ServiceLayer\bin\Debug\AutoMapper.xml

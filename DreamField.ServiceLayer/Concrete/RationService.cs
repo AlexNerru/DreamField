@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoMapper;
 using DreamField.BusinessLogic;
-using System.Data.Entity;
-using DreamField.Model;
 using DreamField.DataAccessLevel.Interfaces;
+using DreamField.Model;
+using DreamField.ServiceLayer.Dto;
 using DreamField.ServiceLayer.Exceptions;
 using DreamField.ServiceLayer.Validators;
 
-
-namespace DreamField.ServiceLayer
+namespace DreamField.ServiceLayer.Concrete
 {
     /// <summary>
     /// Handles all activity related to rations
     /// </summary>
     public class RationService : IRationService
     {
-        IUnitOfWork _unitOfWork;
-        NumericPositivValidator validator = new NumericPositivValidator();
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly NumericPositivValidator _validator;
 
         public RationService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+
+            AutoMapperWebConfiguration.Configure();
+
+            _validator = new NumericPositivValidator();
         }
         
         /// <summary>
@@ -86,7 +88,7 @@ namespace DreamField.ServiceLayer
         /// <returns></returns>
         public Norm Create(RationStatsDto cowDTO)
         {
-            if (validator.Validate(cowDTO).IsValid)
+            if (_validator.Validate(cowDTO).IsValid)
             {
                 MilkCowFactorial cowFactorial = new MilkCowFactorial(cowDTO);
 
@@ -141,10 +143,12 @@ namespace DreamField.ServiceLayer
 
                     foreach (Feed item in dict.Keys)
                     {
-                        RationFeed rf = new RationFeed();
-                        rf.Ration = ration;
-                        rf.Feed = item;
-                        rf.amount = dict[item];
+                        RationFeed rf = new RationFeed
+                        {
+                            Ration = ration,
+                            Feed = item,
+                            amount = dict[item]
+                        };
                         ration.RationFeeds.Add(rf);
                     }
                     _unitOfWork.SaveChanges();
@@ -158,8 +162,25 @@ namespace DreamField.ServiceLayer
             return ration;
         }
 
-        public IEnumerable<Ration> GetAllRations(int userId) 
-            => _unitOfWork.RationRepository.GetAll().Where(ration => ration.Author_id == userId);
+        public IEnumerable<RationInfoDto> GetAllRations(int userId)
+        {
+            IEnumerable<Ration> rations = _unitOfWork.RationRepository.GetUserRations(userId);
+
+            return Mapper.Map<IEnumerable<Ration>, IEnumerable<RationInfoDto>>(rations);
+        }
+
+        //Return something else?
+        public void DeleteRation(RationDeleteDto deleteDto)
+        {
+            Ration ration = _unitOfWork.RationRepository.GetById(deleteDto.Id);
+            if (ration != null)
+            {
+                _unitOfWork.RationRepository.Delete(ration);
+                _unitOfWork.SaveChanges();
+            }
+            else throw new RationNotFoundException();
+        }
+
 
     }
 }

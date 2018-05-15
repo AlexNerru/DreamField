@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DreamField.WPFInterface.Helpers
+namespace DreamField.WPFInterface.Helpers.Singletons
 {
     /// <summary>
     /// Class for passing created ration id between viewmodels

@@ -1,6 +1,7 @@
 ﻿using DreamField.BusinessLogic;
 using DreamField.Model;
 using System.Collections.Generic;
+using DreamField.ServiceLayer.Dto;
 
 
 namespace DreamField.ServiceLayer
@@ -21,6 +22,8 @@ namespace DreamField.ServiceLayer
 
         Ration Calculate(int rationId);
 
-        IEnumerable<Ration> GetAllRations(int userId);
+        IEnumerable<RationInfoDto> GetAllRations(int userId);
+
+        void DeleteRation(RationDeleteDto dto);
     }
 }

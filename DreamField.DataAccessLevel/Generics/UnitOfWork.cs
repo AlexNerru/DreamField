@@ -10,33 +10,31 @@ using DreamField.DataAccessLevel.Concrete;
 
 namespace DreamField.DataAccessLevel.Generics
 {
+    /// <summary>
+    /// Represents unit of work pattern
+    /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
-        private DbContext _context;
-
-        IFeedRepository feedRepository;
-        IFarmRepository farmRepository;
-        IRationRepository rationRepository;
-        IUserRepository userRepository;
+        private readonly DbContext _context;
 
         public UnitOfWork ()
         {
             _context = new DreamFieldEntities();
 
-            feedRepository = new FeedRepository(_context);
-            farmRepository = new FarmRepository(_context);
-            rationRepository = new RationRepository(_context);
-            userRepository = new UserRepository(_context);
+            FeedRepository = new FeedRepository(_context);
+            FarmRepository = new FarmRepository(_context);
+            RationRepository = new RationRepository(_context);
+            UserRepository = new UserRepository(_context);
             
         }
 
-        public IFeedRepository FeedRepository => feedRepository;
+        public IFeedRepository FeedRepository { get; }
 
-        public IFarmRepository FarmRepository => farmRepository;
+        public IFarmRepository FarmRepository { get; }
 
-        public IRationRepository RationRepository => rationRepository;
+        public IRationRepository RationRepository { get; }
 
-        public IUserRepository UserRepository => userRepository;
+        public IUserRepository UserRepository { get; }
 
         public void SaveChanges() => _context.SaveChanges();
 
@@ -45,5 +43,6 @@ namespace DreamField.DataAccessLevel.Generics
             _context.Dispose();
             GC.SuppressFinalize(this);
         }
+
     }
 }

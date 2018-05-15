@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DreamField.WPFInterface.ViewModel;
 using FluentValidation;
-using DreamField.WPFInterface.ViewModel;
 
-namespace DreamField.WPFInterface.Helpers
+namespace DreamField.WPFInterface.Helpers.Validators
 {
-    class CreateRationValidator:AbstractValidator<CreateRationViewModel>
+    internal class CreateRationValidator:AbstractValidator<CreateRationViewModel>
     {
         public CreateRationValidator()
         {
@@ -19,8 +14,7 @@ namespace DreamField.WPFInterface.Helpers
 
         private bool IsPositivDouble(string value)
         {
-            double result;
-            if (double.TryParse(value, out result))
+            if (double.TryParse(value, out var result))
                 return result >= 0;
             return false;
         }

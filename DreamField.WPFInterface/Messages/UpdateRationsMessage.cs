@@ -7,8 +7,8 @@ using GalaSoft.MvvmLight.Messaging;
 
 namespace DreamField.WPFInterface.Messages
 {
-    class RationCreatedMessage:MessageBase
+    class UpdateRationsMessage:MessageBase
     {
-        public RationCreatedMessage() { }
+        public UpdateRationsMessage() { }
     }
 }
