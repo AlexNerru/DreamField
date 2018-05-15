@@ -17,32 +17,15 @@ namespace DreamField.ServiceLayer.Concrete
     public class RationService : IRationService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly NumericPositivValidator _validator = new NumericPositivValidator();
+        private readonly NumericPositivValidator _validator;
 
         public RationService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
 
-            //TODO: think where to put it
-            Mapper.Initialize(
-                cfg => cfg.CreateMap<Ration, RationDto>()
-                    .ForMember(dest => dest.Animal,
-                        opts => opts.MapFrom(src => src.Animal))
-                    .ForMember(dest => dest.FarmName,
-                        opts => opts.MapFrom(src => src.Farm.name))
-                    .ForMember(dest => dest.EnergyFeedUnit,
-                        opts => opts.MapFrom(src =>
-                            src.RationFeeds.Sum(feed => feed.Feed.FeedElement.EnergyFeedUnit * feed.amount)))
-                    .ForMember(dest => dest.DigestibleProtein,
-                        opts => opts.MapFrom(src =>
-                            src.RationFeeds.Sum(feed => feed.Feed.FeedElement.DigestibleProtein * feed.amount)))
-                    .ForMember(dest => dest.RoughPercent,
-                        opts => opts.MapFrom(src => src.RationStructure.roughage))
-                    .ForMember(dest => dest.JuicyPercent,
-                        opts => opts.MapFrom(src => src.RationStructure.juicy_food))
-                    .ForMember(dest => dest.Consentrates,
-                        opts => opts.MapFrom(src => src.RationStructure.concentrates))
-            );
+            AutoMapperWebConfiguration.Configure();
+
+            _validator = new NumericPositivValidator();
         }
         
         /// <summary>
@@ -179,11 +162,23 @@ namespace DreamField.ServiceLayer.Concrete
             return ration;
         }
 
-        public IEnumerable<RationDto> GetAllRations(int userId)
+        public IEnumerable<RationInfoDto> GetAllRations(int userId)
         {
             IEnumerable<Ration> rations = _unitOfWork.RationRepository.GetUserRations(userId);
 
-            return Mapper.Map<IEnumerable<Ration>, IEnumerable<RationDto>>(rations);
+            return Mapper.Map<IEnumerable<Ration>, IEnumerable<RationInfoDto>>(rations);
+        }
+
+        //Return something else?
+        public void DeleteRation(RationDeleteDto deleteDto)
+        {
+            Ration ration = _unitOfWork.RationRepository.GetById(deleteDto.Id);
+            if (ration != null)
+            {
+                _unitOfWork.RationRepository.Delete(ration);
+                _unitOfWork.SaveChanges();
+            }
+            else throw new RationNotFoundException();
         }
 
 

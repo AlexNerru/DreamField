@@ -13,7 +13,6 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Microsoft.
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.csproj.CoreCompileInputs.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.pdb
-C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.csprojResolveAssemblyReference.cache
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\Castle.Core.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\DreamField.BusinessLogic.dll
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\DreamField.DataAccessLevel.dll
@@ -59,3 +58,8 @@ C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\FluentVali
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\DreamField.Tests.dll.config
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\AutoMapper.dll
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\DreamField.Model.dll.config
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\bin\Debug\AutoMapper.xml
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.csprojAssemblyReference.cache
+C:\Users\AlexNerru\source\repos\DreamField\DreamField.Tests\obj\Debug\DreamField.Tests.csproj.CopyComplete

@@ -33,7 +33,8 @@ namespace DreamField.WPFInterface.ViewModel
 
         public string Password
         {
-            get => _password; 
+            //TODO: change back to => _password
+            get => "qw"; 
             set
             {
                 _password = value;

@@ -1,7 +1,8 @@
 ﻿namespace DreamField.ServiceLayer.Dto
 {
-    public class RationDto
+    public class RationInfoDto
     {
+        public int Id { get; set; }
         public string Comment { get; set; }
         public int Animal { get; set; }
         public string FarmName { get; set; }

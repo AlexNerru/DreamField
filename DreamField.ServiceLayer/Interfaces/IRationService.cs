@@ -22,6 +22,8 @@ namespace DreamField.ServiceLayer
 
         Ration Calculate(int rationId);
 
-        IEnumerable<RationDto> GetAllRations(int userId);
+        IEnumerable<RationInfoDto> GetAllRations(int userId);
+
+        void DeleteRation(RationDeleteDto dto);
     }
 }

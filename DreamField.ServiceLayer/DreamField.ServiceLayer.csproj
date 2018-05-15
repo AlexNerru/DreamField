@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\FeedService.cs" />
+    <Compile Include="Dto\RationDeleteDto.cs" />
     <Compile Include="Exceptions\RationExceptions.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Concrete\UserService.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="Concrete\RationService.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dto\RationDto.cs" />
+    <Compile Include="Dto\RationInfoDto.cs" />
     <Compile Include="Validators\NumericPositivValidator.cs" />
   </ItemGroup>
   <ItemGroup>

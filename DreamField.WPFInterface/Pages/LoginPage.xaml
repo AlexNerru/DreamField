@@ -19,12 +19,12 @@
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="45"
                  Margin="92,180,0,0" VerticalAlignment="Top" 
                  Text="{Binding Login.Login, Mode=TwoWay}" FontSize="14" FontFamily="Roboto Medium" CaretBrush="#FF033076" HorizontalAlignment="Left" Width="146" RenderTransformOrigin="0.397,0.444"/>
-        <TextBox x:Name="PasswordTextBox"
+        <!-- <TextBox x:Name="PasswordTextBox"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                  Text="{Binding Login.Password, Mode=TwoWay}"
                  Margin="92,250,0,0" VerticalAlignment="Top" FontSize="0.005"
                      FontFamily="Roboto Medium" 
-                     CaretBrush="#FF033076" HorizontalAlignment="Left" Width="145" />
+                     CaretBrush="#FF033076" HorizontalAlignment="Left" Width="145" /> -->
         <Button x:Name="SublitLoginButton" Style="{StaticResource MaterialDesignRaisedLightButton}" 
                 Content="Submit" Margin="100,313,78.2,0" VerticalAlignment="Top"
                 Command="{Binding Login.LoginCommand, Mode=OneWay}"

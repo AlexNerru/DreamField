@@ -1,4 +1,4 @@
-﻿<Page x:Class="DreamField.WPFInterface.Pages.RationsPage"
+﻿<Page x:Name="page" x:Class="DreamField.WPFInterface.Pages.RationsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -20,12 +20,12 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Margin="10,10,10.2,-0.2" DataContext="{Binding Source={StaticResource Locator}}">
-        <ListView ItemsSource="{Binding Rations.Rations}"
-                  IsSynchronizedWithCurrentItem="True" SelectionMode="Single" Focusable="False" Margin="10,-10,9.8,10">
+    <Grid Name="Grid" Margin="10,10,10.2,-0.2" DataContext="{Binding Source={StaticResource Locator}}">
+        <ListView ItemsSource="{Binding RationsVM.Rations}"
+                  IsSynchronizedWithCurrentItem="True" SelectionMode="Single" Focusable="False" Margin="10">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <materialDesign:Flipper Background="#FF033076" Style="{StaticResource MaterialDesignCardFlipper}" Foreground="White">
+                    <materialDesign:Flipper Background="#FF033076" Style="{StaticResource MaterialDesignCardFlipper}" Foreground="White" >
                         <materialDesign:Flipper.FrontContent>
                             <Grid Background="#FF033076" Height="130">
                                 <Grid.RowDefinitions>
@@ -53,7 +53,9 @@
                                     <materialDesign:PackIcon Kind="Information" Height="40" Width="40"/>
                                 </Button>
                                 <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
-                                materialDesign:RippleAssist.IsCentered="True" Margin="0,10,9.8,10" Width="60" Height="Auto">
+                                materialDesign:RippleAssist.IsCentered="True" Margin="0,10,9.8,10" Width="60" Height="Auto"
+                                        Command="{Binding ElementName=Grid, Path=DataContext.RationsVM.DeleteRationCommand}"
+                                        CommandParameter="{Binding Id}">
                                     <materialDesign:PackIcon Kind="Delete" Height="40" Width="40"/>
                                 </Button>
                                 <TextBlock Grid.Row="1" Margin="585,17,481.8,30.6" VerticalAlignment="Center" Text="First phase" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
@@ -136,11 +138,9 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button x:Name="AddRationButton" Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-                            ToolTip="MaterialDesignFloatingActionDarkButton" Margin="0,0,22.4,19.8" DataContext="{Binding Rations, Mode=OneWay}"
+                            ToolTip="MaterialDesignFloatingActionDarkButton" Margin="0,0,112,20" DataContext="{Binding RationsVM, Mode=OneWay}"
                 Command="{Binding AddRationCommand, Mode=OneWay}" Width="73" Height="65" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
         </Button>
-        
-
     </Grid>
 </Page>

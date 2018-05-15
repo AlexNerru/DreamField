@@ -164,7 +164,7 @@ namespace DreamField.WPFInterface.ViewModel
 
                 ration = _rationService.Calculate(rationSingleton.RationId);
 
-                Messenger.Default.Send(new RationCreatedMessage());
+                Messenger.Default.Send(new UpdateRationsMessage());
 
                 _navigationService.NavigateTo("AllRations");
             }

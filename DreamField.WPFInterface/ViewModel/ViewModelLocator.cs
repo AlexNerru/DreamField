@@ -20,7 +20,7 @@ namespace DreamField.WPFInterface.ViewModel
     /// </summary>
     public class ViewModelLocator
     {
-        public ViewModelLocator()
+        static ViewModelLocator()
         {
            
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -49,7 +49,7 @@ namespace DreamField.WPFInterface.ViewModel
 
         public AddRationStatsViewModel AddRationStats => ServiceLocator.Current.GetInstance<AddRationStatsViewModel>();
 
-        public RationsViewModel Rations => ServiceLocator.Current.GetInstance<RationsViewModel>();
+        public RationsViewModel RationsVM => ServiceLocator.Current.GetInstance<RationsViewModel>();
 
         public CreateRationViewModel CreateRation => ServiceLocator.Current.GetInstance<CreateRationViewModel>();
 

@@ -104,7 +104,7 @@
     <Compile Include="Helpers\Validators\NumericPositivValidator.cs" />
     <Compile Include="Interfaces\ICustomFrameNavigationService.cs" />
     <Compile Include="Messages\LoginSuccessMessage.cs" />
-    <Compile Include="Messages\RationCreatedMessage.cs" />
+    <Compile Include="Messages\UpdateRationsMessage.cs" />
     <Compile Include="Pages\Rations\CreateRationPage.xaml.cs">
       <DependentUpon>CreateRationPage.xaml</DependentUpon>
     </Compile>

@@ -44,8 +44,8 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </HamburgerMenu:HamburgerMenuItem>
-            <HamburgerMenu:HamburgerMenuItem x:Name="SeettingsButton" Text="Settings" FontSize="16" FontWeight="Bold" Height="80" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/settings.png"/>
-            <HamburgerMenu:HamburgerMenuItem x:Name="ExitButton" Text="Exit" FontSize="26" FontWeight="Bold" Height="80"  VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Hidden" VerticalContentAlignment="Bottom" Margin="0,400,0,0" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/exit.png" >
+            <!--<HamburgerMenu:HamburgerMenuItem x:Name="SeettingsButton" Text="Settings" FontSize="16" FontWeight="Bold" Height="80" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/settings.png"/>-->
+            <HamburgerMenu:HamburgerMenuItem x:Name="ExitButton" Text="Exit" FontSize="26" FontWeight="Bold" Height="80"  VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Hidden" VerticalContentAlignment="Bottom" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/exit.png" Margin="0,450,0,0" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
                         <Custom:EventToCommand Command="{Binding CloseWindowCommand}"/>
