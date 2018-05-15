@@ -166,6 +166,13 @@ namespace DreamField.ServiceLayer.Concrete
         {
             IEnumerable<Ration> rations = _unitOfWork.RationRepository.GetUserRations(userId);
 
+            //List<RationFeedsDto> feeds = new List<RationFeedsDto>();
+
+            //foreach (Ration item in rations)
+            //{
+            //    feeds.Add(Mapper.Map<IEnumerable<RationFeed>, IEnumerable<RationFeedsDto>>(item.RationFeeds));
+            //}
+
             return Mapper.Map<IEnumerable<Ration>, IEnumerable<RationInfoDto>>(rations);
         }
 

@@ -41,7 +41,7 @@
                                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto" Width="86"/>
                                 <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="345,11,0,23.6" Grid.Row="1" VerticalAlignment="Stretch" />
                                 <TextBlock Grid.Row="1" Margin="375,16,691.8,31.6" VerticalAlignment="Center"
-                                       Text="Дойная" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
+                                       Text="Lactating" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
                                 <Button HorizontalAlignment="Right"  Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
                                 materialDesign:RippleAssist.IsCentered="True" Margin="0,10,164.8,10" Width="60" Height="Auto">
                                     <materialDesign:PackIcon Kind="Pencil" Height="40" Width="40"/>
@@ -67,39 +67,36 @@
                         <materialDesign:Flipper.BackContent>
                             <Grid Background="#FF033076" Height="200"  Width="1200">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="61"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="222.228"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="1" Grid.Row="0" Text="Rough feed percent:" 
-                       VerticalAlignment="Center" Margin="49.934,23.65,-150.486,-47.59"
+                                <TextBlock Grid.Row="0" Text="Rough feed percent:" 
+                       VerticalAlignment="Center" Margin="103.267,23.052,-59.019,16.344"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
-                                           FontFamily="Roboto Medium" Grid.RowSpan="3"/>
-                                <TextBlock Grid.Column="1" Grid.Row="1" Text="Juicy feed percent:" 
-                       VerticalAlignment="Center" Margin="49.934,63.396,-150.486,-87.337"
+                                           FontFamily="Roboto Medium"/>
+                                <TextBlock Text="Juicy feed percent:" 
+                       VerticalAlignment="Center" Margin="103.267,71,-59.019,-31.604"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" 
-                                           FontFamily="Roboto Medium"   Grid.RowSpan="2"/>
-                                <TextBlock Grid.Column="1" Grid.Row="2" Text="Consentrates percent:" 
-                       VerticalAlignment="Center" Margin="49.934,107.22,-150.486,-131.16"
+                                           FontFamily="Roboto Medium"/>
+                                <TextBlock Text="Consentrates percent:" 
+                       VerticalAlignment="Center" Margin="103.267,125.064,-59.019,-85.669"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" 
                                            FontFamily="Roboto Medium" FontSize="18"/>
-                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=RoughPercent}" 
-                       VerticalAlignment="Center" Margin="247.534,23.65,-212.886,-47.59"
+                                <TextBlock Grid.Row="0" Text="{Binding Path=RoughPercent}" 
+                       VerticalAlignment="Center" Margin="313.934,23.052,-148.886,16.344"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
-                                           FontFamily="Roboto Medium" Grid.RowSpan="3"/>
-                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=JuicyPercent}" 
-                       VerticalAlignment="Center" Margin="247.534,63.396,-212.886,-87.337"
+                                           FontFamily="Roboto Medium"/>
+                                <TextBlock Text="{Binding Path=JuicyPercent}" 
+                       VerticalAlignment="Center" Margin="313.934,71,-141.953,-31.604"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
-                                           FontFamily="Roboto Medium" Grid.RowSpan="2"/>
-                                <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Path=Consentrates}" 
-                       VerticalAlignment="Center" Margin="247.534,107.22,-227.286,-131.16"
+                                           FontFamily="Roboto Medium"/>
+                                <TextBlock Text="{Binding Path=Consentrates}" 
+                       VerticalAlignment="Center" Margin="313.934,125.064,-148.886,-85.669"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" 
                                            FontFamily="Roboto Medium" FontSize="18"/>
-                                <Separator Grid.Column="1" HorizontalAlignment="Left"  Height="63.686" Margin="301.221,46.465,-375.619,-109.151" Grid.Row="2" VerticalAlignment="Top" Width="151.629" RenderTransformOrigin="0.5,0.5">
+                                <Separator HorizontalAlignment="Left"  Height="63.686" Margin="346.181,70.335,-317.443,-73.021" VerticalAlignment="Top" Width="193.49" RenderTransformOrigin="0.5,0.5">
                                     <Separator.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
@@ -109,28 +106,51 @@
                                         </TransformGroup>
                                     </Separator.RenderTransform>
                                 </Separator>
-                                <TextBlock Grid.Column="1" Grid.Row="0" Text="Energy feed unit:" 
-                       VerticalAlignment="Center" Margin="432.334,25.318,-532.886,-45.922"
+                                <TextBlock Grid.Row="0" Text="Energy feed unit:" 
+                       VerticalAlignment="Center" Margin="501.667,23.052,-457.419,16.344"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
-                                           FontFamily="Roboto Medium" Grid.RowSpan="3"/>
-                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=EnergyFeedUnit}" 
-                       VerticalAlignment="Center" Margin="618.684,29.818,-584.036,-50.422"
+                                           FontFamily="Roboto Medium"/>
+                                <TextBlock Grid.Row="0" Text="{Binding EnergyFeedUnit, StringFormat={}{0:F3}}" 
+                       VerticalAlignment="Center" Margin="695.484,23.052,-534.969,16.344"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" 
-                                           FontFamily="Roboto Medium" Grid.RowSpan="3"/>
-                                <TextBlock Grid.Column="1" Grid.Row="2" Text="Digestible protein" 
-                       VerticalAlignment="Center" Margin="432.334,65.064,-532.886,-85.669"
+                                           FontFamily="Roboto Medium"/>
+                                <TextBlock Text="Digestible protein" 
+                       VerticalAlignment="Center" Margin="501.667,75.5,-457.419,-36.104"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" 
                                            FontFamily="Roboto Medium" FontSize="18"/>
-                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=DigestibleProtein}" 
-                       VerticalAlignment="Center" Margin="618.684,65.064,-621.636,-85.669"
+                                <TextBlock Text="{Binding DigestibleProtein, StringFormat={}{0:F3}}" 
+                       VerticalAlignment="Center" Margin="695.484,75.5,-553.636,-36.104"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" 
-                                           FontFamily="Roboto Medium" Grid.RowSpan="2"/>
+                                           FontFamily="Roboto Medium"/>
+                                <Separator HorizontalAlignment="Left"  Height="63.686" Margin="708.042,66.602,-679.304,-69.288" VerticalAlignment="Top" Width="193.49" RenderTransformOrigin="0.5,0.5">
+                                    <Separator.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90.065"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Separator.RenderTransform>
+                                </Separator>
+                                <ItemsControl HorizontalAlignment="Left" Height="162.2" 
+                                              ItemsSource="{Binding Feeds}"
+                                              Margin="830.734,12.2,-967.772,-113.4" VerticalAlignment="Top" Width="359.266">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock Text="{Binding Feed}" FontSize="18" FontFamily="Roboto Medium"  />
+                                                <TextBlock Text="{Binding Amount, StringFormat={}{0:F1}}" FontFamily="Roboto Medium" FontSize="18" Margin="250,0,0,0" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
                                 <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
                                         materialDesign:RippleAssist.IsCentered="True" 
                                         Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                        Margin="0,10,84.8,10" Width="60" Height="Auto">
-                                    <materialDesign:PackIcon Kind="Information" Height="40" Width="40"/>
+                                        Margin="0,5,-967.772,-2.052" Width="60" Height="Auto">
+                                    <materialDesign:PackIcon Kind="ArrowLeft" Height="40" Width="40"/>
                                 </Button>
+
                             </Grid>
                         </materialDesign:Flipper.BackContent>
                     </materialDesign:Flipper>

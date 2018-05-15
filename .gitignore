@@ -11,3 +11,8 @@ DreamField.WPFInterface/bin/
 DreamField.WPFInterface/obj/
 DreamField.Tests/bin/
 DreamField.Test/obj/
+\.vs/
+
+DreamField\.WPFInterface/
+
+DreamField\.Tests/obj/

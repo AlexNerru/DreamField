@@ -1,4 +1,7 @@
-﻿namespace DreamField.ServiceLayer.Dto
+﻿using System.Collections.Generic;
+using DreamField.Model;
+
+namespace DreamField.ServiceLayer.Dto
 {
     public class RationInfoDto
     {
@@ -11,5 +14,6 @@
         public double RoughPercent { get; set; }
         public double JuicyPercent { get; set; }
         public double Consentrates { get; set; }
+        public List<RationFeedsDto> Feeds { get; set; }
     }
 }

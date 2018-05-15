@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Concrete\FeedService.cs" />
     <Compile Include="Dto\RationDeleteDto.cs" />
+    <Compile Include="Dto\RationFeedsDto.cs" />
     <Compile Include="Exceptions\RationExceptions.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Concrete\UserService.cs" />
