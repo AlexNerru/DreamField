@@ -14,15 +14,13 @@ namespace DreamField.ServiceLayer
     public class FeedService : IFeedService
     {
         private IUnitOfWork _unitOfWork;
-        private FeedsLogic _feedsLogic;
 
         public FeedService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _feedsLogic = new FeedsLogic(_unitOfWork);
         }
 
-        public IEnumerable<Feed> GetAllFarmsFeedsByID(int farmId) => _feedsLogic.GetAllFarmFeeds(farmId);
+        public IEnumerable<Feed> GetAllFarmsFeedsByID(int farmId) => _unitOfWork.FeedRepository.GetFarmFeeds(farmId);
 
 
         

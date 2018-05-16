@@ -25,34 +25,34 @@
         <TextBlock HorizontalAlignment="Center" Height="50"
                    Margin="385,105,335.2,615" TextWrapping="Wrap" 
                    VerticalAlignment="Center" Width="410" Foreground="#FF1C0F98" FontFamily="Roboto Medium" FontSize="22">
-                    <Run Text="Расчет рациона лактирующей коровы"/><LineBreak/><Run/></TextBlock>
+                    <Run Text="Lactating cow ration"/><LineBreak/><Run/></TextBlock>
         <TextBox Margin="154,309,725.2,421"
                  Text="{Binding AddRationStats.Weight}"
-                 materialDesign:HintAssist.Hint="Weight" 
+                 materialDesign:HintAssist.Hint="Weight, kg" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="154,384,725.2,350"
                  Text="{Binding AddRationStats.Fat}"
-                 materialDesign:HintAssist.Hint="Fat" 
+                 materialDesign:HintAssist.Hint="Fat, %" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="486,309,427.2,421"
                  Text="{Binding AddRationStats.WeightIncrement}"
-                 materialDesign:HintAssist.Hint="Weight Increment" 
+                 materialDesign:HintAssist.Hint="Weight Increment, kg" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="780,309,110.2,421"
                  Text="{Binding AddRationStats.Protein}" 
-                 materialDesign:HintAssist.Hint="Protein" 
+                 materialDesign:HintAssist.Hint="Protein, %" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="486,384,427.2,349" 
                  Text="{Binding AddRationStats.DryFeed}"
-                 materialDesign:HintAssist.Hint="Dry Feed" 
+                 materialDesign:HintAssist.Hint="Dry Feed, %" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="154,456,725.2,276"
                  Text="{Binding AddRationStats.DayDistance}"
-                 materialDesign:HintAssist.Hint="Day Distance" 
+                 materialDesign:HintAssist.Hint="Day Distance, km" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="780,383,110.2,350" 
                  Text="{Binding AddRationStats.DailyMilk}"
-                 materialDesign:HintAssist.Hint="Daily Milk Yeild" 
+                 materialDesign:HintAssist.Hint="Daily Milk Yeild, l" 
                  Style="{StaticResource TextBoxDesign}"/>
         <TextBox Margin="373,356,315,177"
                  Text="{Binding AddRationStats.LactationDay}"

@@ -84,79 +84,6 @@ namespace DreamField.BusinessLogic
         }
     }
 
-    /*class DryCowFactorial : CowNorm
-    {
-        public DryCowFactorial(double weight, double weightIncrement,
-            double fatContent, double dailyMilk, double proteinMilkContent, int lactDay, double bodyTempetature = 38.5,
-            double environmentalTemperature = 15, bool pasturePeriod = false,
-            int pregnancyDurability = 285, double ltza = 4.85, double dayDistance = 0, double calfWeight = 0) : base(weight, weightIncrement,
-            fatContent, dailyMilk, proteinMilkContent, lactDay, bodyTempetature,
-            environmentalTemperature, pasturePeriod = false,
-            pregnancyDurability, ltza, dayDistance, calfWeight)
-        { }
-
-        /// <summary>
-        /// Теплопродукция сухостойных коров А50
-        /// </summary>
-        protected override double HeatProduction
-        {
-            get
-            {
-                double c = 1;
-                if (dayDistance > 0)
-                    c += (int)dayDistance * 0.02;
-                return (BulkWeight * MinHeatProduction * HeatProductionIncrement * c
-                    + BulkWeight * (EnvironmentHeatProduction + DRYPERCENT)) * HumidityIncrement;
-            }
-        }
-
-        /// <summary>
-        /// Энергия продукции сухостойнх А52
-        /// </summary>
-        protected override double EnergyProduction { get { return EnergyStatsOfWeightIncrement + PregnancyEnergy; } }
-
-        public override NormIndexGeneral CreateNorm()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    class GrowCowFactorial : CowNorm
-    {
-        public GrowCowFactorial(double weight, double weightIncrement,
-            double fatContent, double dailyMilk, double proteinMilkContent, int lactDay, double bodyTempetature = 38.5,
-            double environmentalTemperature = 15, bool pasturePeriod = false,
-            int pregnancyDurability = 285, double ltza = 4.85, double dayDistance = 0, double calfWeight = 0) : base(weight, weightIncrement,
-            fatContent, dailyMilk, proteinMilkContent, lactDay, bodyTempetature,
-            environmentalTemperature, pasturePeriod = false,
-            pregnancyDurability, ltza, dayDistance, calfWeight)
-        { }
-
-        /// <summary>
-        /// Теплопродукция для положительного прироста массы А50
-        /// </summary>
-        protected override double HeatProduction
-        {
-            get
-            {
-                double c = 1;
-                if (dayDistance > 0)
-                    c += (int)dayDistance * 0.02;
-                return (BulkWeight * MinHeatProduction * HeatProductionIncrement * c
-                    + 2.2 * DailyMilk + BulkWeight * (EnvironmentHeatProduction + DryFeedIncrement)) * HumidityIncrement;
-            }
-        }
-
-        /// <summary>
-        /// Энергия продукции плода А52
-        /// </summary>
-        protected override double EnergyProduction { get { return MilkEnergy * DailyMilk + EnergyStatsOfWeightIncrement + PregnancyEnergy; } }
-
-        public override NormIndexGeneral CreateNorm()
-        {
-            throw new NotImplementedException();
-        }
-    }*/
 
     /// <summary>
     /// Факториальный метод книги "Оптимизация рационов кормления высокопродуктивных коров
@@ -336,20 +263,20 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Доступный нерасщепляемы протеин
         /// </summary>
-        public double UncleavablaProtein =>  AvailableProtein - MicroProtein;
+        protected double UncleavablaProtein =>  AvailableProtein - MicroProtein;
 
         /// <summary>
         /// Сырой расщепляемый протеин
         /// </summary>
-        public double CleavableProtein => (FeedExchangeEnergy * 7.16) / 0.8;
+        protected double CleavableProtein => (FeedExchangeEnergy * 7.16) / 0.8;
 
         /// <summary>
         /// Потребность в сыром протеине
         /// </summary>
-        public double RawProtein => (UncleavablaProtein / 0.7) + CleavableProtein;
+        protected double RawProtein => (UncleavablaProtein / 0.7) + CleavableProtein;
 
 
-        public double DigestibleProtein => (AvailableProteinLiving
+        protected double DigestibleProtein => (AvailableProteinLiving
                         + AvailableProteinIncrement
                         + AvailableProteinMilk + CalfProtein) * 1.1;
 

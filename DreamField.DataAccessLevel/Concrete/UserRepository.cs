@@ -13,5 +13,8 @@ namespace DreamField.DataAccessLevel.Concrete
     internal class UserRepository: Generics.GenericRepository<User>, IUserRepository
     {
         public UserRepository(DbContext context) : base(context) { }
+
+        public User GetUserByLoginPassword(string login, string password) =>
+            _entities.FirstOrDefault(user => user.Login == login && user.Password == password);
     }
 }

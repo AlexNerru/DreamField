@@ -23,5 +23,12 @@ namespace DreamField.DataAccessLevel.Concrete
         public IEnumerable<Feed> GetFeedsByType(Farm farm, FeedTypes type) => 
             _entities.Where((feed) => feed.farm_id == farm.id && feed.type == type);
 
+        /// <summary>
+        /// Gets all feeds belongs to farm
+        /// </summary>
+        /// <param name="farmId">Id of farm</param>
+        /// <returns>IEnumerable of all feeds</returns>
+        public IEnumerable<Feed> GetFarmFeeds(int farmId) => _entities.Where(feed => feed.farm_id == farmId);
+
     }
 }

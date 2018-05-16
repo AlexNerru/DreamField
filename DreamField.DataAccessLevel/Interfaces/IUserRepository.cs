@@ -9,6 +9,6 @@ namespace DreamField.DataAccessLevel.Interfaces
 {
     public interface IUserRepository:IRepository<User>
     {
-        
+        User GetUserByLoginPassword(string login, string password);
     }
 }

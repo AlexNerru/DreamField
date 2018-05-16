@@ -11,7 +11,6 @@ namespace DreamField.ServiceLayer
 {
     public class UserService : IUserService
     {
-        private UserManager _userManager;
         private IUnitOfWork _unitOfWork;
 
         public User LoggedUser { get; set; }
@@ -19,16 +18,18 @@ namespace DreamField.ServiceLayer
         public UserService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _userManager = new UserManager(_unitOfWork);
         }
 
         public bool Login(string login, string password)
         {
-            LoggedUser = _userManager.Login(new AuthData(login, password));
-            return LoggedUser != null ? true : false;
-
+            User userData = _unitOfWork.UserRepository.GetUserByLoginPassword(login, password);
+            if (userData != null)
+            {
+                LoggedUser = userData;
+                return true;
+            }
+            return false;
         }
-
 
     }
 }

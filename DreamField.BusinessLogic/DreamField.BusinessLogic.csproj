@@ -52,12 +52,9 @@
   <ItemGroup>
     <Compile Include="FactorialMethod\Factorial.cs" />
     <Compile Include="FactorialMethod\ICowFactorial.cs" />
-    <Compile Include="Feeds\FeedsLogic.cs" />
     <Compile Include="RationStatsDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simplex.cs" />
-    <Compile Include="Users\AuthData.cs" />
-    <Compile Include="Users\UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DreamField.DataAccessLevel\DreamField.DataAccessLevel.csproj">

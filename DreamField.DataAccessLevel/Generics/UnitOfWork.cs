@@ -22,9 +22,9 @@ namespace DreamField.DataAccessLevel.Generics
             _context = new DreamFieldEntities();
 
             FeedRepository = new FeedRepository(_context);
-            FarmRepository = new FarmRepository(_context);
             RationRepository = new RationRepository(_context);
             UserRepository = new UserRepository(_context);
+            FarmRepository = new FarmRepository(_context);
             
         }
 

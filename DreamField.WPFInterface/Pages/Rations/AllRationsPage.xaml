@@ -42,10 +42,7 @@
                                 <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="345,11,0,23.6" Grid.Row="1" VerticalAlignment="Stretch" />
                                 <TextBlock Grid.Row="1" Margin="375,16,691.8,31.6" VerticalAlignment="Center"
                                        Text="Lactating" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
-                                <Button HorizontalAlignment="Right"  Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
-                                materialDesign:RippleAssist.IsCentered="True" Margin="0,10,164.8,10" Width="60" Height="Auto">
-                                    <materialDesign:PackIcon Kind="Pencil" Height="40" Width="40"/>
-                                </Button>
+                               
                                 <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
                                 materialDesign:RippleAssist.IsCentered="True" 
                             Command="{x:Static materialDesign:Flipper.FlipCommand}"
