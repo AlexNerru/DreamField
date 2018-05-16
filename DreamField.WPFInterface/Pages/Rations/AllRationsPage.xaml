@@ -42,7 +42,13 @@
                                 <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="345,11,0,23.6" Grid.Row="1" VerticalAlignment="Stretch" />
                                 <TextBlock Grid.Row="1" Margin="375,16,691.8,31.6" VerticalAlignment="Center"
                                        Text="Lactating" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
-                               
+                                <Button HorizontalAlignment="Right"  Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0" 
+                                        materialDesign:RippleAssist.IsCentered="True" Margin="0,10,164.8,10" 
+                                        Command="{Binding ElementName=Grid, Path=DataContext.RationsVM.PrintRationCommand}"
+                                        CommandParameter="{Binding}"
+                                        Width="60" Height="Auto">
+                                    <materialDesign:PackIcon Kind="Printer" Height="40" Width="40"/>
+                                </Button>
                                 <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0"
                                 materialDesign:RippleAssist.IsCentered="True" 
                             Command="{x:Static materialDesign:Flipper.FlipCommand}"
@@ -159,5 +165,8 @@
                 Command="{Binding AddRationCommand, Mode=OneWay}" Width="73" Height="65" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
         </Button>
+        <materialDesign:Snackbar MessageQueue="{Binding RationsVM.MessageQueue}"
+                                 x:Name="SnackbarThree" Background="#FFF0F0F0" 
+                                 Foreground="#FF5103BE" Height="100" Margin="480,0,445,20" Width="350"/>
     </Grid>
 </Page>
