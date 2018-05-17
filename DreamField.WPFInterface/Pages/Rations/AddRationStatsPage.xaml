@@ -66,8 +66,8 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}" 
                 Command="{Binding AddRationStats.AddRationStatsCommand, Mode=OneWay}" VerticalAlignment="Top"/>
         <materialDesign:Snackbar MessageQueue="{Binding AddRationStats.MessageQueue}"
-                                                 x:Name="Snackbar" Background="#FFF0F0F0" Foreground="#FF5103BE" Height="46" Margin="465,0,472,30.8" RenderTransformOrigin="0.5,0.5" >
-            
+                                                 x:Name="Snackbar" Background="#FFF0F0F0" Foreground="#FF5103BE" Height="46" Margin="390,0,410,30.8" RenderTransformOrigin="0.5,0.5" Width="425" >
+
         </materialDesign:Snackbar>
     </Grid>
 </Page>

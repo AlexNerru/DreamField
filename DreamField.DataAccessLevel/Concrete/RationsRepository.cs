@@ -15,7 +15,7 @@ namespace DreamField.DataAccessLevel.Concrete
         public RationRepository(DbContext context): base(context) { }
 
         //rework
-        public IEnumerable<Ration> GetAllRationsAnimalType(AnimalTypes animal)
+        public IEnumerable<Ration> GetAllRationsByAnimalType(AnimalTypes animal)
         {
             return _entities.Where(p => p.Animal == (int)animal);
         }

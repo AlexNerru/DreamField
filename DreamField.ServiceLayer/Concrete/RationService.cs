@@ -165,14 +165,7 @@ namespace DreamField.ServiceLayer.Concrete
         public IEnumerable<RationInfoDto> GetAllRations(int userId)
         {
             IEnumerable<Ration> rations = _unitOfWork.RationRepository.GetUserRations(userId);
-
-            //List<RationFeedsDto> feeds = new List<RationFeedsDto>();
-
-            //foreach (Ration item in rations)
-            //{
-            //    feeds.Add(Mapper.Map<IEnumerable<RationFeed>, IEnumerable<RationFeedsDto>>(item.RationFeeds));
-            //}
-
+            //TODOO: check if null
             return Mapper.Map<IEnumerable<Ration>, IEnumerable<RationInfoDto>>(rations);
         }
 

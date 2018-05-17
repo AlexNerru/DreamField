@@ -22,7 +22,14 @@ namespace DreamField.WPFInterface.Pages
     {
         public FeedsPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
 

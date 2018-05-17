@@ -31,21 +31,25 @@
                  Text="{Binding CreateRation.Comment}"
                  materialDesign:HintAssist.Hint="Название" 
                  Style="{StaticResource TextBoxDesign}" Width="185"/>
-        <TextBox Margin="330,381,695,368.8"
+        <TextBox Margin="220,381,805,368.8"
                  Text="{Binding CreateRation.Roughage}"
-                 materialDesign:HintAssist.Hint="Процент грубых кормов" 
+                 materialDesign:HintAssist.Hint="Доля грубых кормов" 
                  Style="{StaticResource TextBoxDesign}" Width="200"/>
-        <TextBox Margin="665,381,355,368.8"
+        <TextBox Margin="510,381,510,368.8"
                  Text="{Binding CreateRation.Juicy}" 
-                 materialDesign:HintAssist.Hint="Процент сочных кормов" 
+                 materialDesign:HintAssist.Hint="Доля сочных кормов" 
                  Style="{StaticResource TextBoxDesign}" Width="205"/>
 
-        <Button x:Name="CalculateRationButton" Content="Next" Margin="915,713,30,0"
+        <Button x:Name="CalculateRationButton" Content="Далее" Margin="915,713,30,0"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}" 
                 Command="{Binding CreateRation.CreateRationCommand, Mode=OneWay}" VerticalAlignment="Top"/>
         <materialDesign:Snackbar MessageQueue="{Binding CreateRation.MessageQueue}"
                                                  x:Name="SnackbarThree" Background="#FFF0F0F0" 
-                                 Foreground="#FF5103BE" Height="46" Margin="467,0,470,30.8" />
+                                 Foreground="#FF5103BE" Height="46" Margin="410,0,420,30.8" Width="395" />
+        <TextBox Margin="800,381,220,368.8"
+            Text="{Binding CreateRation.Consentrates}" 
+            materialDesign:HintAssist.Hint="Доля концентратов" 
+            Style="{StaticResource TextBoxDesign}" Width="205"/>
 
     </Grid>
 </Page>

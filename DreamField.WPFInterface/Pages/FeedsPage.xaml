@@ -29,7 +29,7 @@
                   ItemsSource="{Binding Feeds.Feeds}" 
                   BorderBrush="White" Foreground="#FF033076" Background="White" HorizontalContentAlignment="Stretch"
                   CanUserAddRows="False" AutoGenerateColumns="False"
-                  materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" SelectionMode="Single" RowBackground="White" FontFamily="Roboto Medium" FontWeight="Bold" GridLinesVisibility="None" HeadersVisibility="Column">
+                  materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" SelectionMode="Single" RowBackground="White" FontFamily="Roboto Medium" FontWeight="Bold" GridLinesVisibility="None" HeadersVisibility="Column" IsReadOnly="True">
             <DataGrid.Columns>
                 <materialDesign:MaterialDataGridTextColumn  Binding="{Binding name}"
                                         Header="Название"

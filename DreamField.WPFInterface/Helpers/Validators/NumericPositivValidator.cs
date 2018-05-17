@@ -10,10 +10,11 @@ namespace DreamField.WPFInterface.Helpers.Validators
     {
         public NumericPositivValidator()
         {
-            RuleFor(RationData => RationData)
+            RuleFor(rationData => rationData)
                 .NotEmpty()
-                .Must((RationData)=>(IsNumericPositiv(RationData)))
-                .WithMessage("Please enter a positiv numeric value");
+                .WithMessage("Какое-то из полей пустое")
+                .Must((rationData)=>(IsNumericPositiv(rationData)))
+                .WithMessage("Нужно положительное дробное число");
         }
 
         //TODO: rework this?

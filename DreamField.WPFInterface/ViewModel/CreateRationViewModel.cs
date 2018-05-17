@@ -8,6 +8,7 @@ using DreamField.ServiceLayer;
 using DreamField.BusinessLogic;
 using DreamField.WPFInterface.Helpers;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using DreamField.WPFInterface.Helpers.Singletons;
 using DreamField.WPFInterface.Helpers.Validators;
@@ -26,6 +27,7 @@ namespace DreamField.WPFInterface.ViewModel
         private string _comment;
         private string _roughage;
         private string _juicy;
+        private string _consentrates;
 
         #endregion
 
@@ -69,6 +71,16 @@ namespace DreamField.WPFInterface.ViewModel
             }
         }
 
+        public string Consentrates
+        {
+            get => _consentrates;
+            set
+            {
+                _consentrates = value;
+                RaisePropertyChanged("Consentrates");
+            }
+        }
+
         public ISnackbarMessageQueue MessageQueue { get; set; }
 
         #endregion
@@ -97,7 +109,7 @@ namespace DreamField.WPFInterface.ViewModel
                 RationStructure rationStructure = new RationStructure();
                 rationStructure.roughage = double.Parse(Roughage);
                 rationStructure.juicy_food = double.Parse(Juicy);
-                rationStructure.concentrates = 1 - (rationStructure.roughage + rationStructure.juicy_food);
+                rationStructure.concentrates = double.Parse(Consentrates);
                 _rationService.Add(ration.Id, rationStructure);
 
                 CurrentRationSingleton rationSingleton = CurrentRationSingleton.Source;
@@ -106,7 +118,7 @@ namespace DreamField.WPFInterface.ViewModel
                 _navigationService.NavigateTo("AddRationStats");
             }
             else
-                Task.Factory.StartNew(() => MessageQueue.Enqueue("Ошибка данных"));
+                Task.Factory.StartNew(() => MessageQueue.Enqueue(validator.Validate(this).Errors.FirstOrDefault()));
 
         }
     }
