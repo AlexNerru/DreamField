@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using DreamField.Model;
 using DreamField.ServiceLayer;
 using GalaSoft.MvvmLight.Messaging;
+using MaterialDesignThemes.Wpf;
 
 
 namespace DreamField.WPFInterface.ViewModel
@@ -17,6 +18,7 @@ namespace DreamField.WPFInterface.ViewModel
     public class LoginViewModel : ViewModelBase
     {
         private readonly IUserService _userService;
+        public ISnackbarMessageQueue MessageQueue { get; set; }
         public RelayCommand<Window> LoginCommand { get; private set; }
         private string _login;
         private string _password;
@@ -46,11 +48,16 @@ namespace DreamField.WPFInterface.ViewModel
         {
             _userService = userService;
             LoginCommand = new RelayCommand<Window>(this.LoginUser);
+            MessageQueue = new SnackbarMessageQueue();
         }
 
         private void LoginUser(Window window)
         {
-            if (!_userService.Login(Login, Password)) return;
+            if (!_userService.Login(Login, Password))
+            {
+                Task.Factory.StartNew(() => MessageQueue.Enqueue("Такого пользователя не существует"));
+                return;
+            }
             Messenger.Default.Send(new LoginSuccessMessage(_userService.LoggedUser.Name));
             Window loginWindow = GetWindowRef("Login_Window");
             loginWindow.Close();

@@ -23,21 +23,21 @@
 
 
         <HamburgerMenu:HamburgerMenu x:Name="Menu" Background="#FF033076" MenuIconColor="White" SelectionIndicatorColor="#033076" MenuItemForeground="#FF033076" Margin="0,0,0,0.2" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Hidden" IsOpen="True">
-            <HamburgerMenu:HamburgerMenuItem x:Name="HomeButton" Text="Home" FontSize="26" FontWeight="Bold" Height="80" FontFamily="Franklin Gothic Heavy" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/home.png" >
+            <HamburgerMenu:HamburgerMenuItem x:Name="HomeButton" Text="Домой" FontSize="26" FontWeight="Bold" Height="80" FontFamily="Franklin Gothic Heavy" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/home.png" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
                         <Custom:EventToCommand Command="{Binding EmptyCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </HamburgerMenu:HamburgerMenuItem>
-            <HamburgerMenu:HamburgerMenuItem x:Name="RationsButton" Text="Rations" FontSize="16" FontWeight="Bold" Height="80" Foreground="#FFF4F4F4" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/calendar.png">
+            <HamburgerMenu:HamburgerMenuItem x:Name="RationsButton" Text="Рационы" FontSize="16" FontWeight="Bold" Height="80" Foreground="#FFF4F4F4" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/calendar.png">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
                         <Custom:EventToCommand Command="{Binding OpenRationsCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </HamburgerMenu:HamburgerMenuItem>
-            <HamburgerMenu:HamburgerMenuItem x:Name="FeedsButton" Text="Feeds" FontSize="16" FontWeight="Bold" Height="80" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/barley.png">
+            <HamburgerMenu:HamburgerMenuItem x:Name="FeedsButton" Text="Корма" FontSize="16" FontWeight="Bold" Height="80" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/barley.png">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
                         <Custom:EventToCommand Command="{Binding FeedsCommand}"/>
@@ -45,7 +45,7 @@
                 </i:Interaction.Triggers>
             </HamburgerMenu:HamburgerMenuItem>
             <!--<HamburgerMenu:HamburgerMenuItem x:Name="SeettingsButton" Text="Settings" FontSize="16" FontWeight="Bold" Height="80" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/settings.png"/>-->
-            <HamburgerMenu:HamburgerMenuItem x:Name="ExitButton" Text="Exit" FontSize="26" FontWeight="Bold" Height="80"  VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Hidden" VerticalContentAlignment="Bottom" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/exit.png" Margin="0,450,0,0" >
+            <HamburgerMenu:HamburgerMenuItem x:Name="ExitButton" Text="Выход" FontSize="26" FontWeight="Bold" Height="80"  VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Hidden" VerticalContentAlignment="Bottom" Foreground="White" SelectionIndicatorColor="White" Icon="/DreamField.WPFInterface;component/Resourses/exit.png" Margin="0,450,0,0" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
                         <Custom:EventToCommand Command="{Binding CloseWindowCommand}"/>

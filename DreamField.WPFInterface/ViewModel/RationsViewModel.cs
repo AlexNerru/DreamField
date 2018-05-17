@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 using DreamField.ServiceLayer;
 using DreamField.ServiceLayer.Dto;
 using DreamField.WPFInterface.Messages;
@@ -42,13 +44,12 @@ namespace DreamField.WPFInterface.ViewModel
             _navigationService = navigationService;
             _rationService = rationService;
             _userService = userService;
+            Task.Factory.StartNew(LoadRations);
             AddRationCommand = new RelayCommand(AddRation);
             DeleteRationCommand = new RelayCommand<int>(DeleteRation);
             PrintRationCommand = new RelayCommand<RationInfoDto>(PrintRation);
-            Rations = new ObservableCollection<RationInfoDto>(_rationService.GetAllRations(_userService.LoggedUser.Id));
             MessageQueue = new SnackbarMessageQueue();
             MessengerInstance.Register<UpdateRationsMessage>(this, RationCreatedMessageHandler);
-            
         }
 
         private void AddRation() => _navigationService.NavigateTo("CreateRation");
@@ -66,18 +67,12 @@ namespace DreamField.WPFInterface.ViewModel
         private void PrintRation(RationInfoDto dto)
         {
             Task.Factory.StartNew(() => MessageQueue.Enqueue("Ваш рацион сохраняется в папку с программой"));
-            Application winword =
-                new Application
-                {
-                    ShowAnimation = false,
-                    Visible = false
-                };
-            
+
             AnimalTypesToStringConverter converter = new AnimalTypesToStringConverter();
 
             object missing = Missing.Value;
 
-            Document document = winword.Documents.Add();
+            Document document = WordInizialiser.Word.Documents.Add();
 
             foreach (Section section in document.Sections)
             {
@@ -130,6 +125,8 @@ namespace DreamField.WPFInterface.ViewModel
             try
             {
                 document.SaveAs(ref filename);
+                document.Close();
+                document = null;
 
             }
             catch (Exception e)
@@ -137,13 +134,12 @@ namespace DreamField.WPFInterface.ViewModel
                 Console.WriteLine(e);
                 Task.Factory.StartNew(() => MessageQueue.Enqueue("Ошибка сохранения"));
             }
-            
-            document.Close();
-            document = null;
-            winword.Quit();
-            winword = null;
             Task.Factory.StartNew(() => MessageQueue.Enqueue("Рацион успешно сохранен"));
 
         }
+
+        private void LoadRations()
+            => Rations = new ObservableCollection<RationInfoDto>(_rationService.GetAllRations(_userService.LoggedUser.Id));
+
     }
 }

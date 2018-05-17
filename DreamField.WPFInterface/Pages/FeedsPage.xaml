@@ -32,34 +32,34 @@
                   materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" SelectionMode="Single" RowBackground="White" FontFamily="Roboto Medium" FontWeight="Bold" GridLinesVisibility="None" HeadersVisibility="Column">
             <DataGrid.Columns>
                 <materialDesign:MaterialDataGridTextColumn  Binding="{Binding name}"
-                                        Header="Name"
+                                        Header="Название"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn  Binding="{Binding current_amount}"
-                                        Header="Amount"
+                                        Header="Количество"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding price}"
-                                        Header="Price"
+                                        Header="Цена"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.EnergyFeedUnit}"
-                                        Header="EnergyFeedUnit"
+                                        Header="ЭКЕ"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.DryMatter}"
-                                        Header="Dry Matter"
+                                        Header="Сухое вещество"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.RawProtein}"
-                                        Header="Raw Protein"
+                                        Header="Сырой белок"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.ClevableProtein}"
-                                        Header="Cleavable Protein"
+                                        Header="Расщепляемый белок"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.UnclevableProtein}"
-                                        Header="Uncleavable Protein"
+                                        Header="Нерсщепляемый белок"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.DigestibleProtein}"
-                                        Header="Digestible Protein"
+                                        Header="Переваримый белок"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.RawCellulose}"
-                                        Header="Raw Cellulose"
+                                        Header="Сырая клетчатка"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.Ca}"
                                         Header="Ca"
@@ -95,7 +95,7 @@
                                         Header="J"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding FeedElement.Carotene}"
-                                        Header="Carotene"
+                                        Header="Каротин"
                                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
             </DataGrid.Columns>
         </DataGrid>

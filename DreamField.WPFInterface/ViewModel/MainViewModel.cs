@@ -28,7 +28,7 @@ namespace DreamField.WPFInterface.ViewModel
             get => _userName;
             set
             {
-                _userName = "Welcome, " + value;
+                _userName = "Здравствуйте, " + value;
                 RaisePropertyChanged("WelcomeUser");
             }
         }
@@ -54,8 +54,13 @@ namespace DreamField.WPFInterface.ViewModel
             MessengerInstance.Register<LoginSuccessMessage>(this, OnLoginSuccessMessage);
         }
 
-        private void CloseWindow() => Application.Current.MainWindow.Close();
-        
+        private void CloseWindow()
+        {
+            WordInizialiser.Word.Quit();
+            WordInizialiser.Word = null;
+            Application.Current.MainWindow.Close();
+        }
+
         private void OpenRations() => _navigationService.NavigateTo("AllRations");
 
         private void EmptyPage() => _navigationService.NavigateTo("Empty");

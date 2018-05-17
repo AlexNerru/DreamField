@@ -10,7 +10,7 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
-        Title="Welcome to DreamField" Height="445.6" Width="363.2" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderBrush="#FFFAFDFA">
+        Title="Добро пожаловать в DreamField" Height="445.6" Width="363.2" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderBrush="#FFFAFDFA">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

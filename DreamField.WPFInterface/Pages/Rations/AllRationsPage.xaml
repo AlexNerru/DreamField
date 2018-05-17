@@ -41,7 +41,7 @@
                                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto" Width="86"/>
                                 <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="345,11,0,23.6" Grid.Row="1" VerticalAlignment="Stretch" />
                                 <TextBlock Grid.Row="1" Margin="375,16,691.8,31.6" VerticalAlignment="Center"
-                                       Text="Lactating" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
+                                       Text="Лактирующая" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
                                 <Button HorizontalAlignment="Right"  Style="{StaticResource MaterialDesignToolForegroundButton}" Padding="2 0 2 0" 
                                         materialDesign:RippleAssist.IsCentered="True" Margin="0,10,164.8,10" 
                                         Command="{Binding ElementName=Grid, Path=DataContext.RationsVM.PrintRationCommand}"
@@ -61,7 +61,7 @@
                                         CommandParameter="{Binding Id}">
                                     <materialDesign:PackIcon Kind="Delete" Height="40" Width="40"/>
                                 </Button>
-                                <TextBlock Grid.Row="1" Margin="585,17,481.8,30.6" VerticalAlignment="Center" Text="First phase" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
+                                <TextBlock Grid.Row="1" Margin="585,17,481.8,30.6" VerticalAlignment="Center" Text="Первая фаза" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
                                 <TextBlock Grid.Row="1" Margin="780,15,286.8,32.6" VerticalAlignment="Center" Text="{Binding Path=FarmName}" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" Height="Auto"/>
                                 <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="20" Height="Auto" Margin="550,14,0,20.6" Grid.Row="1" VerticalAlignment="Stretch" RenderTransformOrigin="0.474,0.387" />
                                 <materialDesign:PackIcon Kind="CheckboxBlankCircle" Width="25" Height="Auto" Margin="750,11,0,24.6" Grid.Row="1" VerticalAlignment="Stretch" />
@@ -75,15 +75,15 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="222.228"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Row="0" Text="Rough feed percent:" 
+                                <TextBlock Grid.Row="0" Text="Грубые корма:" 
                        VerticalAlignment="Center" Margin="103.267,23.052,-59.019,16.344"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
                                            FontFamily="Roboto Medium"/>
-                                <TextBlock Text="Juicy feed percent:" 
+                                <TextBlock Text="Сочные корма:" 
                        VerticalAlignment="Center" Margin="103.267,71,-59.019,-31.604"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" 
                                            FontFamily="Roboto Medium"/>
-                                <TextBlock Text="Consentrates percent:" 
+                                <TextBlock Text="Концентраты:" 
                        VerticalAlignment="Center" Margin="103.267,125.064,-59.019,-85.669"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" 
                                            FontFamily="Roboto Medium" FontSize="18"/>
@@ -109,7 +109,7 @@
                                         </TransformGroup>
                                     </Separator.RenderTransform>
                                 </Separator>
-                                <TextBlock Grid.Row="0" Text="Energy feed unit:" 
+                                <TextBlock Grid.Row="0" Text="ЭКЕ:" 
                        VerticalAlignment="Center" Margin="501.667,23.052,-457.419,16.344"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18"
                                            FontFamily="Roboto Medium"/>
@@ -117,7 +117,7 @@
                        VerticalAlignment="Center" Margin="695.484,23.052,-534.969,16.344"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="18" 
                                            FontFamily="Roboto Medium"/>
-                                <TextBlock Text="Digestible protein" 
+                                <TextBlock Text="ПП" 
                        VerticalAlignment="Center" Margin="501.667,75.5,-457.419,-36.104"
                        Style="{StaticResource MaterialDesignBody2TextBlock}" 
                                            FontFamily="Roboto Medium" FontSize="18"/>

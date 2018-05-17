@@ -15,9 +15,9 @@
         </ResourceDictionary>
     </Page.Resources>
     <Grid DataContext="{Binding Source={StaticResource Locator}}" Margin="10,10,9.8,10" Grid.IsSharedSizeScope="True">
-        <TextBox x:Name="LoginTextBox" materialDesign:HintAssist.Hint="Login" 
+        <TextBox x:Name="LoginTextBox" materialDesign:HintAssist.Hint="Логин" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="45"
-                 Margin="92,180,0,0" VerticalAlignment="Top" 
+                 Margin="92,175,0,0" VerticalAlignment="Top" 
                  Text="{Binding Login.Login, Mode=TwoWay}" FontSize="14" FontFamily="Roboto Medium" CaretBrush="#FF033076" HorizontalAlignment="Left" Width="146" RenderTransformOrigin="0.397,0.444"/>
         <!-- <TextBox x:Name="PasswordTextBox"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -26,12 +26,14 @@
                      FontFamily="Roboto Medium" 
                      CaretBrush="#FF033076" HorizontalAlignment="Left" Width="145" /> -->
         <Button x:Name="SublitLoginButton" Style="{StaticResource MaterialDesignRaisedLightButton}" 
-                Content="Submit" Margin="100,313,78.2,0" VerticalAlignment="Top"
+                Content="Войти" Margin="92,308,86.2,0" VerticalAlignment="Top"
                 Command="{Binding Login.LoginCommand, Mode=OneWay}"
                 FontFamily="Roboto Medium" 
                 Foreground="#FF033076" Background="#FFF8F8F8" BorderBrush="#FF033076" Height="22"/>
-        <Label Content="Welcome to DreamField!" Margin="85,105,72,0" VerticalAlignment="Top" RenderTransformOrigin="0.392,0.617" FontFamily="Roboto Medium" FontSize="14" Foreground="#FF033076" HorizontalContentAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <Label Content="Добро пожаловать в DreamField!" Margin="45,105,50.2,0" VerticalAlignment="Top" RenderTransformOrigin="0.392,0.617" FontFamily="Roboto Medium" FontSize="14" Foreground="#FF033076" HorizontalContentAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center" Width="235"/>
         <Image Height="90" Margin="120,10,124.8,0" VerticalAlignment="Top" Source="/DreamField.WPFInterface;component/Resourses/paw_trans.png" HorizontalAlignment="Center"/>
-
+        <materialDesign:Snackbar MessageQueue="{Binding Login.MessageQueue}"
+                                 x:Name="SnackbarThree" Background="#FFF0F0F0" 
+                                 Foreground="#FF5103BE" Height="100" Margin="480,0,445,20" Width="350"/>
     </Grid>
 </Page>

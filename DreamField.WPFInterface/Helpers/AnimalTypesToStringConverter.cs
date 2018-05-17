@@ -14,8 +14,15 @@ namespace DreamField.WPFInterface
         {
             try
             {
-                AnimalTypes animalTypes = (AnimalTypes)value;
-                return animalTypes.ToString();
+                if ((int)value == 0)
+                    return "Корова";
+                else if ((int) value == 1)
+                    return "Свинья";
+                else
+                    return "Лошадь";
+               //AnimalTypes animalTypes = (AnimalTypes)value;
+                
+                //return animalTypes.ToString();
             }
             catch
             {
