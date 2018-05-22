@@ -34,6 +34,6 @@
         <Image Height="90" Margin="120,10,124.8,0" VerticalAlignment="Top" Source="/DreamField.WPFInterface;component/Resourses/paw_trans.png" HorizontalAlignment="Center"/>
         <materialDesign:Snackbar MessageQueue="{Binding Login.MessageQueue}"
                                  x:Name="SnackbarThree" Background="#FFF0F0F0" 
-                                 Foreground="#FF5103BE" Height="100" Margin="480,0,445,20" Width="350"/>
+                                 Foreground="#FF5103BE" Height="60" Margin="0,0,0.2,0.2" Width="330"/>
     </Grid>
 </Page>

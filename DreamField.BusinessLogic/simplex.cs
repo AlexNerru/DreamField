@@ -23,8 +23,8 @@ namespace DreamField.BusinessLogic
         private SimplexSolver solver = new SimplexSolver();
         
 
-        private Norm _norm;
-        private RationStructure _rationStructure;
+        private readonly Norm _norm;
+        private readonly RationStructure _rationStructure;
 
         /// <summary>
         /// Creates new example of simplex

@@ -7,7 +7,7 @@ namespace DreamField.ServiceLayer
     using System.Linq;
 
 
-    public static class AutoMapperWebConfiguration
+    public static class AutoMapperConfiguration
     {
         public static void Configure()
         {

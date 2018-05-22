@@ -13,9 +13,10 @@ namespace DreamField.WPFInterface.ViewModel
     {
         private string _userName;
 
-        public string Title { get; set; }
         ICustomFrameNavigationService _navigationService;
         IUserService _userService;
+
+        public string Title { get; set; }
         public RelayCommand OpenRationsCommand { get; private set; }
         public RelayCommand CloseWindowCommand { get; private set; }
         public RelayCommand EmptyCommand { get; private set; }

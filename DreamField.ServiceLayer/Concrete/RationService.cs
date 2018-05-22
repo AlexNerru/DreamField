@@ -23,7 +23,7 @@ namespace DreamField.ServiceLayer.Concrete
         {
             _unitOfWork = unitOfWork;
 
-            AutoMapperWebConfiguration.Configure();
+            AutoMapperConfiguration.Configure();
 
             _validator = new NumericPositivValidator();
         }
@@ -129,8 +129,8 @@ namespace DreamField.ServiceLayer.Concrete
         {
             //Todo: rework this, add this to method params
             IEnumerable<Feed>  feeds = _unitOfWork.FeedRepository.GetAll();
-            List<string> toOptimise = new List<string>() { "EnergyFeedUnit", "DigestibleProtein", "DryMatter", "Sugar", "Starch" };
-            double abnormality = 0.01;
+            List<string> toOptimise = new List<string>() { "EnergyFeedUnit", "DigestibleProtein"};
+            double abnormality = 0.001;
 
             Ration ration = _unitOfWork.RationRepository.GetById(rationId);
 

@@ -22,18 +22,12 @@ namespace DreamField.WPFInterface
         #region Properties                                              
         public string CurrentPageKey
         {
-            get
-            {
-                return _currentPageKey;
-            }
+            get => _currentPageKey;
 
             private set
             {
                 if (_currentPageKey == value)
-                {
                     return;
-                }
-
                 _currentPageKey = value;
                 OnPropertyChanged("CurrentPageKey");
             }

@@ -26,8 +26,8 @@ namespace DreamField.WPFInterface.Helpers.Validators
 
         private bool BeRightSumEqualToOne(CreateRationViewModel vm)
         {
-            if (double.TryParse(vm.Consentrates, out var rough)
-                && double.TryParse(vm.Consentrates, out var juicy)
+            if (double.TryParse(vm.Roughage, out var rough)
+                && double.TryParse(vm.Juicy, out var juicy)
                 && double.TryParse(vm.Consentrates, out var consentrate))
                 return rough + juicy + consentrate == 1;
             return false;

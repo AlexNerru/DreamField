@@ -21,9 +21,10 @@ namespace DreamField.WPFInterface.ViewModel
         private readonly IRationService _rationService;
         private readonly ICustomFrameNavigationService _navigationService;
         private readonly IUserService _userService;
-        public ISnackbarMessageQueue MessageQueue { get; set; }
-
         private ObservableCollection<RationInfoDto> _rations;
+
+
+        public ISnackbarMessageQueue MessageQueue { get; set; }
 
         public RelayCommand AddRationCommand { get; private set; }
         public RelayCommand<int> DeleteRationCommand { get; private set; }

@@ -59,7 +59,8 @@ namespace DreamField.BusinessLogic
                 Cu = FeedExchangeEnergy * (0.0103 * stats.DailyMilk + 6.18),
                 J = FeedExchangeEnergy * (0.0000938 * stats.DailyMilk + 0.0525),
                 K = FeedExchangeEnergy * 0.65,
-                Mg = FeedExchangeEnergy * (0.19 - 0.0125 * stats.DailyMilk),
+                //TODO: поправлено -  на +
+                Mg = FeedExchangeEnergy * (0.19 + 0.0125 * stats.DailyMilk),
                 Zn = FeedExchangeEnergy * (0.0625 * stats.DailyMilk + 4.1),
                 Mn = FeedExchangeEnergy * (0.0625 * stats.DailyMilk + 4.1),
                 P = (FeedExchangeEnergy * (0.0032 * stats.DailyMilk + 5.25)) * 0.7,
@@ -96,7 +97,7 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Обменная масса А00
         /// </summary>
-        protected double BulkWeight => Math.Pow(stats.Weight, (double)(3 / 4));
+        protected double BulkWeight => Math.Pow(stats.Weight, 0.75);
 
         #region ExcangeEnergy
 
@@ -193,6 +194,7 @@ namespace DreamField.BusinessLogic
         {
             get
             {
+                //TODO: Вес теленка
                 double lce = 0.08 * Math.Pow(stats.Weight, 0.75)
                     + (0.0929 * stats.MilkFat + 0.0547 * stats.ProteinMilkContent + 0.192 * (0.0395 * stats.Ltza)) * stats.DailyMilk
                     + 0.00045 * stats.DayDistance * stats.Weight
@@ -210,9 +212,9 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Потребление сухого в-ва для коров с удоем меньше 6000кг
         /// </summary>
-        protected double DryMatterConsumption => 114 * BulkWeight 
+        protected double DryMatterConsumption => (114 * BulkWeight 
             + Math.Sqrt(MilkEnergy * stats.DailyMilk) 
-            - 3 - 2.828 * Math.Pow(10, -0.0311 * stats.LactDay);
+            - 3 - 2.828 * Math.Pow(10, -0.0311 * stats.LactDay))/300;
 
         #endregion
 
@@ -239,7 +241,7 @@ namespace DreamField.BusinessLogic
         /// <summary>
         /// Потребность в доступном белке на биосинтез белка
         /// </summary>
-        protected double AvailableProteinMilk { get { return stats.DailyMilk * (34 / 0.72); } }
+        protected double AvailableProteinMilk => stats.DailyMilk * (34 / 0.72);
 
         /// <summary>
         /// Потребность в белке на формирование плода PBKP

@@ -14,13 +14,16 @@ namespace DreamField.WPFInterface
         {
             try
             {
-                if ((int)value == 0)
-                    return "Корова";
-                else if ((int) value == 1)
-                    return "Свинья";
-                else
-                    return "Лошадь";
-               //AnimalTypes animalTypes = (AnimalTypes)value;
+                switch ((int)value)
+                {
+                    case 0:
+                        return "Корова";
+                    case 1:
+                        return "Свинья";
+                    default:
+                        return "Лошадь";
+                }
+                //AnimalTypes animalTypes = (AnimalTypes)value;
                 
                 //return animalTypes.ToString();
             }

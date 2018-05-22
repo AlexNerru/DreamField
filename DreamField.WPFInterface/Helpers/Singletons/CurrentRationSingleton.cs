@@ -13,12 +13,12 @@ namespace DreamField.WPFInterface.Helpers.Singletons
         /// <summary>
         /// Lazy realization of singleton <see cref="Lazy{T}"/>
         /// </summary>
-        private static readonly Lazy<CurrentRationSingleton> lazy =
+        private static readonly Lazy<CurrentRationSingleton> Lazy =
             new Lazy<CurrentRationSingleton>(() => new CurrentRationSingleton());
 
         /// <summary>
         /// Returns the instanse of singleton
         /// </summary>
-        public static CurrentRationSingleton Source => lazy.Value;
+        public static CurrentRationSingleton Source => Lazy.Value;
     }
 }
